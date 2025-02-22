@@ -28,10 +28,7 @@ const validateSignupData = (req, userType) => {
       emailId,
       password,
       phoneNumber,
-      bloodType,
       age,
-      state,
-      district,
     } = req.body;
 
     if (!name) {
@@ -42,7 +39,7 @@ const validateSignupData = (req, userType) => {
       throw new Error("Enter a strong password : " + password);
     } else if (!validator.isMobilePhone(phoneNumber, "en-IN")) {
       throw new Error("Phone number is invalid :" + phoneNumber);
-    } else if (!bloodType || !age || !state || !district) {
+    } else if (!age) {
       throw new Error("Enter correct credential");
     }
   }
