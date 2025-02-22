@@ -122,42 +122,6 @@ const HaemoglobinPredictor = () => {
               <option value="none">None</option>
               <option value="diabetes">Diabetes</option>
               <option value="hypertension">Hypertension</option>
-              <option value="anemia">Anemia</option>
-              <option value="chronic_kidney_disease">
-                Chronic Kidney Disease
-              </option>
-              <option value="rheumatoid_arthritis">Rheumatoid Arthritis</option>
-              <option value="B12_deficiency">Vitamin B12 Deficiency</option>
-              <option value="menorrhagia">Heavy Menstrual Bleeding</option>
-              <option value="autoimmune">Autoimmune Disorder</option>
-              <option value="thalassemia_minor">Thalassemia Minor</option>
-              <option value="hypothyroidism">Underactive Thyroid</option>
-              <option value="COPD">Chronic Lung Disease (COPD)</option>
-              <option value="celiac_disease">Celiac Disease</option>
-              <option value="sleep_apnea">Sleep Apnea</option>
-              <option value="ulcerative_colitis">Ulcerative Colitis</option>
-              <option value="hemochromatosis">Iron Overload Disorder</option>
-              <option value="osteoporosis">Osteoporosis</option>
-              <option value="asthma">Asthma</option>
-              <option value="HIV">HIV/AIDS</option>
-              <option value="cirrhosis">Liver Cirrhosis</option>
-              <option value="leukemia">Leukemia</option>
-              <option value="multiple_myeloma">Multiple Myeloma</option>
-              <option value="hyperthyroidism">Overactive Thyroid</option>
-              <option value="endometriosis">Endometriosis</option>
-              <option value="PCOS">Polycystic Ovary Syndrome</option>
-              <option value="IBD">Inflammatory Bowel Disease</option>
-              <option value="CHF">Congestive Heart Failure</option>
-              <option value="hemophilia">Hemophilia</option>
-              <option value="sickle_cell_trait">Sickle Cell Trait</option>
-              <option value="gastric_bypass">Gastric Bypass History</option>
-              <option value="chemotherapy">Cancer Treatment (Chemo)</option>
-              <option value="pregnancy">Pregnancy</option>
-              <option value="athlete">Competitive Athlete</option>
-              <option value="smoker">Tobacco Use</option>
-              <option value="alcohol_use">Heavy Alcohol Use</option>
-              <option value="obesity">Obesity</option>
-              <option value="vegetarian_anemia">Vegetarian Nutrition</option>
             </select>
           </div>
           <div>
