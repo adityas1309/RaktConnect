@@ -5,50 +5,62 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 const donorRouter = Router();
 
-const verifyToken = (req, res, next) => {
-  const { token } = req.body;
-  if (!token) return res.status(401).json({ message: "Access Denied" });
+donorRouter.post("/donor/checkInfo", async (req, res) => {
+  const { emailId } = req.body;
 
-  jwt.verify(token, JWT_SECRET, (err, decoded) => {
-    if (err) return res.status(403).json({ message: "Invalid Token" });
-    req.email = decoded.email;
-    next();
-  });
-};
-
-donorRouter.post("/donor/details", async (req, res) => {
+  console.log(emailId);
+  
 
   try {
-    const donor = await Donor.findOne({ email: req.email });
+    const donor = await Donor.findOne({ emailId });
 
-    if (!donor) {
-      return res.status(404).json({ message: "Donor not found" });
+    console.log(donor);
+    
+
+    if (
+      !donor ||
+      !donor.bloodType ||
+      !donor.lastDonationDate ||
+      !donor.state ||
+      !donor.district
+    ) {
+      return res.json({ missing: true });
     }
 
-    res.json(donor);
+    res.json({ missing: false, donor });
   } catch (error) {
-    res.status(500).json({ message: "Server error", error });
+    res.status(500).json({ error: "Server error" });
   }
 });
 
-
-donorRouter.post("/donor/update", verifyToken, async (req, res) => {
-  const { state, district, medicalCondition, bloodType } = req.body;
+// Update donor info
+donorRouter.post("/donor/updateInfo", async (req, res) => {
+  const {
+    emailId,
+    bloodType,
+    lastDonationDate,
+    state,
+    district,
+    medicalCondition,
+  } = req.body;
 
   try {
-    const donor = await Donor.findOneAndUpdate(
-      { email: req.email },
-      { state, district, medicalCondition, bloodType },
-      { new: true }
+    await Donor.updateOne(
+      { emailId },
+      {
+        $set: {
+          bloodType,
+          lastDonationDate,
+          state,
+          district,
+          medicalCondition,
+        },
+      },
+      { upsert: true }
     );
-
-    if (!donor) {
-      return res.status(404).json({ message: "Donor not found" });
-    }
-
-    res.json(donor);
+    res.json({ success: true });
   } catch (error) {
-    res.status(500).json({ message: "Server error", error });
+    res.status(500).json({ error: "Failed to update donor info" });
   }
 });
 
