@@ -26,7 +26,7 @@ const Navbar = () => {
     };
   }, []);
 
-  const navItems = ["banks", "about", "campaigns", "faq", "contact"];
+  const navItems = ["banks", "about", "campaigns", "FAQ", "contact"];
   const isLandingPage = currentPath === "/";
 
   return (
