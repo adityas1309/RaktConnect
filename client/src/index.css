@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@theme{
+    --font-montserrat:"Montserrat", serif;
+
+    
+    --color-primary:#C62E2E;
+    --color-secondary:#F9F9F9;
+    --color-calm:#0D92F4;
+
+}
+
+::-webkit-scrollbar{
+    display:none
+}
