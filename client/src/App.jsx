@@ -1,7 +1,7 @@
 import LandingPage from "./components/Landing/LandingPage";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import Navbar from "./components/Landing/Navbar";
-import DonorHome from "./components/donor/DonorHome";
+import Donor from "./components/donor/Donor";
 import About from "./components/Landing/About";
 import Contact from "./components/Landing/Contact";
 import Campaigns from "./components/Landing/Campaigns";
@@ -13,6 +13,7 @@ import Requests from "./components/patient/Requests";
 import PatientProfile from "./components/patient/PatientProfile";
 import PatientDashboard from "./components/patient/PatientDashboard";
 import HospitalHome from "./components/hospital/HospitalHome";
+import HaemoglobinPredictor from "./components/patient/Haemoglobin";
 
 const AppLayout = () => {
   return (
@@ -42,8 +43,9 @@ function App() {
           <Route path="/patient/dashboard" element={<PatientDashboard />} />
           <Route path="/patient/profile" element={<PatientProfile />} />
           <Route path="/patient/requests" element={<Requests />} />
+          <Route path="/patient/haemoglobin" element={<HaemoglobinPredictor />} />
         </Route>
-        <Route path="/donor" element={<DonorHome />} />
+        <Route path="/donor" element={<Donor />} />
         <Route path="/hospital" element={<HospitalHome />} />
       </Routes>
     </BrowserRouter>

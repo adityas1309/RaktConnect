@@ -4,11 +4,11 @@ import { FaUserCircle, FaBell } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
 import { Link, useNavigate } from "react-router";
 
-const PatientNavbar = () => {
+const DonorNavbar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = ["Dashboard", "Requests" , "Haemoglobin"];
+  const navItems = ["Dashboard", "Donations", "Eligibility"];
 
   const menuVariants = {
     open: {
@@ -37,11 +37,8 @@ const PatientNavbar = () => {
   };
 
   return (
-    <header
-      className={`w-full bg-gray-100 transition-all duration-400 text-black`}
-    >
+    <header className={`w-full bg-gray-100 transition-all duration-400 text-black`}>
       <div className="flex justify-between items-center w-full mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        {/* Logo with animation */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -58,44 +55,43 @@ const PatientNavbar = () => {
           </span>
         </motion.div>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-10">
           {navItems.map((item) => (
-            <motion
+            <motion.div
               key={item}
               className="text-lg font-semibold relative group"
-              whilehover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Link to={`/patient/${item.toLowerCase()}`}>
-                <span className="transition-colors duration-300 hover:text-red-400">
+              <Link to={`/donor/${item.toLowerCase()}`}>
+                <span className="transition-colors duration-300 hover:text-blue-400">
                   {item}
                 </span>
               </Link>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
-            </motion>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
+            </motion.div>
           ))}
-          <Link to="/patient/profile">
-            <motion
+          <Link to="/donor/profile">
+            <motion.div
               className="text-lg font-semibold relative group"
-              whilehover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <FaUserCircle className="text-3xl transition-colors duration-300 hover:text-red-400" />
-            </motion>
+              <FaUserCircle className="text-3xl transition-colors duration-300 hover:text-blue-400" />
+            </motion.div>
           </Link>
-          <Link to="/patient/notification">
-            <motion
+          <Link to="/donor/notification">
+            <motion.div
               className="text-lg font-semibold relative group"
-              whilehover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <FaBell className="text-3xl transition-colors duration-300 hover:text-red-400" />
-            </motion>
+              <FaBell className="text-3xl transition-colors duration-300 hover:text-blue-400" />
+            </motion.div>
           </Link>
           
           <TbLogout
-            className="text-3xl transition-colors duration-300 hover:text-red-400 cursor-pointer"
+            className="text-3xl transition-colors duration-300 hover:text-blue-400 cursor-pointer"
             onClick={() => {
               localStorage.clear();
               navigate("/login");
@@ -103,7 +99,6 @@ const PatientNavbar = () => {
           />
         </nav>
 
-        {/* Mobile Menu Button */}
         <motion.button
           className="md:hidden p-2 rounded-lg hover:bg-gray-800/50 transition-colors"
           onClick={() => setIsOpen(!isOpen)}
@@ -111,7 +106,7 @@ const PatientNavbar = () => {
         >
           <div className="w-6 h-6 relative">
             <motion.span
-              className="absolute block w-full h-0.5 bg-red-400 rounded-full"
+              className="absolute block w-full h-0.5 bg-blue-400 rounded-full"
               animate={isOpen ? "open" : "closed"}
               variants={{
                 closed: { top: "0.25rem", rotate: 0 },
@@ -119,7 +114,7 @@ const PatientNavbar = () => {
               }}
             />
             <motion.span
-              className="absolute block w-full h-0.5 bg-red-400 rounded-full"
+              className="absolute block w-full h-0.5 bg-blue-400 rounded-full"
               animate={isOpen ? "open" : "closed"}
               variants={{
                 closed: { top: "0.75rem", rotate: 0 },
@@ -130,7 +125,6 @@ const PatientNavbar = () => {
         </motion.button>
       </div>
 
-      {/* Mobile Nav with animation */}
       <AnimatePresence>
         {isOpen && (
           <motion.nav
@@ -148,31 +142,31 @@ const PatientNavbar = () => {
                   className="text-lg font-semibold"
                 >
                   <Link
-                    to={`/patient/${item.toLowerCase()}`}
-                    className=" hover:text-red-400 transition-colors"
+                    to={`/donor/${item.toLowerCase()}`}
+                    className=" hover:text-blue-400 transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {item}
                   </Link>
                 </motion.li>
               ))}
-              <Link to="/patient/profile">
-                <motion
+              <Link to="/donor/profile">
+                <motion.div
                   className="text-lg font-semibold relative group"
-                  whilehover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <FaUserCircle className="text-3xl transition-colors duration-300 hover:text-red-400" />
-                </motion>
+                  <FaUserCircle className="text-3xl transition-colors duration-300 hover:text-blue-400" />
+                </motion.div>
               </Link>
-              <Link to="/patient/notification">
-                <motion
+              <Link to="/donor/notification">
+                <motion.div
                   className="text-lg font-semibold relative group"
-                  whilehover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <FaBell className="text-3xl transition-colors duration-300 hover:text-red-400" />
-                </motion>
+                  <FaBell className="text-3xl transition-colors duration-300 hover:text-blue-400" />
+                </motion.div>
               </Link>
             </ul>
           </motion.nav>
@@ -182,4 +176,4 @@ const PatientNavbar = () => {
   );
 };
 
-export default PatientNavbar;
+export default DonorNavbar;

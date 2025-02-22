@@ -7,8 +7,6 @@ import connectDB from "./config/connectDB.js";
 import authRouter from "./routes/auth.js";
 import apiRouter from "./routes/apiRoutes.js";
 import patientRouter from "./routes/patientAPI.js";
-
-
 import donorRouter from "./routes/donorAPI.js";
 
 const app = express();
@@ -26,8 +24,6 @@ app.use(express.json());
 app.use("/", authRouter);
 app.use("/", apiRouter);
 app.use("/", patientRouter);
-
-
 app.use("/", donorRouter)
 
 connectDB()
