@@ -12,6 +12,7 @@ import Patient from "./components/patient/Patient";
 import Requests from "./components/patient/Requests";
 import PatientProfile from "./components/patient/PatientProfile";
 import PatientDashboard from "./components/patient/PatientDashboard";
+import HospitalHome from "./components/hospital/HospitalHome";
 
 const AppLayout = () => {
   return (
@@ -42,7 +43,7 @@ function App() {
           <Route path="/patient/profile" element={<PatientProfile />} />
           <Route path="/patient/requests" element={<Requests />} />
         </Route>
-       
+        <Route path="/hospital" element={<HospitalHome />} />
       </Routes>
     </BrowserRouter>
   );
