@@ -56,7 +56,7 @@ const PatientDashboard = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5555/api/hospitals?district=${encodeURIComponent(
+        `http://localhost:5555/api/getHospitals?district=${encodeURIComponent(
           district
         )}&bloodType=${encodeURIComponent(bloodType)}`,
         {
@@ -120,7 +120,7 @@ const PatientDashboard = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5555/api/bloodrequests", {
+      const response = await fetch("http://localhost:5555/patient/bloodRequests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

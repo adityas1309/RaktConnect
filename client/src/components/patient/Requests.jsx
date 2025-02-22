@@ -24,7 +24,7 @@ const Requests = () => {
 
       try {
         const response = await fetch(
-          "http://localhost:5555/api/fetchbloodhistory",
+          "http://localhost:5555/patient/requestHistory",
           {
             method: "POST",
             headers: {
@@ -77,7 +77,7 @@ const Requests = () => {
     try {
       const authToken = localStorage.getItem("authToken");
 
-      const response = await fetch("http://localhost:5555/api/cancelRequest", {
+      const response = await fetch("http://localhost:5555/patient/cancelRequest", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ authToken, requestId }),
