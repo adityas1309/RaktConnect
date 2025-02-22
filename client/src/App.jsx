@@ -4,6 +4,9 @@ import Navbar from "./components/Landing/Navbar";
 
 import About from "./components/Landing/About";
 import Contact from "./components/Landing/Contact";
+import Campaigns from "./components/Landing/Campaigns";
+import FAQ from "./components/Landing/FAQ";
+import BloodBanks from "./components/Landing/BloodBank";
 import Auth from "./components/Auth/Auth";
 import Patient from "./components/patient/Patient";
 import Requests from "./components/patient/Requests";
@@ -28,6 +31,9 @@ function App() {
           <Route index element={<LandingPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/campaigns" element={<Campaigns />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/banks" element={<BloodBanks />} />
         </Route>
         <Route path="/login" element={<Auth />} />
         <Route path="/patient" element={<Patient />}>
