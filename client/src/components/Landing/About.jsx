@@ -12,7 +12,7 @@ const About = () => {
           className="text-center mb-16"
         >
         
-          <p className="text-3xl text-gray-600 w-full text-center mt-12 font-semibold" >
+          <p className="text-3xl text-slate-950 w-full text-center mt-12 font-semibold" >
             Bridging the gap between blood donors and those in need through technology and community
           </p>
         </motion.div>
