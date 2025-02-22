@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from "react";
+import Footer from "./footer";
 
 const LandingPage = () => {
   return (
-    <div>LandingPage</div>
+    <div className="font-sans bg-gray-50">
+      <Footer />
+    </div>
   )
 }
 
