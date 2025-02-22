@@ -236,10 +236,7 @@ function Auth() {
       emailId: email,
       password: password,
       phoneNumber: contact,
-      bloodType: bloodType,
       age: age,
-      state: state,
-      district: district,
     };
 
     try {
@@ -734,28 +731,7 @@ function Auth() {
                   />
                 </div>
 
-                {/* Blood Type */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    Blood Type
-                  </label>
-                  <select
-                    value={bloodType}
-                    onChange={(e) => setBloodType(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                  >
-                    <option value="">Select Blood Type</option>
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="O+">O+</option>
-                    <option value="O-">O-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                  </select>
-                </div>
+               
 
                 {/* Contact */}
                 <div className="mb-4">
@@ -813,82 +789,7 @@ function Auth() {
                   </button>
                 </div>
 
-                {/* State */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    State
-                  </label>
-                  <select
-                    value={state}
-                    onChange={(e) => {
-                      setState(e.target.value);
-                      fetchDistricts(e.target.value);
-                    }}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  >
-                    <option value="">Select State</option>
-                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                    <option value="Assam">Assam</option>
-                    <option value="Bihar">Bihar</option>
-                    <option value="Chhattisgarh">Chhattisgarh</option>
-                    <option value="Goa">Goa</option>
-                    <option value="Gujarat">Gujarat</option>
-                    <option value="Haryana">Haryana</option>
-                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                    <option value="Jharkhand">Jharkhand</option>
-                    <option value="Karnataka">Karnataka</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Manipur">Manipur</option>
-                    <option value="Meghalaya">Meghalaya</option>
-                    <option value="Mizoram">Mizoram</option>
-                    <option value="Nagaland">Nagaland</option>
-                    <option value="Odisha">Odisha</option>
-                    <option value="Punjab">Punjab</option>
-                    <option value="Rajasthan">Rajasthan</option>
-                    <option value="Sikkim">Sikkim</option>
-                    <option value="Tamil Nadu">Tamil Nadu</option>
-                    <option value="Telangana">Telangana</option>
-                    <option value="Tripura">Tripura</option>
-                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                    <option value="Uttarakhand">Uttarakhand</option>
-                    <option value="West Bengal">West Bengal</option>
-                    <option value="Andaman and Nicobar Islands">
-                      Andaman and Nicobar Islands
-                    </option>
-                    <option value="Chandigarh">Chandigarh</option>
-                    <option value="Dadra and Nagar Haveli and Daman and Diu">
-                      Dadra and Nagar Haveli and Daman and Diu
-                    </option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Lakshadweep">Lakshadweep</option>
-                    <option value="Puducherry">Puducherry</option>
-                  </select>
-                </div>
-
-                {/* District */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    District
-                  </label>
-                  <select
-                    value={district}
-                    onChange={(e) => setDistrict(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
-                    disabled={!districts.length} // Disable if no districts are available
-                  >
-                    <option value="">Select District</option>
-                    {districts.map((district, index) => (
-                      <option key={index} value={district.district}>
-                        {district.district}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                
 
                 {/* Submit Button */}
                 <button
