@@ -6,6 +6,9 @@ import About from "./components/Landing/About";
 import Contact from "./components/Landing/Contact";
 import Auth from "./components/Auth/Auth";
 import Patient from "./components/patient/Patient";
+import Requests from "./components/patient/Requests";
+import PatientProfile from "./components/patient/PatientProfile";
+import PatientDashboard from "./components/patient/PatientDashboard";
 
 const AppLayout = () => {
   return (
@@ -27,7 +30,12 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Route>
         <Route path="/login" element={<Auth />} />
-        <Route path="/patient" element={<Patient />} />
+        <Route path="/patient" element={<Patient />}>
+          <Route index element={<PatientDashboard />} />
+          <Route path="/patient/dashboard" element={<PatientDashboard />} />
+          <Route path="/patient/profile" element={<PatientProfile />} />
+          <Route path="/patient/requests" element={<Requests />} />
+        </Route>
        
       </Routes>
     </BrowserRouter>
