@@ -5,7 +5,7 @@ import Navbar from "./components/Landing/Navbar";
 import About from "./components/Landing/About";
 import Contact from "./components/Landing/Contact";
 import Auth from "./components/Auth/Auth";
-import DonorHome from "./components/patient/Patient";
+import Patient from "./components/patient/Patient";
 
 const AppLayout = () => {
   return (
@@ -27,7 +27,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Route>
         <Route path="/login" element={<Auth />} />
-        <Route path="/patient" element={<DonorHome />} />
+        <Route path="/patient" element={<Patient />} />
        
       </Routes>
     </BrowserRouter>
