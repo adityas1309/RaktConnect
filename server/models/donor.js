@@ -59,13 +59,20 @@ const donorSchema = mongoose.Schema(
       type: String,
       minLength: 1,
       maxLength: 50,
-      required: true,
     },
     district: {
       type: String,
       minLength: 1,
       maxLength: 50,
-      required: true,
+    },
+    lastDonationDate: {
+      type: Date,
+    },
+    medicalCondition: {
+      type: String,
+      default: "N/A",
+      minLength: 0,
+      maxLength: 100,
     },
   },
   {

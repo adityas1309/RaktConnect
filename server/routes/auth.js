@@ -59,10 +59,7 @@ authRouter.post("/signup/:userType", async (req, res) => {
         emailId,
         password: passwordHash,
         phoneNumber,
-        bloodType,
         age,
-        state,
-        district,
       });
 
       await donor.save();
