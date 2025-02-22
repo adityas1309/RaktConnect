@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Backend of RaktConnect",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
