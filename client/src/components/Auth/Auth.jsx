@@ -125,11 +125,8 @@ function Auth() {
       emailId: email,
       password: password,
       phoneNumber: contact,
-      bloodType: bloodType,
       age: age,
       medicalCondition: medicalCondition,
-      state: state,
-      district: district,
     };
 
     try {
