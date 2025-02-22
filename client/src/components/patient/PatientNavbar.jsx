@@ -55,7 +55,7 @@ const PatientNavbar = () => {
             className="h-12 w-auto mr-3 drop-shadow-lg transition-transform duration-300 hover:scale-110"
           />
           <span className="bg-gradient-to-r bg-slate-950 bg-clip-text text-transparent">
-            Blood Connect
+            RaktConnect
           </span>
         </motion.div>
 
