@@ -3,7 +3,7 @@ import Donor from "../models/donor.js";
 import jwt from "jsonwebtoken"
 const JWT_SECRET = process.env.JWT_SECRET;
 
-donorRouter = Router();
+const donorRouter = Router();
 
 const verifyToken = (req, res, next) => {
   const { token } = req.body;

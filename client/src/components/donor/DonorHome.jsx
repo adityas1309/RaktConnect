@@ -119,7 +119,7 @@ const DonorHome = () => {
   return (
     <div className="p-8 bg-gray-50 min-h-screen">
       <h2 className="text-3xl font-bold mb-8">Donor Dashboard</h2>
-      {/* Add the rest of your donor dashboard UI here */}
+      
     </div>
   );
 };

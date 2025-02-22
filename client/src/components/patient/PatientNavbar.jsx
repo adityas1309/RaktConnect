@@ -2,14 +2,13 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaUserCircle, FaBell } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
-import { Link, useNavigate} from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const PatientNavbar = () => {
-
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = ["Dashboard", "Requests"];
+  const navItems = ["Dashboard", "Requests" , "Haemoglobin"];
 
   const menuVariants = {
     open: {
@@ -94,12 +93,14 @@ const PatientNavbar = () => {
               <FaBell className="text-3xl transition-colors duration-300 hover:text-red-400" />
             </motion>
           </Link>
-          <TbLogout className="text-3xl transition-colors duration-300 hover:text-red-400 cursor-pointer" onClick={()=>{
-            localStorage.clear()
-            navigate("/login")
-          }}/>
-        
           
+          <TbLogout
+            className="text-3xl transition-colors duration-300 hover:text-red-400 cursor-pointer"
+            onClick={() => {
+              localStorage.clear();
+              navigate("/login");
+            }}
+          />
         </nav>
 
         {/* Mobile Menu Button */}
