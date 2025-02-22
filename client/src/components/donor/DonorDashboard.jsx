@@ -1,25 +1,30 @@
-
 import { useEffect, useState } from "react";
 
-const checkDonorInfo = async (emailId) => {
+const checkDonorInfo = async () => {
+  const token = localStorage.getItem("authToken");
+  if (!token) return { error: "No auth token found" };
+
   const response = await fetch("http://localhost:5555/donor/checkInfo", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ emailId }),
+    body: JSON.stringify({ token:token }),
   });
   return response.json();
 };
 
 const updateDonorInfo = async (donorData) => {
+  const token = localStorage.getItem("authToken");
+  if (!token) return { error: "No auth token found" };
+
   const response = await fetch("http://localhost:5555/donor/updateInfo", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(donorData),
+    body: JSON.stringify({ token, ...donorData }),
   });
   return response.json();
 };
 
-const DonorDashboard = ({ emailId }) => {
+const DonorDashboard = () => {
   const [donor, setDonor] = useState(null);
   const [missingInfo, setMissingInfo] = useState(false);
   const [formData, setFormData] = useState({
@@ -32,15 +37,27 @@ const DonorDashboard = ({ emailId }) => {
 
   useEffect(() => {
     const fetchDonorInfo = async () => {
-      const result = await checkDonorInfo(emailId);
+      const result = await checkDonorInfo();
+      if (result.error) {
+        console.error(result.error);
+        return;
+      }
+
       if (result.missing) {
         setMissingInfo(true);
       } else {
-        setDonor(result.donor);
+        setDonor(result.user);
+        setFormData({
+          bloodType: result.user.bloodType || "",
+          lastDonationDate: result.user.lastDonationDate || "",
+          state: result.user.state || "",
+          district: result.user.district || "",
+          medicalCondition: result.user.medicalCondition || "",
+        });
       }
     };
     fetchDonorInfo();
-  }, [emailId]);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -48,9 +65,13 @@ const DonorDashboard = ({ emailId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateDonorInfo({ emailId, ...formData });
-    setMissingInfo(false);
-    setDonor(formData);
+    const result = await updateDonorInfo(formData);
+    if (result.success) {
+      setMissingInfo(false);
+      setDonor(formData);
+    } else {
+      console.error("Failed to update donor info");
+    }
   };
 
   return (
@@ -58,41 +79,51 @@ const DonorDashboard = ({ emailId }) => {
       {missingInfo ? (
         <form onSubmit={handleSubmit}>
           <label>
-            Blood Type:{" "}
+            Blood Type:
             <input
               type="text"
               name="bloodType"
+              value={formData.bloodType}
               onChange={handleChange}
               required
             />
           </label>
           <label>
-            Last Donation Date:{" "}
+            Last Donation Date:
             <input
               type="date"
               name="lastDonationDate"
+              value={formData.lastDonationDate}
               onChange={handleChange}
               required
             />
           </label>
           <label>
-            State:{" "}
-            <input type="text" name="state" onChange={handleChange} required />
+            State:
+            <input
+              type="text"
+              name="state"
+              value={formData.state}
+              onChange={handleChange}
+              required
+            />
           </label>
           <label>
-            District:{" "}
+            District:
             <input
               type="text"
               name="district"
+              value={formData.district}
               onChange={handleChange}
               required
             />
           </label>
           <label>
-            Medical Condition:{" "}
+            Medical Condition:
             <input
               type="text"
               name="medicalCondition"
+              value={formData.medicalCondition}
               onChange={handleChange}
             />
           </label>
