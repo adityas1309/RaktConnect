@@ -5,46 +5,29 @@ import { Link } from "react-router";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > window.innerHeight);
     };
 
+    const updatePath = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("popstate", updatePath);
+    updatePath();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("popstate", updatePath);
+    };
   }, []);
 
-  const navItems = ['banks', 'about', 'campaigns', 'faq', 'contact'];
-
-  const menuVariants = {
-    open: {
-      opacity: 1,
-      height: "auto",
-      transition: {
-        duration: 0.3,
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    },
-    closed: {
-      opacity: 0,
-      height: 0,
-      transition: {
-        duration: 0.3,
-        staggerChildren: 0.1,
-        staggerDirection: -1
-      }
-    }
-  };
-
-  const itemVariants = {
-    open: { opacity: 1, y: 0 },
-    closed: { opacity: 0, y: -20 }
-  };
-
-  // Create motion component for Link
-  const MotionLink = motion(Link);
+  const navItems = ["banks", "about", "campaigns", "FAQ", "contact"];
+  const isLandingPage = currentPath === "/";
 
   return (
     <header
@@ -53,7 +36,6 @@ const Navbar = () => {
       }`}
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        {/* Logo with animation */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -68,30 +50,38 @@ const Navbar = () => {
           <Link
             to="/"
             className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent"
+            onClick={() => setCurrentPath("/")}
           >
             RaktConnect
           </Link>
         </motion.div>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-8">
-          {navItems.map((item) => (
-            <MotionLink
-              key={item}
-              to={`/${item}`}
-              className="text-lg font-semibold text-gray-300 relative group"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-            >
-              <span className="transition-colors duration-300 hover:text-red-400">
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
-            </MotionLink>
-          ))}
+          {navItems.map((item) => {
+            const formattedItem = item.toLowerCase();
+            const textColor = isLandingPage ? "text-white" : "text-black";
+
+            return (
+              <motion.div
+                key={formattedItem}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <Link
+                  to={`/${formattedItem}`}
+                  className={`${textColor} text-lg font-semibold relative group transition-colors duration-300`}
+                  onClick={() => setTimeout(() => setCurrentPath(`/${formattedItem}`), 100)}
+                >
+                  <span className="transition-colors duration-300 hover:text-red-400">
+                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                  </span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
+                </Link>
+              </motion.div>
+            );
+          })}
         </nav>
 
-        {/* Mobile Menu Button */}
         <motion.button
           className="md:hidden p-2 rounded-lg hover:bg-gray-800/50 transition-colors"
           onClick={() => setIsOpen(!isOpen)}
@@ -118,32 +108,35 @@ const Navbar = () => {
         </motion.button>
       </div>
 
-      {/* Mobile Nav with animation */}
       <AnimatePresence>
         {isOpen && (
           <motion.nav
-            initial="closed"
-            animate="open"
-            exit="closed"
-            variants={menuVariants}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
             className="md:hidden overflow-hidden"
           >
             <ul className="flex flex-col items-center py-4 space-y-4">
-              {navItems.map((item) => (
-                <motion.li
-                  key={item}
-                  variants={itemVariants}
-                  className="text-lg font-semibold"
-                >
-                  <Link
-                    to={`/${item}`}
-                    className="text-gray-300 hover:text-red-400 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
-                  </Link>
-                </motion.li>
-              ))}
+              {navItems.map((item) => {
+                const formattedItem = item.toLowerCase();
+                const textColor = isLandingPage ? "text-white" : "text-black";
+
+                return (
+                  <motion.li key={formattedItem} className="text-lg font-semibold">
+                    <Link
+                      to={`/${formattedItem}`}
+                      className={`${textColor} hover:text-red-400 transition-colors`}
+                      onClick={() => {
+                        setIsOpen(false);
+                        setTimeout(() => setCurrentPath(`/${formattedItem}`), 100);
+                      }}
+                    >
+                      {item.charAt(0).toUpperCase() + item.slice(1)}
+                    </Link>
+                  </motion.li>
+                );
+              })}
             </ul>
           </motion.nav>
         )}

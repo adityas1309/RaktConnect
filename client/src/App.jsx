@@ -1,7 +1,7 @@
 import LandingPage from "./components/Landing/LandingPage";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import Navbar from "./components/Landing/Navbar";
-
+import DonorHome from "./components/donor/DonorHome";
 import About from "./components/Landing/About";
 import Contact from "./components/Landing/Contact";
 import Campaigns from "./components/Landing/Campaigns";
@@ -43,6 +43,7 @@ function App() {
           <Route path="/patient/profile" element={<PatientProfile />} />
           <Route path="/patient/requests" element={<Requests />} />
         </Route>
+        <Route path="/donor" element={<DonorHome />} />
         <Route path="/hospital" element={<HospitalHome />} />
       </Routes>
     </BrowserRouter>
