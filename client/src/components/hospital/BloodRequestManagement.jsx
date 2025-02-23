@@ -13,7 +13,7 @@ const BloodRequestManagement = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('https://localhost:5555/api/blood-requests', {
+      const response = await fetch('https://raktconnect-backend.onrender.com/api/blood-requests', {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authToken')}`
         }

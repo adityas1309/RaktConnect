@@ -5,7 +5,7 @@ const checkDonorInfo = async () => {
   const token = localStorage.getItem("authToken");
   if (!token) return { error: "No auth token found" };
 
-  const response = await fetch("http://localhost:5555/donor/checkInfo", {
+  const response = await fetch("https://raktconnect-backend.onrender.com/donor/checkInfo", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token }),
@@ -18,7 +18,7 @@ const updateDonorInfo = async (donorData) => {
   const token = localStorage.getItem("authToken");
   if (!token) return { error: "No auth token found" };
 
-  const response = await fetch("http://localhost:5555/donor/updateInfo", {
+  const response = await fetch("https://raktconnect-backend.onrender.com/donor/updateInfo", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token, ...donorData }),

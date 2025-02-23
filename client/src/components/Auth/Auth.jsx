@@ -70,7 +70,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("http://localhost:5555/login/patient", {
+      const response = await fetch("https://raktconnect-backend.onrender.com/login/patient", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -130,7 +130,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("http://localhost:5555/signup/patient", {
+      const response = await fetch("https://raktconnect-backend.onrender.com/signup/patient", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -180,7 +180,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("http://localhost:5555/login/donor", {
+      const response = await fetch("https://raktconnect-backend.onrender.com/login/donor", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -240,7 +240,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("http://localhost:5555/signup/donor", {
+      const response = await fetch("https://raktconnect-backend.onrender.com/signup/donor", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -290,7 +290,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("http://localhost:5555/login/hospital", {
+      const response = await fetch("https://raktconnect-backend.onrender.com/login/hospital", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -351,7 +351,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("http://localhost:5555/signup/hospital", {
+      const response = await fetch("https://raktconnect-backend.onrender.com/signup/hospital", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

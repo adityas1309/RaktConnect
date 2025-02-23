@@ -84,7 +84,7 @@ const HospitalHome = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:5555/verify/hospital", {
+        const response = await fetch("https://raktconnect-backend.onrender.com/verify/hospital", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token: authToken }),

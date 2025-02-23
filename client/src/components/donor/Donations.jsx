@@ -19,7 +19,7 @@ const Donations = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:5555/donor/history", {
+        const response = await fetch("https://raktconnect-backend.onrender.com/donor/history", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

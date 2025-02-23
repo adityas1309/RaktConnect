@@ -24,7 +24,7 @@ const Requests = () => {
 
       try {
         const response = await fetch(
-          "http://localhost:5555/patient/requestHistory",
+          "https://raktconnect-backend.onrender.com/patient/requestHistory",
           {
             method: "POST",
             headers: {
