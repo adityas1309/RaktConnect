@@ -13,7 +13,8 @@ const BloodRequestManagement = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('https://raktconnect-backend.onrender.com/api/bloodRequests', {
+      const response = await fetch("https://raktconnect-backend.onrender.com/api/bloodRequests", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
