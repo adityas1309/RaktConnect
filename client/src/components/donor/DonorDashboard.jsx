@@ -326,7 +326,7 @@ const DonorDashboard = () => {
                         </div>
 
                         <div className="space-y-3">
-                          <div className="flex items-start space-x-3">
+                          <div className="flex items-start space-x-3 h-[13vh] overflow-scroll">
                             <MapPin className="w-5 h-5 text-red-500 mt-1 flex-shrink-0" />
                             <p className="text-gray-600">
                               {bank.address || "No address available"}
@@ -359,7 +359,7 @@ const DonorDashboard = () => {
                       </div>
 
                       <div className="px-6 py-4 bg-gray-50 border-t">
-                        <button className="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors duration-200 font-medium">
+                        <button className=" cursor-pointer w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors duration-200 font-medium">
                           Book Appointment
                         </button>
                       </div>

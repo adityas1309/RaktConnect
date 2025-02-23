@@ -13,6 +13,8 @@ from dotenv import load_dotenv
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import MultiLabelBinarizer
+from sklearn.ensemble import RandomForestClassifier
 
 
 load_dotenv()
@@ -126,7 +128,7 @@ def provide_advice(haemoglobin: float):
     else:
         return "Your haemoglobin level is normal. Keep up the good work!"
 
-@app.post("/predict/haemoglobin")
+@app.post("/predict/diseases")
 def predict_haemoglobin(donor_data: DonorData):
     # Preprocess the input data
     input_data = np.array([[
@@ -148,3 +150,34 @@ def predict_haemoglobin(donor_data: DonorData):
     return {"predicted_haemoglobin": predicted_haemoglobin, "advice": advice}
 
 
+
+
+
+data = pd.read_csv("dataset.csv")
+data.fillna('', inplace=True)
+data['symptoms'] = data.apply(lambda row: ' '.join(row.dropna().astype(str)), axis=1)
+mlb = MultiLabelBinarizer()
+symptom_matrix = mlb.fit_transform(data['symptoms'].str.split())
+
+X_train, X_test, y_train, y_test = train_test_split(symptom_matrix, data['Disease'], test_size=0.2, random_state=42)
+
+# Train disease prediction model
+disease_model = RandomForestClassifier(n_estimators=100, random_state=42)
+disease_model.fit(X_train, y_train)
+
+# Save the model and encoder
+joblib.dump(disease_model, "disease_model.pkl")
+joblib.dump(mlb, "mlb.pkl")
+
+# Load the trained model and encoder
+disease_model = joblib.load("disease_model.pkl")
+mlb = joblib.load("mlb.pkl")
+
+class SymptomData(BaseModel):
+    symptoms: list
+
+@app.post("/predict/disease")
+def predict_disease(symptom_data: SymptomData):
+    symptoms_vectorized = mlb.transform([symptom_data.symptoms])
+    prediction = disease_model.predict(symptoms_vectorized)
+    return {"predicted_disease": prediction[0]}
