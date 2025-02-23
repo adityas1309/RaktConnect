@@ -18,6 +18,8 @@ donorRouter.post("/donor/checkInfo", async (req, res) => {
     const decoded = jwt.verify(token, JWT_SECRET);
     user = await Donor.findById(decoded.id).select("-password");
 
+    console.log(user);
+    
 
     if (!user.bloodType || !user.lastDonationDate || !user.state || !user.district) {
       return res.json({ missing: true });
