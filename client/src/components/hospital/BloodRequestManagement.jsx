@@ -37,7 +37,7 @@ const BloodRequestManagement = () => {
   const updateStatus = async (id, status) => {
     try {
       const response = await fetch(
-        `http://localhost:5555/api/bloodRequests/${id}/status`,
+        `https://raktconnect-backend.onrender.com/api/bloodRequests/${id}/status`,
         {
           method: "PUT",
           headers: {
