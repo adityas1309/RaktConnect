@@ -19,6 +19,7 @@ import DonorProfile from "./components/donor/DonorProfile";
 import Donations from "./components/donor/Donations";
 import EligibilityChecker from "./components/donor/EligibilityChecker";
 import BloodRequestManagement from "./components/hospital/BloodRequestManagement";
+import Disease from "./components/patient/Disease";
 
 const AppLayout = () => {
   return (
@@ -28,7 +29,6 @@ const AppLayout = () => {
     </div>
   );
 };
-
 
 function App() {
   return (
@@ -51,6 +51,10 @@ function App() {
           <Route
             path="/patient/haemoglobin"
             element={<HaemoglobinPredictor />}
+          />
+          <Route
+            path="/patient/disease"
+            element={<Disease />}
           />
         </Route>
         <Route path="/donor" element={<Donor />}>

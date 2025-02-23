@@ -8,7 +8,7 @@ const PatientNavbar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = ["Dashboard", "Requests" , "Haemoglobin"];
+  const navItems = ["Dashboard", "Requests" , "Haemoglobin" , "Disease"];
 
   const menuVariants = {
     open: {
