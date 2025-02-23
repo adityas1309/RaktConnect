@@ -6,7 +6,7 @@ const Campaigns = () => {
   const activeCampaigns = [
     { 
       title: "Summer Blood Drive", 
-      date: "August 15, 2024", 
+      date: "March 3rd, 2025", 
       location: "City Convention Center",
       type: "Blood Drive"
     },
@@ -65,7 +65,7 @@ const Campaigns = () => {
 
         <div className="mt-16 bg-red-100 rounded-xl p-8 text-center">
           <h2 className="text-2xl font-semibold text-red-700 mb-4">Upcoming Events</h2>
-          <p className="text-gray-600">Monthly Community Drive - September 1st</p>
+          <p className="text-gray-600">Monthly Community Drive - 3rd March</p>
           <button className="mt-4 bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors">
             Get Notified
           </button>
