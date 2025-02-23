@@ -1,71 +1,67 @@
 import { Router } from "express";
 import BloodRequest from "../models/bloodRequest.js";
-import Hospital from "../models/hospital.js"
+import Hospital from "../models/hospital.js";
+import jwt from "jsonwebtoken";
 
-const hospitalRouter = Router()
+const hospitalRouter = Router();
 
-import jwt from "jsonwebtoken"
+hospitalRouter.post("/api/bloodRequests", async (req, res) => {
+  const { token } = req.body;
 
-const hospitalAuth = async (req, res, next) => {
+  if (!token) {
+    return res.status(401).json({ message: "Authentication required" });
+  }
+
   try {
-    // Get token from header
-    const token = req.header('Authorization').replace('Bearer ', '');
-    
-    if (!token) {
-      throw new Error('Authentication required');
-    }
-
-    // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    
-    // Find hospital with matching ID and token
-    const hospital = await Hospital.findOne({
-      _id: decoded._id,
-      'tokens.token': token
-    });
+    const hospital = await Hospital.findById(decoded.id);
 
     if (!hospital) {
-      throw new Error('Hospital not found');
+      return res.status(404).json({ message: "Hospital not found" });
     }
 
-    // Attach hospital and token to request
-    req.hospital = hospital;
-    req.token = token;
-    next();
-  } catch (err) {
-    res.status(401).json({ 
-      success: false,
-      message: 'Please authenticate as a hospital'
+    const requests = await BloodRequest.find({
+      hospitalId: hospital._id,
+      status: "active",
     });
+
+    res.json(requests);
+  } catch (err) {
+    console.error(err);
+    res.status(401).json({ message: "Invalid token" });
   }
-};
+});
 
-hospitalRouter.get('/', hospitalAuth, async (req, res) => {
-    try {
-      const requests = await BloodRequest.find({ 
-        hospitalId: req.hospital._id,
-        status: 'active'
-      });
-      res.json(requests);
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
-  });
-  
-  hospitalRouter.put('/:id/status', hospitalAuth, async (req, res) => {
-    try {
-      const request = await BloodRequest.findOneAndUpdate(
-        { _id: req.params.id, hospitalId: req.hospital._id },
-        { status: req.body.status },
-        { new: true }
-      );
-  
-      if (!request) return res.status(404).json({ message: 'Request not found' });
-      
-      res.json(request);
-    } catch (err) {
-      res.status(400).json({ message: err.message });
-    }
-  });
+hospitalRouter.put("/api/bloodRequests/:id/status", async (req, res) => {
+  const { token, status } = req.body;
 
-export default hospitalRouter
+  if (!token) {
+    return res.status(401).json({ message: "Authentication required" });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const hospital = await Hospital.findById(decoded.id);
+
+    if (!hospital) {
+      return res.status(404).json({ message: "Hospital not found" });
+    }
+
+    const request = await BloodRequest.findOneAndUpdate(
+      { _id: req.params.id, hospitalId: hospital._id },
+      { status: status },
+      { new: true }
+    );
+
+    if (!request) {
+      return res.status(404).json({ message: "Request not found" });
+    }
+
+    res.json(request);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: "Failed to update status" });
+  }
+});
+
+export default hospitalRouter;

@@ -258,7 +258,6 @@ const PatientDashboard = () => {
               onChange={(e) => setDistrict(e.target.value)}
               required
               className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              // Disable if no districts are available
             >
               <option value="">Select District</option>
               {districts.map((district, index) => (
@@ -325,29 +324,29 @@ const PatientDashboard = () => {
                   <p className="text-gray-800 font-semibold mt-2">
                     Available Blood Inventory:
                   </p>
-                  <ul className="ml-4 list-disc text-gray-600">
+                  <ul className=" text-gray-600">
                     {hospital.bloodInventory &&
-                      Object.entries(hospital.bloodInventory).map(
-                        ([bloodType, units]) =>
-                          units > 0 && (
-                            <li key={bloodType} className="mt-1">
-                              <span className="font-semibold">
-                                {bloodType
-                                  .replace("_positive", "+")
-                                  .replace("_negative", "-")}
-                              </span>
-                              : {units} units
-                            </li>
-                          )
-                      )}
+                      Object.entries(hospital.bloodInventory)
+                        .filter(([type]) => type === bloodType)
+                        .map(
+                          ([bloodType, units]) =>
+                            units > 0 && (
+                              <li key={bloodType} className="mt-1">
+                                <span className="font-semibold">
+                                  {bloodType
+                                    .replace("_positive", "+")
+                                    .replace("_negative", "-")}
+                                </span>
+                                : {units} units
+                              </li>
+                            )
+                        )}
                   </ul>
                 </div>
 
                 <button
                   className="bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition cursor-pointer"
-                  onClick={() => 
-                    handleRequestBlood(hospital)
-                  }
+                  onClick={() => handleRequestBlood(hospital)}
                 >
                   Request Blood
                 </button>
@@ -356,9 +355,6 @@ const PatientDashboard = () => {
           </ul>
         </div>
       )}
-
-
-      
 
       {showModal && (
         <div className="fixed inset-0 backdrop-blur-lg bg-black/15 bg-opacity-50 flex items-center justify-center">

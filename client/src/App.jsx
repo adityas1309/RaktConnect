@@ -65,7 +65,7 @@ function App() {
           <Route path="/donor/eligibility" element={<EligibilityChecker />} />
         </Route>
         <Route path="/hospital" element={<HospitalHome />} />
-        <Route path="/bloodrequestmanagement" element={<BloodRequestManagement />} />
+        <Route path="/hospital/requestmanagement" element={<BloodRequestManagement />} />
       </Routes>
     </BrowserRouter>
   );

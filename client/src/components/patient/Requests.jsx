@@ -132,7 +132,9 @@ const Requests = () => {
                     request.status === "fulfilled"
                       ? "text-green-600"
                       : request.status === "active"
-                      ? "text-yellow-600"
+                      ? "text-yellow-500"
+                      : request.status === "accepted"
+                      ? "text-blue-600"
                       : "text-red-600"
                   }`}
                 >
