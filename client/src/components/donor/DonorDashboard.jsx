@@ -27,34 +27,42 @@ const updateDonorInfo = async (donorData) => {
 };
 
 const statesList = [
-  "Andhra Pradesh",
-  "Arunachal Pradesh",
-  "Assam",
-  "Bihar",
-  "Chhattisgarh",
-  "Goa",
-  "Gujarat",
-  "Haryana",
-  "Himachal Pradesh",
-  "Jharkhand",
-  "Karnataka",
-  "Kerala",
-  "Madhya Pradesh",
-  "Maharashtra",
-  "Manipur",
-  "Meghalaya",
-  "Mizoram",
-  "Nagaland",
-  "Odisha",
-  "Punjab",
-  "Rajasthan",
-  "Sikkim",
-  "Tamil Nadu",
-  "Telangana",
-  "Tripura",
-  "Uttar Pradesh",
-  "Uttarakhand",
-  "West Bengal",
+  { value: "35", label: "Andaman and Nicobar Islands" },
+  { value: "28", label: "Andhra Pradesh" },
+  { value: "12", label: "Arunachal Pradesh" },
+  { value: "18", label: "Assam" },
+  { value: "10", label: "Bihar" },
+  { value: "94", label: "Chandigarh" },
+  { value: "22", label: "Chhattisgarh" },
+  { value: "25", label: "Dadra And Nagar Haveli And Daman And Diu" },
+  { value: "97", label: "Delhi" },
+  { value: "30", label: "Goa" },
+  { value: "24", label: "Gujarat" },
+  { value: "96", label: "Haryana" },
+  { value: "92", label: "Himachal Pradesh" },
+  { value: "91", label: "Jammu and Kashmir" },
+  { value: "20", label: "Jharkhand" },
+  { value: "29", label: "Karnataka" },
+  { value: "32", label: "Kerala" },
+  { value: "37", label: "Ladakh" },
+  { value: "31", label: "Lakshadweep" },
+  { value: "23", label: "Madhya Pradesh" },
+  { value: "27", label: "Maharashtra" },
+  { value: "14", label: "Manipur" },
+  { value: "17", label: "Meghalaya" },
+  { value: "15", label: "Mizoram" },
+  { value: "13", label: "Nagaland" },
+  { value: "21", label: "Odisha" },
+  { value: "34", label: "Puducherry" },
+  { value: "93", label: "Punjab" },
+  { value: "98", label: "Rajasthan" },
+  { value: "11", label: "Sikkim" },
+  { value: "33", label: "Tamil Nadu" },
+  { value: "36", label: "Telangana" },
+  { value: "16", label: "Tripura" },
+  { value: "95", label: "Uttarakhand" },
+  { value: "99", label: "Uttar Pradesh" },
+  { value: "19", label: "West Bengal" },
 ];
 
 const DonorDashboard = () => {
@@ -68,6 +76,7 @@ const DonorDashboard = () => {
     district: "",
     medicalCondition: "",
   });
+  const [bloodBanks, setBloodBanks] = useState([]);
 
   useEffect(() => {
     const fetchDonorInfo = async () => {
@@ -89,44 +98,82 @@ const DonorDashboard = () => {
           medicalCondition: result.user.medicalCondition || "",
         });
 
-        if (result.user.state) getDistricts(result.user.state);
+        if (result.user.state) {
+          getDistricts(result.user.state);
+        }
       }
     };
 
     fetchDonorInfo();
   }, []);
 
+  useEffect(() => {
+    if (formData.district) {
+      getBloodBanks();
+    }
+  }, [districts, formData.district]);
+
   const getDistricts = async (selectedState) => {
     if (!selectedState) return;
 
-    const url = `https://india-pincode-with-latitude-and-longitude.p.rapidapi.com/api/v1/district?page=1&state=${encodeURIComponent(
-      selectedState
-    )}&limit=100`;
+    const state = statesList.find((s) => s.label === selectedState);
+    if (!state) return;
 
-    const options = {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "f52750023dmshe3f6d17241873e7p101b5ajsna0eb45d88394",
-        "x-rapidapi-host":
-          "india-pincode-with-latitude-and-longitude.p.rapidapi.com",
-      },
-    };
+    const url = `https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETDISTRICTLIST&abfhttf=%5Cu0057%5Cu0031%5Cu0030%5Cu003d&selectedStateCode=${state.value}`;
 
     try {
-      const response = await fetch(url, options);
+      const response = await fetch(url);
       const data = await response.json();
       console.log("Fetched Districts:", data);
 
-      if (Array.isArray(data)) {
-        setDistricts(data);
-      } else if (data.districts) {
-        setDistricts(data.districts);
+      if (data.records && Array.isArray(data.records)) {
+        setDistricts(
+          data.records.map((record) => ({
+            district: record.id,
+            value: record.value,
+          }))
+        );
       } else {
         setDistricts([]);
       }
     } catch (error) {
       console.error("Error fetching districts:", error);
       setDistricts([]);
+    }
+  };
+
+  const getBloodBanks = async () => {
+    const state = statesList.find((s) => s.label === formData.state);
+    const selectedDistrict = districts.find(
+      (district) => district.district === formData.district
+    );
+
+    if (!state || !selectedDistrict) return;
+
+    const url = `https://eraktkosh.mohfw.gov.in/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETNEARBYBLOODBANK&stateCode=${state.value}&districtCode=${selectedDistrict.value}`;
+
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log("Fetched Blood Banks:", data);
+
+      if (data.data && Array.isArray(data.data)) {
+        const bloodBankList = data.data.map((entry) => ({
+          id: entry[0],
+          name: entry[1],
+          address: entry[2],
+          contact: entry[3],
+          email: entry[4],
+          type: entry[5],
+          links: entry[6],
+        }));
+        setBloodBanks(bloodBankList);
+      } else {
+        setBloodBanks([]);
+      }
+    } catch (error) {
+      console.error("Error fetching blood banks:", error.message);
+      setBloodBanks([]);
     }
   };
 
@@ -152,9 +199,9 @@ const DonorDashboard = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6">
+      <div className="w-full  bg-white shadow-lg rounded-lg p-6">
         {missingInfo ? (
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
             <h2 className="text-xl font-semibold text-center text-gray-700">
               Complete Your Profile
             </h2>
@@ -204,8 +251,8 @@ const DonorDashboard = () => {
               >
                 <option value="">Select State</option>
                 {statesList.map((state) => (
-                  <option key={state} value={state}>
-                    {state}
+                  <option key={state.value} value={state.label}>
+                    {state.label}
                   </option>
                 ))}
               </select>
@@ -252,25 +299,44 @@ const DonorDashboard = () => {
             </button>
           </form>
         ) : (
-          <div className="text-center">
-            <h2 className="text-2xl font-semibold text-gray-700">
-              Welcome to Donor Dashboard
-            </h2>
-            <div className="mt-4 bg-gray-50 p-4 rounded-lg shadow">
-              <p className="text-gray-700">
-                <strong>Blood Type:</strong> {donor?.bloodType}
-              </p>
-              <p className="text-gray-700">
-                <strong>Last Donation Date:</strong> {donor?.lastDonationDate}
-              </p>
-              <p className="text-gray-700">
-                <strong>Location:</strong> {donor?.state}, {donor?.district}
-              </p>
-              <p className="text-gray-700">
-                <strong>Medical Condition:</strong>{" "}
-                {donor?.medicalCondition || "None"}
-              </p>
-            </div>
+          <div className="px-4">
+              <h2 className="text-center text-2xl font-bold mb-4">
+                Nearby Blood Banks
+              </h2>
+              {bloodBanks.length > 0 ? (
+                <ul className="space-y-4 space-x-4 w-full grid grid-cols-3">
+                  {bloodBanks.map((bank, index) => (
+                    <li
+                      key={index}
+                      className="blood-bank-item p-4 border rounded shadow"
+                    >
+                      <h3 className="text-xl font-semibold pb-4 ">
+                        {bank.name || "Unnamed Blood Bank"}
+                      </h3>
+                      <p className="text-blue-950">
+                        <strong>Address:</strong>{" "}
+                        {bank.address || "No address available"}
+                      </p>
+                      <p className="text-blue-950">
+                        <strong>Email:</strong>{" "}
+                        {bank.email ? (
+                          <a href={`mailto:${bank.email}`}>{bank.email}</a>
+                        ) : (
+                          "No email available"
+                        )}
+                      </p>
+                      <p className="text-blue-950">
+                        <strong>Contact:</strong>{" "}
+                        {bank.contact || "No contact available"}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-center text-blue-950">
+                  No blood banks found
+                </p>
+              )}
           </div>
         )}
       </div>
