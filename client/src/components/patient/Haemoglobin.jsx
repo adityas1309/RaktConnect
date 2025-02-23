@@ -25,7 +25,7 @@ const HaemoglobinPredictor = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:8000/predict/haemoglobin",
+        "https://raktconnect-ai-backend.onrender.com/predict/haemoglobin",
         {
           method: "POST",
           headers: {

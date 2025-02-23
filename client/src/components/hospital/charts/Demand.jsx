@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
 
-const API_URL = "http://localhost:8000/predict/bloodDemand"; 
+const API_URL = "https://raktconnect-ai-backend.onrender.com/predict/bloodDemand"; 
 
 const BloodDemandChart = () => {
   const [predictions, setPredictions] = useState([]);

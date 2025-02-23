@@ -10,7 +10,7 @@ function Disease() {
       // Split symptoms by comma and trim whitespace
       const symptomList = symptoms.split(',').map(symptom => symptom.trim());
 
-      const response = await fetch('http://localhost:8000/predict/disease', {
+      const response = await fetch('https://raktconnect-ai-backend.onrender.com/predict/disease', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

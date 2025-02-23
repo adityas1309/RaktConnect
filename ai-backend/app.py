@@ -128,7 +128,7 @@ def provide_advice(haemoglobin: float):
     else:
         return "Your haemoglobin level is normal. Keep up the good work!"
 
-@app.post("/predict/diseases")
+@app.post("/predict/haemoglobin")
 def predict_haemoglobin(donor_data: DonorData):
     # Preprocess the input data
     input_data = np.array([[
