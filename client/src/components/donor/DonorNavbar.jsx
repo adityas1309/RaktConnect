@@ -47,7 +47,7 @@ const DonorNavbar = () => {
         >
           <img
             src="https://www.nicepng.com/png/full/364-3647802_blood-symbol-png.png"
-            alt="BloodConnect Logo"
+            alt="RaktConnect Logo"
             className="h-12 w-auto mr-3 drop-shadow-lg transition-transform duration-300 hover:scale-110"
           />
           <span className="bg-gradient-to-r bg-slate-950 bg-clip-text text-transparent">

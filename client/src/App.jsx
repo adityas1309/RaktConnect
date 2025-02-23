@@ -16,6 +16,8 @@ import HospitalHome from "./components/hospital/HospitalHome";
 import HaemoglobinPredictor from "./components/patient/Haemoglobin";
 import DonorDashboard from "./components/donor/DonorDashboard";
 import DonorProfile from "./components/donor/DonorProfile";
+import Donations from "./components/donor/Donations";
+import EligibilityChecker from "./components/donor/EligibilityChecker";
 
 const AppLayout = () => {
   return (
@@ -54,6 +56,8 @@ function App() {
           <Route index element={<DonorDashboard />} />
           <Route path="/donor/dashboard" element={<DonorDashboard />} />
           <Route path="/donor/profile" element={<DonorProfile />} />
+          <Route path="/donor/donations" element={<Donations />} />
+          <Route path="/donor/eligibility" element={<EligibilityChecker />} />
         </Route>
         <Route path="/hospital" element={<HospitalHome />} />
       </Routes>

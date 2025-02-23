@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const checkDonorInfo = async () => {
   const token = localStorage.getItem("authToken");
@@ -299,44 +300,81 @@ const DonorDashboard = () => {
             </button>
           </form>
         ) : (
-          <div className="px-4">
-              <h2 className="text-center text-2xl font-bold mb-4">
-                Nearby Blood Banks
+          <div className="min-h-screen bg-red-50 py-12 px-6">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+                <span className="text-red-600">Nearby</span> Blood Banks
               </h2>
+
               {bloodBanks.length > 0 ? (
-                <ul className="space-y-4 space-x-4 w-full grid grid-cols-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {bloodBanks.map((bank, index) => (
-                    <li
+                    (bank.contact || bank.email) ? (
+                      <div
                       key={index}
-                      className="blood-bank-item p-4 border rounded shadow"
+                      className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden "
                     >
-                      <h3 className="text-xl font-semibold pb-4 ">
-                        {bank.name || "Unnamed Blood Bank"}
-                      </h3>
-                      <p className="text-blue-950">
-                        <strong>Address:</strong>{" "}
-                        {bank.address || "No address available"}
-                      </p>
-                      <p className="text-blue-950">
-                        <strong>Email:</strong>{" "}
-                        {bank.email ? (
-                          <a href={`mailto:${bank.email}`}>{bank.email}</a>
-                        ) : (
-                          "No email available"
-                        )}
-                      </p>
-                      <p className="text-blue-950">
-                        <strong>Contact:</strong>{" "}
-                        {bank.contact || "No contact available"}
-                      </p>
-                    </li>
+                      <div className="p-6">
+                        <div className="flex items-center justify-between mb-4">
+                          <h3 className="text-xl font-semibold text-gray-900 truncate">
+                            {bank.name || "Unnamed Blood Bank"}
+                          </h3>
+                          <div
+                            className="w-2 h-2 rounded-full bg-green-500"
+                            title="Open"
+                          ></div>
+                        </div>
+
+                        <div className="space-y-3">
+                          <div className="flex items-start space-x-3">
+                            <MapPin className="w-5 h-5 text-red-500 mt-1 flex-shrink-0" />
+                            <p className="text-gray-600">
+                              {bank.address || "No address available"}
+                            </p>
+                          </div>
+
+                          <div className="flex items-center space-x-3">
+                            <Mail className="w-5 h-5 text-red-500 flex-shrink-0" />
+                            {bank.email ? (
+                              <a
+                                href={`mailto:${bank.email}`}
+                                className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
+                              >
+                                {bank.email}
+                              </a>
+                            ) : (
+                              <span className="text-gray-500">
+                                No email available
+                              </span>
+                            )}
+                          </div>
+
+                          <div className="flex items-center space-x-3">
+                            <Phone className="w-5 h-5 text-red-500 flex-shrink-0" />
+                            <p className="text-gray-600">
+                              {bank.contact || "No contact available"}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="px-6 py-4 bg-gray-50 border-t">
+                        <button className="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors duration-200 font-medium">
+                          Book Appointment
+                        </button>
+                      </div>
+                    </div>
+                    ) : null
                   ))}
-                </ul>
+                </div>
               ) : (
-                <p className="text-center text-blue-950">
-                  No blood banks found
-                </p>
+                <div className="text-center py-12 bg-white rounded-lg shadow">
+                  <p className="text-gray-600 text-lg">
+                    No blood banks found in your area
+                  </p>
+                </div>
               )}
+            </div>
           </div>
         )}
       </div>
