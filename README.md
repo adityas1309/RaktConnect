@@ -34,6 +34,7 @@ RaktConnect is a **MERN + AI-powered** blood donation platform that connects **h
 | **Node.js**        | Server-side runtime environment |
 | **Recharts** | Data visualization for reports & analytics |
 | **Tailwind CSS**   | Modern UI design framework |
+| **Python**   | For AI data predictions |
 
 ---
 
