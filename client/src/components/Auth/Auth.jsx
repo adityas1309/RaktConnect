@@ -39,7 +39,7 @@ function Auth() {
 
     const url = `https://india-pincode-with-latitude-and-longitude.p.rapidapi.com/api/v1/district?page=1&state=${encodeURIComponent(
       selectedState
-    )}&limit=100`;
+    )}&limit=100000`;
 
     const options = {
       method: "GET",
