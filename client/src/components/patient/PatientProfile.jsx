@@ -24,7 +24,7 @@ const PatientProfile = () => {
           navigate("/login");
           return;
         }
-        const response = await fetch("https://raktconnect-backend.onrender.com/verify/patient", {
+        const response = await fetch("https://rakt-connect-server.vercel.app/verify/patient", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

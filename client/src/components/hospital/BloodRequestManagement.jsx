@@ -13,7 +13,7 @@ const BloodRequestManagement = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("https://raktconnect-backend.onrender.com/api/bloodRequests", {
+      const response = await fetch("https://rakt-connect-server.vercel.app/api/bloodRequests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +38,7 @@ const BloodRequestManagement = () => {
   const updateStatus = async (id, status) => {
     try {
       const response = await fetch(
-        `https://raktconnect-backend.onrender.com/api/bloodRequests/${id}/status`,
+        `https://rakt-connect-server.vercel.app/api/bloodRequests/${id}/status`,
         {
           method: "PUT",
           headers: {

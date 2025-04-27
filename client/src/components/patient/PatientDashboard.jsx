@@ -58,7 +58,7 @@ const PatientDashboard = () => {
 
     try {
       const response = await fetch(
-        `https://raktconnect-backend.onrender.com/api/getHospitals?district=${encodeURIComponent(
+        `https://rakt-connect-server.vercel.app/api/getHospitals?district=${encodeURIComponent(
           district
         )}&bloodType=${encodeURIComponent(bloodType)}`,
         {
@@ -122,7 +122,7 @@ const PatientDashboard = () => {
     };
 
     try {
-      const response = await fetch("https://raktconnect-backend.onrender.com/patient/bloodRequests", {
+      const response = await fetch("https://rakt-connect-server.vercel.app/patient/bloodRequests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -158,7 +158,7 @@ const PatientDashboard = () => {
       }
 
       try {
-        const response = await fetch("https://raktconnect-backend.onrender.com/verify/patient", {
+        const response = await fetch("https://rakt-connect-server.vercel.app/verify/patient", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token: authToken }),

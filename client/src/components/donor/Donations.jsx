@@ -19,7 +19,7 @@ const Donations = () => {
       }
 
       try {
-        const response = await fetch("https://raktconnect-backend.onrender.com/donor/history", {
+        const response = await fetch("https://rakt-connect-server.vercel.app/donor/history", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

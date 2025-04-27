@@ -9,7 +9,7 @@ const DonorProfile = () => {
     const fetchDonorData = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const response = await fetch("https://raktconnect-backend.onrender.com/verify/donor", {
+        const response = await fetch("https://rakt-connect-server.vercel.app/verify/donor", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

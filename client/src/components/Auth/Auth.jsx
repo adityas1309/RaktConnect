@@ -70,7 +70,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://raktconnect-backend.onrender.com/login/patient", {
+      const response = await fetch("https://rakt-connect-server.vercel.app/login/patient", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -130,7 +130,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://raktconnect-backend.onrender.com/signup/patient", {
+      const response = await fetch("https://rakt-connect-server.vercel.app/signup/patient", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -180,7 +180,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://raktconnect-backend.onrender.com/login/donor", {
+      const response = await fetch("https://rakt-connect-server.vercel.app/login/donor", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -240,7 +240,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://raktconnect-backend.onrender.com/signup/donor", {
+      const response = await fetch("https://rakt-connect-server.vercel.app/signup/donor", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -290,7 +290,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://raktconnect-backend.onrender.com/login/hospital", {
+      const response = await fetch("https://rakt-connect-server.vercel.app/login/hospital", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -351,7 +351,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://raktconnect-backend.onrender.com/signup/hospital", {
+      const response = await fetch("https://rakt-connect-server.vercel.app/signup/hospital", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

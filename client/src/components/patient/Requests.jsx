@@ -24,7 +24,7 @@ const Requests = () => {
 
       try {
         const response = await fetch(
-          "https://raktconnect-backend.onrender.com/patient/requestHistory",
+          "https://rakt-connect-server.vercel.app/patient/requestHistory",
           {
             method: "POST",
             headers: {
@@ -77,7 +77,7 @@ const Requests = () => {
     try {
       const authToken = localStorage.getItem("authToken");
 
-      const response = await fetch("https://raktconnect-backend.onrender.com/patient/cancelRequest", {
+      const response = await fetch("https://rakt-connect-server.vercel.app/patient/cancelRequest", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ authToken, requestId }),
