@@ -28,6 +28,11 @@ app.use("/", patientRouter);
 app.use("/", donorRouter);
 app.use("/", hospitalRouter)
 
+app.get("/", (req, res) => {
+  res.send("Welcome to RaktConnect API");
+});
+
+
 connectDB()
   .then(() => {
     console.log("Database connected");
