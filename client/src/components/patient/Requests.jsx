@@ -5,6 +5,7 @@ import {
   FaExclamationCircle,
   FaTimesCircle,
 } from "react-icons/fa";
+import BASE_URL from "../../apiConfig";
 
 const Requests = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const Requests = () => {
 
       try {
         const response = await fetch(
-          "https://rakt-connect-server.vercel.app/patient/requestHistory",
+          `${BASE_URL}/patient/requestHistory`,
           {
             method: "POST",
             headers: {
@@ -77,7 +78,7 @@ const Requests = () => {
     try {
       const authToken = localStorage.getItem("authToken");
 
-      const response = await fetch("https://rakt-connect-server.vercel.app/patient/cancelRequest", {
+      const response = await fetch(`${BASE_URL}/patient/cancelRequest`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ authToken, requestId }),

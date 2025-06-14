@@ -2,6 +2,7 @@ import { useState , useEffect } from "react";
 import { useNavigate , Link } from "react-router";
 import Swal from "sweetalert2";
 import LoginForm from "./LoginForm";
+import BASE_URL from "../../apiConfig";
 
 
 function Auth() {
@@ -70,7 +71,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://rakt-connect-server.vercel.app/login/patient", {
+      const response = await fetch(`${BASE_URL}/login/patient`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -130,7 +131,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://rakt-connect-server.vercel.app/signup/patient", {
+      const response = await fetch(`${BASE_URL}/signup/patient`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -180,7 +181,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://rakt-connect-server.vercel.app/login/donor", {
+      const response = await fetch(`${BASE_URL}/login/donor`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -240,7 +241,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://rakt-connect-server.vercel.app/signup/donor", {
+      const response = await fetch(`${BASE_URL}/signup/donor`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -290,7 +291,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://rakt-connect-server.vercel.app/login/hospital", {
+      const response = await fetch(`${BASE_URL}/login/hospital`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -351,7 +352,7 @@ function Auth() {
     };
 
     try {
-      const response = await fetch("https://rakt-connect-server.vercel.app/signup/hospital", {
+      const response = await fetch(`${BASE_URL}/signup/hospital`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

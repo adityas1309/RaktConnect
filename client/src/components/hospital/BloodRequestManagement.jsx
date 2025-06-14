@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BASE_URL from "../../apiConfig";
 
 const BloodRequestManagement = () => {
   const [requests, setRequests] = useState([]);
@@ -13,7 +14,7 @@ const BloodRequestManagement = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("https://rakt-connect-server.vercel.app/api/bloodRequests", {
+      const response = await fetch(`${BASE_URL}/api/bloodRequests`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +39,7 @@ const BloodRequestManagement = () => {
   const updateStatus = async (id, status) => {
     try {
       const response = await fetch(
-        `https://rakt-connect-server.vercel.app/api/bloodRequests/${id}/status`,
+        `${BASE_URL}/api/bloodRequests/${id}/status`,
         {
           method: "PUT",
           headers: {

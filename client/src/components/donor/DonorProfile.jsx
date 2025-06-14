@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaUser, FaTint, FaCalendarAlt, FaNotesMedical } from "react-icons/fa";
+import BASE_URL from "../../apiConfig";
 
 const DonorProfile = () => {
   const [donor, setDonor] = useState(null);
@@ -9,7 +10,7 @@ const DonorProfile = () => {
     const fetchDonorData = async () => {
       try {
         const token = localStorage.getItem("authToken");
-        const response = await fetch("https://rakt-connect-server.vercel.app/verify/donor", {
+        const response = await fetch(`${BASE_URL}/verify/donor`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
