@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { FaCheckCircle, FaClock, FaTimesCircle } from "react-icons/fa";
+import BASE_URL from "../../apiConfig";
 
 const Donations = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Donations = () => {
       }
 
       try {
-        const response = await fetch("https://rakt-connect-server.vercel.app/donor/history", {
+        const response = await fetch(`${BASE_URL}/donor/history`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

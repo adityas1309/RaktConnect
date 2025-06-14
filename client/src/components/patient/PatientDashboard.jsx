@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate , Link} from "react-router";
+import BASE_URL from "../../apiConfig";
 
 
 const PatientDashboard = () => {
@@ -58,7 +59,7 @@ const PatientDashboard = () => {
 
     try {
       const response = await fetch(
-        `https://rakt-connect-server.vercel.app/api/getHospitals?district=${encodeURIComponent(
+        `${BASE_URL}/api/getHospitals?district=${encodeURIComponent(
           district
         )}&bloodType=${encodeURIComponent(bloodType)}`,
         {
@@ -122,7 +123,7 @@ const PatientDashboard = () => {
     };
 
     try {
-      const response = await fetch("https://rakt-connect-server.vercel.app/patient/bloodRequests", {
+      const response = await fetch(`${BASE_URL}/patient/bloodRequests`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -158,7 +159,7 @@ const PatientDashboard = () => {
       }
 
       try {
-        const response = await fetch("https://rakt-connect-server.vercel.app/verify/patient", {
+        const response = await fetch(`${BASE_URL}/verify/patient`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token: authToken }),

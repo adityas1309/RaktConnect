@@ -7,6 +7,7 @@ import {
   FaNotesMedical,
   FaAngleDoubleUp,
 } from "react-icons/fa";
+import BASE_URL from "../../apiConfig";
 
 const PatientProfile = () => {
   const [patient, setPatient] = useState(null);
@@ -24,7 +25,7 @@ const PatientProfile = () => {
           navigate("/login");
           return;
         }
-        const response = await fetch("https://rakt-connect-server.vercel.app/verify/patient", {
+        const response = await fetch(`${BASE_URL}/verify/patient`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import BASE_URL from "../../apiConfig";
 
 const checkDonorInfo = async () => {
   const token = localStorage.getItem("authToken");
   if (!token) return { error: "No auth token found" };
 
-  const response = await fetch("https://rakt-connect-server.vercel.app/donor/checkInfo", {
+  const response = await fetch(`${BASE_URL}/donor/checkInfo`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token }),
@@ -18,7 +19,7 @@ const updateDonorInfo = async (donorData) => {
   const token = localStorage.getItem("authToken");
   if (!token) return { error: "No auth token found" };
 
-  const response = await fetch("https://rakt-connect-server.vercel.app/donor/updateInfo", {
+  const response = await fetch(`${BASE_URL}/donor/updateInfo`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token, ...donorData }),
