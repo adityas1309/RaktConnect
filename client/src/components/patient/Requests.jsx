@@ -5,6 +5,7 @@ import {
   FaExclamationCircle,
   FaTimesCircle,
 } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Requests = () => {
   const navigate = useNavigate();
@@ -85,7 +86,7 @@ const Requests = () => {
 
       const result = await response.json();
       if (result.success) {
-        alert("Request cancelled successfully!");
+        toast.success("Request cancelled successfully");
         setActiveRequests((prev) =>
           prev.filter((req) => req._id !== requestId)
         );
@@ -95,9 +96,10 @@ const Requests = () => {
           )
         );
       } else {
-        alert(result.message);
+        toast.error(result.message || "Failed to cancel request");
       }
     } catch (error) {
+      toast.error("Failed to cancel request");
       console.error("Error cancelling request:", error.message);
     }
   };
