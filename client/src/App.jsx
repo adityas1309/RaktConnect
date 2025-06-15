@@ -20,6 +20,7 @@ import Donations from "./components/donor/Donations";
 import EligibilityChecker from "./components/donor/EligibilityChecker";
 import BloodRequestManagement from "./components/hospital/BloodRequestManagement";
 import Disease from "./components/patient/Disease";
+import Eligibility from "./components/Landing/Eligibility";
 
 const AppLayout = () => {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/campaigns" element={<Campaigns />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/eligibility" element={<Eligibility />} />
           <Route path="/banks" element={<BloodBanks />} />
         </Route>
         <Route path="/login" element={<Auth />} />
