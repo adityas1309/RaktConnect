@@ -2,6 +2,7 @@ import { useState , useEffect } from "react";
 import { useNavigate , Link } from "react-router";
 import Swal from "sweetalert2";
 import LoginForm from "./LoginForm";
+import { toast } from "react-toastify";
 
 
 function Auth() {
@@ -163,11 +164,11 @@ function Auth() {
         });
       } else {
         console.error("Signup failed:", data.message);
-        alert("Signup failed: " + data.message);
+        toast.error("Signup failed: " + data.message);
       }
     } catch (error) {
       console.error("Error during signup :", error);
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     }
   };
 
@@ -273,11 +274,11 @@ function Auth() {
         });
       } else {
         console.error("Signup failed:", data.message);
-        alert("Signup failed: " + data.message);
+        toast.error("Signup failed: " + data.message);
       }
     } catch (error) {
       console.error("Error during signup :", error);
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     }
   };
 
@@ -384,11 +385,11 @@ function Auth() {
         });
       } else {
         console.error("Signup failed:", data.message);
-        alert("Signup failed: " + data.message);
+        toast.error("Signup failed: " + data.message);
       }
     } catch (error) {
       console.error("Error during signup :", error);
-      alert("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     }
   };
   return (

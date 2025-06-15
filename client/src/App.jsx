@@ -20,6 +20,7 @@ import Donations from "./components/donor/Donations";
 import EligibilityChecker from "./components/donor/EligibilityChecker";
 import BloodRequestManagement from "./components/hospital/BloodRequestManagement";
 import Disease from "./components/patient/Disease";
+import { ToastContainer } from 'react-toastify';
 
 const AppLayout = () => {
   return (
@@ -67,6 +68,7 @@ function App() {
         <Route path="/hospital" element={<HospitalHome />} />
         <Route path="/hospital/requestmanagement" element={<BloodRequestManagement />} />
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {toast} from "react-toastify";
 
 const HaemoglobinPredictor = () => {
   const [formData, setFormData] = useState({
@@ -35,9 +36,11 @@ const HaemoglobinPredictor = () => {
         }
       );
       const data = await response.json();
+      toast.success("Prediction successful!");
       setPrediction(data);
     } catch (error) {
       console.error("Error predicting haemoglobin:", error);
+      toast.error("Failed to predict haemoglobin level. Please try again.")
     }
   };
 

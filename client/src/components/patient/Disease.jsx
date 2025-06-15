@@ -1,4 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { toast } from 'react-toastify';
+
+const predefinedSymptoms = [
+  "fever", "cough", "headache", "nausea", "fatigue",
+  "sore throat", "vomiting", "diarrhea", "rash", "chills",
+  "joint pain", "muscle pain", "loss of taste", "loss of smell",
+  "shortness of breath", "dizziness", "chest pain", "abdominal pain",
+  "sneezing", "runny nose", "blurred vision", "weight loss",
+  "insomnia", "itching", "swollen glands", "constipation", "dry mouth",
+  "difficulty swallowing", "skin irritation", "palpitations"
+];
+
+import React, { useState, useRef, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const predefinedSymptoms = [
   "fever", "cough", "headache", "nausea", "fatigue",
@@ -88,8 +102,10 @@ function Disease() {
 
       const data = await response.json();
       setPrediction(data.predicted_disease);
+      toast.success('Prediction successful! The prediction disease is ' + data.predicted_disease);
     } catch (error) {
       console.error('Error predicting disease:', error);
+      toast.error('Failed to predict disease. Please try again.');
     }
   };
 
