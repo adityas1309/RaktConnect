@@ -21,12 +21,14 @@ import EligibilityChecker from "./components/donor/EligibilityChecker";
 import BloodRequestManagement from "./components/hospital/BloodRequestManagement";
 import Disease from "./components/patient/Disease";
 import { ToastContainer } from 'react-toastify';
+import Footer from "./components/Landing/Footer";
 
 const AppLayout = () => {
   return (
     <div className="app">
       <Navbar />
       <Outlet />
+      <Footer/>
     </div>
   );
 };
