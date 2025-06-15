@@ -1,21 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaHandHoldingHeart, FaHospitalAlt, FaUserFriends } from "react-icons/fa";
+import { Heart, Building2, Users } from "lucide-react";
 
 const Features = () => {
   const features = [
     {
-      icon: FaHandHoldingHeart,
+      icon: Heart,
       title: "Easy Blood Donations",
       text: "Find the nearest donation center and schedule a donation in minutes.",
     },
     {
-      icon: FaHospitalAlt,
+      icon: Building2,
       title: "Hospital Support",
       text: "Real-time blood inventory tracking and AI-powered shortage forecasting.",
     },
     {
-      icon: FaUserFriends,
+      icon: Users,
       title: "Community Impact",
       text: "Join a lifesaving network where every donation creates ripples of hope.",
     },
@@ -38,10 +38,10 @@ const Features = () => {
   };
 
   return (
-    <section className="relative py-20 bg-gradient-to-b from-black bg-slate-900 overflow-hidden">
+    <section className="relative py-20 overflow-hidden bg-gray-50">
       {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute w-full h-full bg-[url('/graph-paper.svg')] pattern-bg" />
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute w-full h-full bg-gradient-to-br from-red-100 to-red-50" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,31 +67,61 @@ const Features = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group relative p-8 bg-gray-800/30 rounded-2xl border border-gray-700/50 backdrop-blur-lg hover:border-red-500/30 transition-all duration-300"
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateY: 5,
+                  rotateX: 5
+                }}
+                className="group relative p-8 bg-white/80 rounded-2xl border border-gray-200/70 backdrop-blur-lg shadow-lg hover:shadow-2xl hover:shadow-red-100/50 hover:border-red-300/80 transition-all duration-500 transform-gpu perspective-1000 hover:-translate-y-2"
+                style={{
+                  transformStyle: 'preserve-3d'
+                }}
               >
                 {/* Animated glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-100/60 via-red-50/40 to-pink-50/30 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+                
+                {/* Animated border gradient */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-red-400/20 via-red-500/20 to-red-600/20 blur-sm" />
+                
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 transform rotate-12" />
+                </div>
                 
                 <div className="relative z-10">
                   <div className="mb-6 flex justify-center">
-                    <div className="p-4 bg-gradient-to-br from-red-500 to-red-700 rounded-xl shadow-lg transform group-hover:-translate-y-2 transition-transform duration-300">
-                      <Icon className="text-3xl text-white" />
-                    </div>
+                    <motion.div 
+                      className="p-4 bg-gradient-to-br from-red-500 to-red-700 rounded-xl shadow-lg transform group-hover:-translate-y-3 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-red-300/40"
+                      whileHover={{ 
+                        scale: 1.1,
+                        rotate: [0, -5, 5, 0],
+                        boxShadow: "0 20px 25px -5px rgba(239, 68, 68, 0.3), 0 10px 10px -5px rgba(239, 68, 68, 0.2)"
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Icon className="text-3xl text-white group-hover:scale-110 transition-transform duration-300" />
+                    </motion.div>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-100 mb-4">
+                  <motion.h3 
+                    className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-red-600 transition-colors duration-300"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     {feature.title}
-                  </h3>
-                  <p className="text-lg text-gray-400 leading-relaxed">
+                  </motion.h3>
+                  <motion.p 
+                    className="text-lg text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300"
+                    whileHover={{ scale: 1.01 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     {feature.text}
-                  </p>
+                  </motion.p>
                 </div>
               </motion.div>
             );
           })}
         </motion.div>
       </div>
-
-      
     </section>
   );
 };

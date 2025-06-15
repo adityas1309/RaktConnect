@@ -14,7 +14,7 @@ const LandingPage = () => {
       <HeroSection onVideoLoaded={() => setIsVideoLoaded(true)} />
       <Features />
       <HowItWorks />
-      <Footer />
+ 
     </div>
   );
 };
