@@ -1,6 +1,7 @@
 # 🩸 RaktConnect - Smart Blood Donation Platform
 
 RaktConnect is a **MERN + AI-powered** blood donation platform that connects **hospitals, donors, and patients**. It helps hospitals manage **blood inventory**, donors track **donation history**, and patients request **blood efficiently**.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## 🚀 Features
 
@@ -61,3 +62,10 @@ In root
 ```
 npm run dev
 ```
+
+## 📝 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+
+
