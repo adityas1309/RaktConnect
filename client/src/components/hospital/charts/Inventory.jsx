@@ -10,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import BASE_URL from "../../../apiConfig";
 
 const Inventory = () => {
   const [bloodData, setBloodData] = useState([]);
@@ -27,7 +28,7 @@ const Inventory = () => {
       }
 
       try {
-        const response = await fetch("https://rakt-connect-server.vercel.app/verify/hospital", {
+        const response = await fetch(`${BASE_URL}/verify/hospital`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token: authToken }),
