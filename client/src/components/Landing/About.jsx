@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaTint, FaHandHoldingHeart, FaShieldAlt, FaMapMarkerAlt, FaUsers, FaHeartbeat } from 'react-icons/fa';
-
+import { useNavigate } from 'react-router-dom';
 const About = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#fdf2f8] to-[#f0f9ff] py-30 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -218,6 +219,7 @@ const About = () => {
               className="bg-white text-red-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate("/login")}
             >
               Become a Donor
             </motion.button>
@@ -225,12 +227,13 @@ const About = () => {
               className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate("/banks")}
             >
               Find a Donation Center
             </motion.button>
           </div>
           <div className="mt-8 text-white/80">
-            <p>Already a member? <a href="#" className="text-white font-semibold underline">Sign in</a></p>
+            <p>Already a member? <a href="/login" className="text-white font-semibold underline">Sign in</a></p>
           </div>
         </motion.div>
 
