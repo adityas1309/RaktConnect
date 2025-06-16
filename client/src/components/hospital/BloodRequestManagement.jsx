@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BASE_URL from "../../apiConfig";
+import { toast } from "react-toastify";
 
 const BloodRequestManagement = () => {
   const [requests, setRequests] = useState([]);
@@ -58,10 +59,10 @@ const BloodRequestManagement = () => {
       }
 
       await fetchBloodRequests();
-      alert(`Request ${status} successfully`);
+      toast.success(`Request ${status} successfully!`);
     } catch (err) {
       console.error("Update error:", err);
-      alert(err.message || "Error updating request");
+      toast.error(`Failed to update request status: ${err.message}`);
     }
   };
 
