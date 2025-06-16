@@ -53,7 +53,7 @@ const BloodBanks = () => {
           <MapContainer 
             center={WB_CENTER} 
             zoom={ZOOM_LEVEL} 
-            className="h-96 w-full rounded-lg"
+            className="h-96 z-1 w-full rounded-lg"
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
