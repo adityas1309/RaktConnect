@@ -1,6 +1,7 @@
 import LandingPage from "./components/Landing/LandingPage";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import Navbar from "./components/Landing/Navbar";
+import Footer from "./components/Landing/Footer";
 import Donor from "./components/donor/Donor";
 import About from "./components/Landing/About";
 import Contact from "./components/Landing/Contact";
@@ -21,6 +22,8 @@ import EligibilityChecker from "./components/donor/EligibilityChecker";
 import BloodRequestManagement from "./components/hospital/BloodRequestManagement";
 import Disease from "./components/patient/Disease";
 import Eligibility from "./components/Landing/Eligibility";
+import { ToastContainer } from 'react-toastify';
+import Footer from "./components/Landing/Footer";
 
 
 const AppLayout = () => {
@@ -28,6 +31,7 @@ const AppLayout = () => {
     <div className="app">
       <Navbar />
       <Outlet />
+      <Footer />
     </div>
   );
 };
