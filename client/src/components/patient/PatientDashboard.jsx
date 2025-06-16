@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate , Link} from "react-router";
+import { toast } from "react-toastify";
 
 
 const PatientDashboard = () => {
@@ -49,7 +50,7 @@ const PatientDashboard = () => {
 
   const fetchHospitals = async () => {
     if (!state || !district || !bloodType) {
-      alert("Please select state, district, and blood type");
+      toast.warn("Please select state, district, and blood type");
       return;
     }
 

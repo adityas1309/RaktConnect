@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { toast } from 'react-toastify';
 
 function Disease() {
   const [symptoms, setSymptoms] = useState('');
@@ -20,8 +20,10 @@ function Disease() {
 
       const data = await response.json();
       setPrediction(data.predicted_disease);
+      toast.success('Prediction successful! The prediction disease is ' + data.predicted_disease);
     } catch (error) {
       console.error('Error predicting disease:', error);
+      toast.error('Failed to predict disease. Please try again.');
     }
   };
 

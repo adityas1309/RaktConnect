@@ -22,6 +22,7 @@ import BloodRequestManagement from "./components/hospital/BloodRequestManagement
 import Disease from "./components/patient/Disease";
 import Eligibility from "./components/Landing/Eligibility";
 
+
 const AppLayout = () => {
   return (
     <div className="app">
@@ -69,6 +70,7 @@ function App() {
         <Route path="/hospital" element={<HospitalHome />} />
         <Route path="/hospital/requestmanagement" element={<BloodRequestManagement />} />
       </Routes>
+      <ToastContainer />
     </BrowserRouter>
   );
 }
