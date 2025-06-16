@@ -458,18 +458,18 @@ function Auth() {
           )}
 
           {userType === "Patient" && isSignup && (
-            <div class="bg-calm/50 flex items-center justify-center h-full">
-              <div class="bg-blue-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 class="text-xl font-bold text-blue-700 mb-4">
+            <div className="bg-calm/50 flex items-center justify-center h-full">
+              <div className="bg-blue-100 p-8 rounded-lg shadow-md w-full max-w-md">
+                <h2 className="text-xl font-bold text-blue-700 mb-4">
                   Already have an account?
                 </h2>
-                <p class="text-blue-700 mb-6">
+                <p className="text-blue-700 mb-6">
                   Login to your account to manage your blood donation requests
                   and appointments.
                 </p>
                 <button
                   onClick={() => setIsSignup(false)}
-                  class="bg-white text-blue-600 font-semibold py-2 px-4 rounded-full w-full shadow-md hover:bg-gray-100 cursor-pointer"
+                  className="bg-white text-blue-600 font-semibold py-2 px-4 rounded-full w-full shadow-md hover:bg-gray-100 cursor-pointer"
                 >
                   Login
                 </button>
@@ -506,18 +506,18 @@ function Auth() {
           )}
 
           {userType === "Hospital" && isSignup && (
-            <div class="bg-purple-900/50 flex items-center justify-center h-full">
-              <div class="bg-purple-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 class="text-xl font-bold text-purple-700 mb-4">
+            <div className="bg-purple-900/50 flex items-center justify-center h-full">
+              <div className="bg-purple-100 p-8 rounded-lg shadow-md w-full max-w-md">
+                <h2 className="text-xl font-bold text-purple-700 mb-4">
                   Already have an account?
                 </h2>
-                <p class="text-purple-700 mb-6">
+                <p className="text-purple-700 mb-6">
                   Login to your account to access blood donation management
                   tools.
                 </p>
                 <button
                   onClick={() => setIsSignup(false)}
-                  class="bg-white text-purple-600 font-semibold py-2 px-4 rounded-full w-full shadow-md hover:bg-gray-100 cursor-pointer"
+                  className="bg-white text-purple-600 font-semibold py-2 px-4 rounded-full w-full shadow-md hover:bg-gray-100 cursor-pointer"
                 >
                   Login
                 </button>
@@ -528,12 +528,12 @@ function Auth() {
 
         <div className="w-full h-full flex flex-col">
           {userType === "Patient" && isSignup === false && (
-            <div class="bg-calm/50 flex items-center justify-center h-full">
-              <div class="bg-blue-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 class="text-xl font-bold text-blue-700 mb-4">
+            <div className="bg-calm/50 flex items-center justify-center h-full">
+              <div className="bg-blue-100 p-8 rounded-lg shadow-md w-full max-w-md">
+                <h2 className="text-xl font-bold text-blue-700 mb-4">
                   New Patient?
                 </h2>
-                <p class="text-blue-700 mb-6">
+                <p className="text-blue-700 mb-6">
                   Sign up now to access our blood donation services and find
                   donors quickly.
                 </p>
@@ -542,7 +542,7 @@ function Auth() {
                     setUserType("Patient");
                     setIsSignup(true);
                   }}
-                  class="bg-white text-blue-700 font-semibold py-2 px-4 rounded-full w-full hover:bg-gray-100 cursor-pointer"
+                  className="bg-white text-blue-700 font-semibold py-2 px-4 rounded-full w-full hover:bg-gray-100 cursor-pointer"
                 >
                   Sign Up
                 </button>
@@ -673,12 +673,12 @@ function Auth() {
           )}
 
           {userType === "Donor" && isSignup === false && (
-            <div class="bg-green-900/50 flex items-center justify-center h-full">
-              <div class="bg-green-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 class="text-xl font-bold text-green-700 mb-4">
+            <div className="bg-green-900/50 flex items-center justify-center h-full">
+              <div className="bg-green-100 p-8 rounded-lg shadow-md w-full max-w-md">
+                <h2 className="text-xl font-bold text-green-700 mb-4">
                   New Donor?
                 </h2>
-                <p class="text-green-700 mb-6">
+                <p className="text-green-700 mb-6">
                   Sign up now to start saving lives through blood donation.
                 </p>
                 <button
@@ -686,7 +686,7 @@ function Auth() {
                     setUserType("Donor");
                     setIsSignup(true);
                   }}
-                  class="bg-white text-green-700 font-semibold py-2 px-4 rounded-full w-full hover:bg-gray-100 cursor-pointer"
+                  className="bg-white text-green-700 font-semibold py-2 px-4 rounded-full w-full hover:bg-gray-100 cursor-pointer"
                 >
                   Sign Up
                 </button>
@@ -804,12 +804,12 @@ function Auth() {
           )}
 
           {userType === "Hospital" && isSignup === false && (
-            <div class="bg-purple-900/50 flex items-center justify-center h-full">
-              <div class="bg-purple-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 class="text-xl font-bold text-purple-700 mb-4">
+            <div className="bg-purple-900/50 flex items-center justify-center h-full">
+              <div className="bg-purple-100 p-8 rounded-lg shadow-md w-full max-w-md">
+                <h2 className="text-xl font-bold text-purple-700 mb-4">
                   New Hospital ?
                 </h2>
-                <p class="text-purple-700 mb-6">
+                <p className="text-purple-700 mb-6">
                   Sign up now to manage blood donations and requests
                   efficiently.
                 </p>
@@ -818,7 +818,7 @@ function Auth() {
                     setUserType("Hospital");
                     setIsSignup(true);
                   }}
-                  class="bg-white text-purple-700 font-semibold py-2 px-4 rounded-full w-full hover:bg-gray-100 cursor-pointer"
+                  className="bg-white text-purple-700 font-semibold py-2 px-4 rounded-full w-full hover:bg-gray-100 cursor-pointer"
                 >
                   Sign Up
                 </button>
