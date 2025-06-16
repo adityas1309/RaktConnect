@@ -1,17 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { toast } from 'react-toastify';
 
-const predefinedSymptoms = [
-  "fever", "cough", "headache", "nausea", "fatigue",
-  "sore throat", "vomiting", "diarrhea", "rash", "chills",
-  "joint pain", "muscle pain", "loss of taste", "loss of smell",
-  "shortness of breath", "dizziness", "chest pain", "abdominal pain",
-  "sneezing", "runny nose", "blurred vision", "weight loss",
-  "insomnia", "itching", "swollen glands", "constipation", "dry mouth",
-  "difficulty swallowing", "skin irritation", "palpitations"
-];
-
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
 const predefinedSymptoms = [

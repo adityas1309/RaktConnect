@@ -2,6 +2,7 @@ import LandingPage from "./components/Landing/LandingPage";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import Navbar from "./components/Landing/Navbar";
 import Footer from "./components/Landing/Footer";
+import Blog from "./components/Landing/Blog"
 import Donor from "./components/donor/Donor";
 import About from "./components/Landing/About";
 import Contact from "./components/Landing/Contact";
@@ -23,7 +24,7 @@ import BloodRequestManagement from "./components/hospital/BloodRequestManagement
 import Disease from "./components/patient/Disease";
 import Eligibility from "./components/Landing/Eligibility";
 import { ToastContainer } from 'react-toastify';
-import Footer from "./components/Landing/Footer";
+
 
 
 const AppLayout = () => {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/campaigns" element={<Campaigns />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/eligibility" element={<Eligibility />} />
           <Route path="/banks" element={<BloodBanks />} />
