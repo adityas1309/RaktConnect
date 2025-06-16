@@ -1,6 +1,7 @@
 import LandingPage from "./components/Landing/LandingPage";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import Navbar from "./components/Landing/Navbar";
+import Footer from "./components/Landing/Footer";
 import Donor from "./components/donor/Donor";
 import About from "./components/Landing/About";
 import Contact from "./components/Landing/Contact";
@@ -27,6 +28,7 @@ const AppLayout = () => {
     <div className="app">
       <Navbar />
       <Outlet />
+      <Footer />
     </div>
   );
 };
