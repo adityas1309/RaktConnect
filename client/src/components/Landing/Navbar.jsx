@@ -48,8 +48,7 @@ const Navbar = () => {
       window.removeEventListener("storage", checkAuthStatus);
     };
   }, []);
-
-  const navItems = ["Home","banks", "about", "campaigns", "FAQ", "contact"];
+  const navItems = ["Home","banks","eligibility", "about", "campaigns", "FAQ", "contact"];
   const isLandingPage = currentPath === "/";
 
   // Helper function to get the correct path for each nav item
