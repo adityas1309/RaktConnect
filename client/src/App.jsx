@@ -23,7 +23,7 @@ import BloodRequestManagement from "./components/hospital/BloodRequestManagement
 import Disease from "./components/patient/Disease";
 import Eligibility from "./components/Landing/Eligibility";
 import { ToastContainer } from 'react-toastify';
-import Footer from "./components/Landing/Footer";
+import Blog from "./components/Landing/Blog";
 
 
 const AppLayout = () => {
@@ -48,6 +48,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/eligibility" element={<Eligibility />} />
           <Route path="/banks" element={<BloodBanks />} />
+          <Route path="/blog" element={<Blog />} />
         </Route>
         <Route path="/login" element={<Auth />} />
         <Route path="/patient" element={<Patient />}>
