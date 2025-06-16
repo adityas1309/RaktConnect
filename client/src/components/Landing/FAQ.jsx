@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from "react-router-dom";
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -9,13 +10,9 @@ const FAQ = () => {
     donors: {
       title: "For Donors",
       faqs: [
+        { question: " Eligibility", answer: "", isCategory: true },
         {
-          question: " Eligibility",
-          answer: "",
-          isCategory: true
-        },
-        {
-          question: "Can I donate if I have a tattoo or piercing?",
+          question: "Can I donate if I have a tattoo or piercing?", 
           answer: "Yes, you can donate if the tattoo or piercing was done using sterile needles and has healed fully, typically after 6 months."
         },
         {
@@ -26,11 +23,7 @@ const FAQ = () => {
           question: "Can I donate if I'm on medication?",
           answer: "It depends on the medication. Consult with the donation center for a complete list of restricted drugs."
         },
-        {
-          question: " Donation Frequency",
-          answer: "",
-          isCategory: true
-        },
+        { question: " Donation Frequency", answer: "", isCategory: true },
         {
           question: "How often can I donate whole blood?",
           answer: "Every 56 days (8 weeks)."
@@ -39,11 +32,7 @@ const FAQ = () => {
           question: "How often can I donate platelets or plasma?",
           answer: "Platelets: Every 7 days, up to 24 times a year.\nPlasma: Every 28 days."
         },
-        {
-          question: " During Donation",
-          answer: "",
-          isCategory: true
-        },
+        { question: " During Donation", answer: "", isCategory: true },
         {
           question: "How long does the blood donation process take?",
           answer: "The entire process takes about 30 to 45 minutes, with the actual donation taking 8–10 minutes."
@@ -52,11 +41,7 @@ const FAQ = () => {
           question: "Is blood donation painful?",
           answer: "Only a slight pinch is felt when the needle is inserted — most donors report minimal discomfort."
         },
-        {
-          question: " After Donation",
-          answer: "",
-          isCategory: true
-        },
+        { question: " After Donation", answer: "", isCategory: true },
         {
           question: "What should I do after donating blood?",
           answer: "Rest for a few minutes, drink fluids, and avoid heavy physical activity for the rest of the day."
@@ -120,12 +105,21 @@ const FAQ = () => {
     }
   };
 
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-red-600 mb-8 text-center mt-12">Frequently Asked Questions</h1>
-        
-        {/* Category Navigation */}
+        <h1 className="text-4xl font-bold text-red-600 mb-8 text-center mt-12">
+          Frequently Asked Questions
+        </h1>
+
+        {/* Category Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           {Object.keys(faqCategories).map((category) => (
             <button
@@ -142,37 +136,65 @@ const FAQ = () => {
           ))}
         </div>
 
-        {/* FAQ Items */}
+        {/* FAQs */}
         <div className="space-y-4">
           {faqCategories[activeCategory].faqs.map((faq, index) => (
-            <div key={index} className={`border rounded-lg bg-white shadow-sm ${
-              faq.isCategory ? 'bg-red-50 border-red-200' : ''
-            }`}>
+            <div
+              key={index}
+              className={`border rounded-lg bg-white shadow-sm ${
+                faq.isCategory ? 'bg-red-50 border-red-200' : ''
+              }`}
+            >
               <button
                 className={`w-full p-4 text-left flex justify-between items-center ${
                   faq.isCategory ? 'cursor-default' : ''
                 }`}
                 onClick={() => !faq.isCategory && setActiveIndex(activeIndex === index ? null : index)}
               >
-                <span className={`font-medium ${faq.isCategory ? 'text-red-700 text-lg' : 'text-gray-800'}`}>
+                <span
+                  className={`font-medium ${
+                    faq.isCategory ? 'text-red-700 text-lg' : 'text-gray-800'
+                  }`}
+                >
                   {faq.question}
                 </span>
-                {!faq.isCategory && (activeIndex === index ? <FiChevronUp /> : <FiChevronDown />)}
+                {!faq.isCategory && (
+                  <span className="text-2xl text-red-600">
+                    {activeIndex === index ? '−' : '+'}
+                  </span>
+                )}
               </button>
-              {!faq.isCategory && activeIndex === index && (
-                <div className="p-4 pt-0 text-gray-600 border-t">
-                  {faq.answer}
-                </div>
-              )}
+              <AnimatePresence initial={false}>
+                {!faq.isCategory && activeIndex === index && (
+                  <motion.div
+                    key="content"
+                    initial={{ height: 0, opacity: 0, y: -10 }}
+                    animate={{ height: 'auto', opacity: 1, y: 0 }}
+                    exit={{ height: 0, opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3, ease: 'easeInOut' }}
+                    className="overflow-hidden"
+                  >
+                    <div className="p-4 pt-3 text-gray-600 border-t">
+                      {faq.answer}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
         </div>
 
+        {/* Contact Support Button */}
         <div className="mt-12 bg-red-50 rounded-lg p-6 text-center">
-          <h2 className="text-xl font-semibold text-red-700 mb-4">Still have questions?</h2>
-          <button className="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition-colors">
+          <h2 className="text-xl font-semibold text-red-700 mb-4">
+            Still have questions?
+          </h2>
+          <Link
+            to="/contact"
+            className="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-400"
+          >
             Contact Support
-          </button>
+          </Link>
         </div>
       </div>
     </div>
