@@ -24,7 +24,6 @@ import Disease from "./components/patient/Disease";
 import Eligibility from "./components/Landing/Eligibility";
 import { ToastContainer } from 'react-toastify';
 
-
 const AppLayout = () => {
   return (
     <div className="app">
