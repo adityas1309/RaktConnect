@@ -11,7 +11,6 @@ const predefinedSymptoms = [
   "difficulty swallowing", "skin irritation", "palpitations"
 ];
 
-
 function Disease() {
   const [symptomInput, setSymptomInput] = useState('');
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
