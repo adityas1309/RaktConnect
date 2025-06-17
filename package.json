@@ -10,7 +10,6 @@
     "lint": "npm run lint --workspace=client"
   },
   "dependencies": {
-    "concurrently": "^9.1.2",
-    "date-fns": "^4.1.0"
+    "concurrently": "^9.1.2"
   }
 }
