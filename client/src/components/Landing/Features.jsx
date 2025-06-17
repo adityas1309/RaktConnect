@@ -49,7 +49,7 @@ const Features = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent"
+           className="text-4xl md:text-5xl font-bold text-center mb-16 leading-tight bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent"
         >
           Why Choose RaktConnect?
         </motion.h2>
