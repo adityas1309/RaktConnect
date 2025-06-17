@@ -492,6 +492,26 @@ function Auth() {
             />
           )}
 
+          {userType === "Donor" && isSignup && (
+            <div className="bg-green-900/50 flex items-center justify-center h-full">
+              <div className="bg-green-100 p-8 rounded-lg shadow-md w-full max-w-md">
+                <h2 className="text-xl font-bold text-green-700 mb-4">
+                  Already have an account?
+                </h2>
+                <p className="text-green-700 mb-6">
+                  Login to your account to manage your blood donation requests
+                  and appointments.
+                </p>
+                <button
+                  onClick={() => setIsSignup(false)}
+                  className="bg-white text-green-600 font-semibold py-2 px-4 rounded-full w-full shadow-md hover:bg-gray-100 cursor-pointer"
+                >
+                  Login
+                </button>
+              </div>
+            </div>
+          )}
+
           {userType === "Hospital" && isSignup === false && (
             <LoginForm
               title="Hospital Login"
