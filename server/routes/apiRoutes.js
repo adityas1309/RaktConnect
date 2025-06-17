@@ -17,7 +17,7 @@ apiRouter.get("/api/getHospitals", async (req, res) => {
         .status(404)
         .json({ message: "No hospitals found with the requested blood type" });
     }
-
+    res.json(hospitals);
   } catch (error) {
     console.error("Error fetching hospitals:", error);
     res.status(500).json({ message: "Server error" });
