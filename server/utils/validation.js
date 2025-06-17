@@ -13,13 +13,13 @@ const validateSignupData = (req, userType) => {
     if (!name) {
       throw new Error("Name is invalid");
     } else if (!validator.isEmail(emailId)) {
-      throw new Error("Email is invalid : " + emailId);
+      throw new Error(emailId+" is invalid Email ");
     } else if (!validator.isStrongPassword(password)) {
-      throw new Error("Enter a strong password : " + password);
+      throw new Error("Enter a strong password");
     } else if (!validator.isMobilePhone(phoneNumber, "en-IN")) {
-      throw new Error("Phone number is invalid :" + phoneNumber);
+      throw new Error( phoneNumber+" is invalid Phone number");
     } else if (!age) {
-      throw new Error("Enter correct credential");
+      throw new Error("Enter correct Age");
     }
   }
   if (userType === "donor") {
@@ -31,16 +31,16 @@ const validateSignupData = (req, userType) => {
       age,
     } = req.body;
 
-    if (!name) {
+  if (!name) {
       throw new Error("Name is invalid");
     } else if (!validator.isEmail(emailId)) {
-      throw new Error("Email is invalid : " + emailId);
+      throw new Error(emailId+" is invalid Email ");
     } else if (!validator.isStrongPassword(password)) {
-      throw new Error("Enter a strong password : " + password);
+      throw new Error("Enter a strong password");
     } else if (!validator.isMobilePhone(phoneNumber, "en-IN")) {
-      throw new Error("Phone number is invalid :" + phoneNumber);
+      throw new Error( phoneNumber+" is invalid Phone number");
     } else if (!age) {
-      throw new Error("Enter correct credential");
+      throw new Error("Enter correct Age");
     }
   }
   if (userType === "hospital") {
@@ -54,16 +54,16 @@ const validateSignupData = (req, userType) => {
       district,
     } = req.body;
 
-    if (!name) {
+  if (!name) {
       throw new Error("Name is invalid");
     } else if (!validator.isEmail(emailId)) {
-      throw new Error("Email is invalid : " + emailId);
+      throw new Error(emailId+" is invalid Email ");
     } else if (!validator.isStrongPassword(password)) {
-      throw new Error("Enter a strong password : " + password);
+      throw new Error("Enter a strong password");
     } else if (!validator.isMobilePhone(phoneNumber, "en-IN")) {
-      throw new Error("Phone number is invalid :" + phoneNumber);
-    } else if (!licenseNumber || !state || !district) {
-      throw new Error("Enter correct credential");
+      throw new Error( phoneNumber+" is invalid Phone number");
+    } else if (!age) {
+      throw new Error("Enter correct Age");
     }
   }
 };

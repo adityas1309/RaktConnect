@@ -1,16 +1,13 @@
-import { useState , useEffect } from "react";
-import { useNavigate , Link } from "react-router";
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router";
 import Swal from "sweetalert2";
 import LoginForm from "./LoginForm";
 import BASE_URL from "../../apiConfig";
 import { toast } from "react-toastify";
-
-
 function Auth() {
   const [userType, setUserType] = useState("Patient");
   const [isSignup, setIsSignup] = useState(false);
   const navigate = useNavigate();
-
 
   useEffect(() => {
     const authToken = localStorage.getItem("authToken");
@@ -18,10 +15,8 @@ function Auth() {
 
     if (authToken && userType) {
       navigate(`/${userType}`);
-    } 
-
+    }
   }, [navigate]);
-
 
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -67,7 +62,7 @@ function Auth() {
     e.preventDefault();
 
     const loginData = {
-      emailId: email, 
+      emailId: email,
       password: password,
     };
 
@@ -85,21 +80,18 @@ function Auth() {
       if (response.ok) {
         console.log("Login successful:", data);
 
-        
         if (data.token) {
-          localStorage.clear()
+          localStorage.clear();
           localStorage.setItem("authToken", data.token);
           localStorage.setItem("userType", data.userType);
         }
 
-      
         Swal.fire({
           icon: "success",
           title: "Login Successful",
           text: "You have logged in successfully!",
         }).then(() => {
-          // Redirect user after login (Modify as needed)
-          navigate('/patient');
+          navigate("/patient");
         });
       } else {
         console.error("Login failed:", data.message);
@@ -118,6 +110,20 @@ function Auth() {
       });
     }
   };
+
+  // global toast property prevent from DRY
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
   const handlePatientSignup = async (e) => {
     e.preventDefault();
@@ -144,32 +150,36 @@ function Auth() {
 
       if (response.ok) {
         console.log("Signup successful:", data);
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
-        });
+
         Toast.fire({
           icon: "success",
-          title: "Signed up successfully",
-        }).then(() => {
-          setTimeout(() => {
-            window.location.reload();
-          }, 3000); // Reload after 3 seconds (same as the timer)
+          html: "<strong>Signup successful</strong>",
+          timer: 2000,
         });
+
+        setTimeout(async () => {
+            Toast.fire({
+            icon: "info",
+            html: "<strong>Redirecting...</strong>",
+            timer: 2000,
+          });
+          window.location.reload();
+        }, 3000);
       } else {
         console.error("Signup failed:", data.message);
-        toast.error("Signup failed: " + data.message);
+        Toast.fire({
+          icon: "error",
+          html: `<strong style="font-weight:bold;">${data.message}</strong>`,
+        });
       }
     } catch (error) {
-      console.error("Error during signup :", error);
-      toast.error("Something went wrong. Please try again.");
+      console.error("Error during signup:", error);
+      Toast.fire({
+        icon: "error",
+        html: `<strong style="font-weight:bold;">${
+          error.message || "Something went wrong."
+        }</strong>`,
+      });
     }
   };
 
@@ -177,7 +187,7 @@ function Auth() {
     e.preventDefault();
 
     const loginData = {
-      emailId: email, 
+      emailId: email,
       password: password,
     };
 
@@ -194,23 +204,20 @@ function Auth() {
 
       if (response.ok) {
         console.log("Login successful:", data);
-        
-        
+
         if (data.token) {
-          localStorage.clear()
+          localStorage.clear();
           localStorage.setItem("authToken", data.token);
           localStorage.setItem("userType", data.userType);
         }
-        
 
-       
         Swal.fire({
           icon: "success",
           title: "Login Successful",
           text: "You have logged in successfully!",
         }).then(() => {
           // Redirect user after login (Modify as needed)
-          navigate('/donor');
+          navigate("/donor");
         });
       } else {
         console.error("Login failed:", data.message);
@@ -254,32 +261,39 @@ function Auth() {
 
       if (response.ok) {
         console.log("Signup successful:", data);
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
+
+        Toast.fire({
+          icon: "success",
+          html: "<strong>Signup successful</strong>",
+          timer: 2000,
         });
         Toast.fire({
           icon: "success",
           title: "Signed up successfully",
-        }).then(() => {
-          setTimeout(() => {
-            window.location.reload();
-          }, 3000); // Reload after 3 seconds (same as the timer)
         });
+        setTimeout(async () => {
+          Toast.fire({
+            icon: "info",
+            html: "<strong>Redirecting...</strong>",
+            timer: 2000,
+          });
+          window.location.reload();
+        }, 3000);
       } else {
         console.error("Signup failed:", data.message);
-        toast.error("Signup failed: " + data.message);
+        Toast.fire({
+          icon: "error",
+          html: `<strong style="font-weight:bold;">${data.message}</strong>`,
+        });
       }
     } catch (error) {
-      console.error("Error during signup :", error);
-      toast.error("Something went wrong. Please try again.");
+      console.error("Error during signup:", error);
+      Toast.fire({
+        icon: "error",
+        html: `<strong style="font-weight:bold;">${
+          error.message || "Something went wrong."
+        }</strong>`,
+      });
     }
   };
 
@@ -287,7 +301,7 @@ function Auth() {
     e.preventDefault();
 
     const loginData = {
-      emailId: email, 
+      emailId: email,
       password: password,
     };
 
@@ -305,21 +319,19 @@ function Auth() {
       if (response.ok) {
         console.log("Login successful:", data);
 
-        
         if (data.token) {
-          localStorage.clear()
+          localStorage.clear();
           localStorage.setItem("authToken", data.token);
           localStorage.setItem("userType", data.userType);
         }
 
-       
         Swal.fire({
           icon: "success",
           title: "Login Successful",
           text: "You have logged in successfully!",
         }).then(() => {
           // Redirect user after login (Modify as needed)
-          navigate('/hospital');
+          navigate("/hospital");
         });
       } else {
         console.error("Login failed:", data.message);
@@ -365,32 +377,39 @@ function Auth() {
 
       if (response.ok) {
         console.log("Signup successful:", data);
-        const Toast = Swal.mixin({
-          toast: true,
-          position: "top-end",
-          showConfirmButton: false,
-          timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          },
+
+        Toast.fire({
+          icon: "success",
+          html: "<strong>Signup successful</strong>",
+          timer: 2000,
         });
         Toast.fire({
           icon: "success",
           title: "Signed up successfully",
-        }).then(() => {
-          setTimeout(() => {
-            window.location.reload();
-          }, 3000); // Reload after 3 seconds (same as the timer)
         });
+        setTimeout(async () => {
+          Toast.fire({
+            icon: "info",
+            html: "<strong>Redirecting...</strong>",
+            timer: 2000,
+          });
+          window.location.reload();
+        }, 3000);
       } else {
         console.error("Signup failed:", data.message);
-        toast.error("Signup failed: " + data.message);
+        Toast.fire({
+          icon: "error",
+          html: `<strong style="font-weight:bold;">${data.message}</strong>`,
+        });
       }
     } catch (error) {
-      console.error("Error during signup :", error);
-      toast.error("Something went wrong. Please try again.");
+      console.error("Error during signup:", error);
+      Toast.fire({
+        icon: "error",
+        html: `<strong style="font-weight:bold;">${
+          error.message || "Something went wrong."
+        }</strong>`,
+      });
     }
   };
   return (
@@ -609,8 +628,6 @@ function Auth() {
                   />
                 </div>
 
-                
-
                 {/* Contact */}
                 <div className="mb-4">
                   <label className="block text-gray-700 font-medium">
@@ -681,7 +698,6 @@ function Auth() {
                   />
                 </div>
 
-              
                 {/* Submit Button */}
                 <button
                   type="submit"
@@ -753,8 +769,6 @@ function Auth() {
                   />
                 </div>
 
-               
-
                 {/* Contact */}
                 <div className="mb-4">
                   <label className="block text-gray-700 font-medium">
@@ -810,8 +824,6 @@ function Auth() {
                     />
                   </button>
                 </div>
-
-                
 
                 {/* Submit Button */}
                 <button

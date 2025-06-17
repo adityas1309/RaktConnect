@@ -95,7 +95,7 @@ authRouter.post("/signup/:userType", async (req, res) => {
 
     res.status(201).json({ message: "Signup successful!" });
   } catch (err) {
-    res.status(500).json({ message: "Error during signup", err });
+    res.status(500).json({ message: err.message || "error during signup"  });
     console.log(err);
   }
 });
