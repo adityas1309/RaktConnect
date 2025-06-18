@@ -27,8 +27,16 @@ const donorSchema = mongoose.Schema(
       type: String,
       required: true,
       validate(value) {
-        if (!validator.isStrongPassword(value)) {
-          throw new Error("Enter a strong password : " + value);
+        if (
+          !validator.isStrongPassword(value, {
+            minLength: 6,
+            minLowercase: 1,
+            minUppercase: 1,
+            minNumbers: 1,
+            minSymbols: 1,
+          })
+        ) {
+          throw new Error("Password must be strong (A-Z, a-z, 0-9, symbol)");
         }
       },
     },
@@ -72,7 +80,6 @@ const donorSchema = mongoose.Schema(
       default: "",
       minLength: 0,
       maxLength: 100,
-      
     },
   },
   {
