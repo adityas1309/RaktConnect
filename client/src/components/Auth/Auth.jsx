@@ -31,6 +31,25 @@ function Auth() {
   const [showPassword, setShowPassword] = useState(false);
   const [districts, setDistricts] = useState([]);
 
+  const [passwordChecks, setPasswordChecks] = useState({
+    length: false,
+    upper: false,
+    lower: false,
+    number: false,
+    symbol: false,
+  });
+
+  const handlePasswordChange = (value) => {
+    setPassword(value);
+    setPasswordChecks({
+      length: value.length >= 8,
+      upper: /[A-Z]/.test(value),
+      lower: /[a-z]/.test(value),
+      number: /[0-9]/.test(value),
+      symbol: /[^A-Za-z0-9]/.test(value),
+    });
+  };
+
   const fetchDistricts = async (selectedState) => {
     if (!selectedState) return;
 
@@ -660,16 +679,18 @@ function Auth() {
 
                 {/* Password */}
                 <div className="mb-6 relative">
-                  <label className="block text-gray-700 font-medium">
-                    Set Password
-                  </label>
+                  <label className="block text-gray-700 font-medium">Set Password</label>
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => handlePasswordChange(e.target.value)}
                     required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className={`w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 ${
+                      Object.values(passwordChecks).every((v) => v)
+                        ? "focus:ring-green-400"
+                        : "focus:ring-purple-400"
+                    }`}
                   />
                   <button
                     type="button"
@@ -682,7 +703,27 @@ function Auth() {
                       className="w-6 h-6 invert-50 cursor-pointer"
                     />
                   </button>
+
+                  {/* Password rule indicators */}
+                  <div className="mt-2 text-sm text-gray-700 space-y-1">
+                    <p className={passwordChecks.length ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.length ? "✔" : "✘"} At least 8 characters
+                    </p>
+                    <p className={passwordChecks.upper ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.upper ? "✔" : "✘"} At least one uppercase letter
+                    </p>
+                    <p className={passwordChecks.lower ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.lower ? "✔" : "✘"} At least one lowercase letter
+                    </p>
+                    <p className={passwordChecks.number ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.number ? "✔" : "✘"} At least one number
+                    </p>
+                    <p className={passwordChecks.symbol ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.symbol ? "✔" : "✘"} At least one special character
+                    </p>
+                  </div>
                 </div>
+
 
                 {/* Medical Condition */}
                 <div className="mb-4">
@@ -801,16 +842,18 @@ function Auth() {
 
                 {/* Password */}
                 <div className="mb-6 relative">
-                  <label className="block text-gray-700 font-medium">
-                    Set Password
-                  </label>
+                  <label className="block text-gray-700 font-medium">Set Password</label>
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => handlePasswordChange(e.target.value)}
                     required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
+                    className={`w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 ${
+                      Object.values(passwordChecks).every((v) => v)
+                        ? "focus:ring-green-400"
+                        : "focus:ring-purple-400"
+                    }`}
                   />
                   <button
                     type="button"
@@ -823,7 +866,27 @@ function Auth() {
                       className="w-6 h-6 invert-50 cursor-pointer"
                     />
                   </button>
+
+                  {/* Password rule indicators */}
+                  <div className="mt-2 text-sm text-gray-700 space-y-1">
+                    <p className={passwordChecks.length ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.length ? "✔" : "✘"} At least 8 characters
+                    </p>
+                    <p className={passwordChecks.upper ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.upper ? "✔" : "✘"} At least one uppercase letter
+                    </p>
+                    <p className={passwordChecks.lower ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.lower ? "✔" : "✘"} At least one lowercase letter
+                    </p>
+                    <p className={passwordChecks.number ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.number ? "✔" : "✘"} At least one number
+                    </p>
+                    <p className={passwordChecks.symbol ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.symbol ? "✔" : "✘"} At least one special character
+                    </p>
+                  </div>
                 </div>
+
 
                 {/* Submit Button */}
                 <button
@@ -931,16 +994,18 @@ function Auth() {
 
                 {/* Password */}
                 <div className="mb-6 relative">
-                  <label className="block text-gray-700 font-medium">
-                    Set Password
-                  </label>
+                  <label className="block text-gray-700 font-medium">Set Password</label>
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => handlePasswordChange(e.target.value)}
                     required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
+                    className={`w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 ${
+                      Object.values(passwordChecks).every((v) => v)
+                        ? "focus:ring-green-400"
+                        : "focus:ring-purple-400"
+                    }`}
                   />
                   <button
                     type="button"
@@ -953,7 +1018,27 @@ function Auth() {
                       className="w-6 h-6 invert-50 cursor-pointer"
                     />
                   </button>
+
+                  {/* Password rule indicators */}
+                  <div className="mt-2 text-sm text-gray-700 space-y-1">
+                    <p className={passwordChecks.length ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.length ? "✔" : "✘"} At least 8 characters
+                    </p>
+                    <p className={passwordChecks.upper ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.upper ? "✔" : "✘"} At least one uppercase letter
+                    </p>
+                    <p className={passwordChecks.lower ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.lower ? "✔" : "✘"} At least one lowercase letter
+                    </p>
+                    <p className={passwordChecks.number ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.number ? "✔" : "✘"} At least one number
+                    </p>
+                    <p className={passwordChecks.symbol ? "text-green-600" : "text-red-500"}>
+                      {passwordChecks.symbol ? "✔" : "✘"} At least one special character
+                    </p>
+                  </div>
                 </div>
+
 
                 {/* State */}
                 <div className="mb-4">
