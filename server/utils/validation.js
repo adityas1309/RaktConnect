@@ -15,7 +15,7 @@ const validateSignupData = (req, userType) => {
     } else if (!validator.isEmail(emailId)) {
       throw new Error(emailId+" is invalid Email ");
     } else if (!validator.isStrongPassword(password)) {
-      throw new Error("Enter a strong password");
+      throw new Error("Password must be strong <br>  (A-Z, a-z, 0-9, symbol)");
     } else if (!validator.isMobilePhone(phoneNumber, "en-IN")) {
       throw new Error( phoneNumber+" is invalid Phone number");
     } else if (!age) {
@@ -36,7 +36,7 @@ const validateSignupData = (req, userType) => {
     } else if (!validator.isEmail(emailId)) {
       throw new Error(emailId+" is invalid Email ");
     } else if (!validator.isStrongPassword(password)) {
-      throw new Error("Enter a strong password");
+      throw new Error("Password must be strong <br>  (A-Z, sa-z, 0-9, symbol)");
     } else if (!validator.isMobilePhone(phoneNumber, "en-IN")) {
       throw new Error( phoneNumber+" is invalid Phone number");
     } else if (!age) {
@@ -59,7 +59,7 @@ const validateSignupData = (req, userType) => {
     } else if (!validator.isEmail(emailId)) {
       throw new Error(emailId+" is invalid Email ");
     } else if (!validator.isStrongPassword(password)) {
-      throw new Error("Enter a strong password");
+      throw new Error("Password must be strong <br>  A-Z, a-z, 0-9, symbol)");
     } else if (!validator.isMobilePhone(phoneNumber, "en-IN")) {
       throw new Error( phoneNumber+" is invalid Phone number");
     } else if (!age) {
