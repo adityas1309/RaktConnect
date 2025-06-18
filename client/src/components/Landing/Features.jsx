@@ -34,7 +34,7 @@ const Features = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
   return (
@@ -44,15 +44,34 @@ const Features = () => {
         <div className="absolute w-full h-full bg-gradient-to-br from-red-100 to-red-50" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-           className="text-4xl md:text-5xl font-bold text-center mb-16 leading-tight bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent"
-        >
-          Why Choose RaktConnect?
-        </motion.h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-300">
+       
+       <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ 
+          opacity: 1, 
+          y: 0,
+          transition: {
+            duration: 0.8,
+            ease: "easeOut"
+          }
+        }}
+        whileHover={{ 
+          scale: 1.02,
+          transition: { duration: 0.2 }
+        }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="
+          text-6xl md:text-6xl 
+          font-bold text-center mb-25
+          bg-gradient-to-r from-red-400 to-red-600 
+          bg-clip-text text-transparent 
+          hover:from-red-600 hover:to-red-700
+          transition-all duration-300 cursor-pointer
+        "
+      >
+        Why Choose RaktConnect?
+      </motion.h2>
 
         <motion.div
           variants={containerVariants}
@@ -68,11 +87,10 @@ const Features = () => {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ 
-                  scale: 1.05,
-                  rotateY: 5,
-                  rotateX: 5
+                  scale: 1.15,
+                  
                 }}
-                className="group relative p-8 bg-white/80 rounded-2xl border border-gray-200/70 backdrop-blur-lg shadow-lg hover:shadow-2xl hover:shadow-red-100/50 hover:border-red-300/80 transition-all duration-500 transform-gpu perspective-1000 hover:-translate-y-2"
+                className="group relative p-8 bg-white/80 rounded-2xl border border-gray-200/70 backdrop-blur-lg shadow-lg hover:shadow-2xl hover:shadow-red-100/50 hover:border-red-500/80 transition-all duration-300 transform-gpu perspective-1000 hover:-translate-y-2"
                 style={{
                   transformStyle: 'preserve-3d'
                 }}
@@ -91,7 +109,7 @@ const Features = () => {
                 <div className="relative z-10">
                   <div className="mb-6 flex justify-center">
                     <motion.div 
-                      className="p-4 bg-gradient-to-br from-red-500 to-red-700 rounded-xl shadow-lg transform group-hover:-translate-y-3 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-red-300/40"
+                      className="p-4 bg-gradient-to-br from-red-500 to-red-700 rounded-xl shadow-lg transform transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-red-300/40"
                       whileHover={{ 
                         scale: 1.1,
                         rotate: [0, -5, 5, 0],
@@ -110,7 +128,7 @@ const Features = () => {
                     {feature.title}
                   </motion.h3>
                   <motion.p 
-                    className="text-lg text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300"
+                    className="text-lg text-gray-700 leading-relaxed group-hover:text-gray-700 transition-colors duration-500"
                     whileHover={{ scale: 1.01 }}
                     transition={{ duration: 0.2 }}
                   >

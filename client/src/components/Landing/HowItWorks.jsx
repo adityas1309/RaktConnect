@@ -9,30 +9,30 @@ const HowItWorks = () => {
       title: "Step 1: Sign Up",
       text: "Create your profile as a donor, healthcare provider, or patient in seconds",
       color: "from-red-400 to-red-600",
-      bgGradient: "from-red-50 to-red-100",
-      shadowColor: "shadow-red-200/60",
-      hoverBorder: "hover:border-red-300/80",
-      iconBg: "from-red-500 to-red-700",
+      bgGradient: "from-red-100 to-red-200",
+      shadowColor: "shadow-red-200/80",
+      hoverBorder: "hover:border-red-600/80",
+      iconBg: "from-red-500 to-red-600",
     },
     {
       icon: Heart,
       title: "Step 2: Request or Donate",
       text: "Hospitals post needs, donors schedule donations, AI matches supply",
       color: "from-orange-400 to-orange-600",
-      bgGradient: "from-orange-50 to-orange-100",
+      bgGradient: "from-orange-100 to-orange-200",
       shadowColor: "shadow-orange-200/60",
-      hoverBorder: "hover:border-orange-300/80",
-      iconBg: "from-orange-500 to-orange-700",
+      hoverBorder: "hover:border-orange-600/80",
+      iconBg: "from-orange-500 to-orange-600",
     },
     {
       icon: Truck,
       title: "Step 3: Save a Life",
       text: "Automated logistics ensure timely delivery where it's needed most",
-      color: "from-green-400 to-green-600",
-      bgGradient: "from-green-50 to-green-100",
-      shadowColor: "shadow-green-200/60",
-      hoverBorder: "hover:border-green-300/80",
-      iconBg: "from-green-500 to-green-700",
+      color: "from-amber-500 to-amber-600",
+      bgGradient: "from-amber-100 to-amber-200",
+      shadowColor: "shadow-amber-200/60",
+      hoverBorder: "hover:border-amber-600/80",
+      iconBg: "from-amber-500 to-amber-600",
     },
   ];
 
@@ -75,7 +75,7 @@ const HowItWorks = () => {
   };
 
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <section className="relative pt-10 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Animated background patterns */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-0 left-0 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl animate-pulse" />
@@ -84,14 +84,33 @@ const HowItWorks = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-4xl md:text-5xl font-bold text-center mb-20 bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent"
-        >
-          How It Works
-        </motion.h2>
+ 
+ <motion.h2
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }}
+  whileHover={{ 
+    scale: 1.02,
+    transition: { duration: 0.2 }
+  }}
+  viewport={{ once: true, margin: "-100px" }}
+  className="
+    text-6xl md:text-6xl 
+    font-bold text-center mb-25
+    bg-gradient-to-r from-red-400 to-red-600 
+    bg-clip-text text-transparent 
+    hover:from-red-600 hover:to-red-700
+    transition-all duration-300
+  "
+>
+  How It Works
+</motion.h2>
 
         <motion.div
           variants={containerVariants}
@@ -132,14 +151,14 @@ const HowItWorks = () => {
                 variants={itemVariants}
                 whileHover={{ 
                   scale: 1.05,
-                  rotateY: 8,
-                  rotateX: 5,
-                  z: 50
+
+            
+                  z: 25
                 }}
                 className="relative group cursor-pointer"
                 style={{ transformStyle: 'preserve-3d' }}
               >
-                <div className={`relative p-8 bg-white/90 rounded-3xl border-2 border-gray-200/50 backdrop-blur-xl shadow-xl ${step.shadowColor} ${step.hoverBorder} transition-all duration-500 h-full transform-gpu hover:-translate-y-4`}>
+                <div className={`relative p-8 bg-white/90 rounded-3xl border-2 border-gray-200/50 backdrop-blur-xl shadow-xl ${step.shadowColor} ${step.hoverBorder} transition-all duration-300  h-full transform-gpu `}>
                   
                   {/* Multi-layered glow effects */}
                   <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${step.bgGradient} opacity-0 group-hover:opacity-60 transition-all duration-500`} />
@@ -177,28 +196,24 @@ const HowItWorks = () => {
                   <div className="relative z-10">
                     <div className="mb-8 flex justify-center">
                       <motion.div
-                        whileHover={{ 
-                          scale: 1.2,
-                          rotate: [0, -10, 10, 0],
-                          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-                        }}
-                        className={`p-6 bg-gradient-to-br ${step.iconBg} rounded-2xl shadow-2xl transform transition-all duration-500 group-hover:-translate-y-2`}
-                        transition={{ duration: 0.4 }}
+                      
+                        className={`p-6 bg-gradient-to-br ${step.iconBg} rounded-2xl shadow-2xl  transition-all duration-300 hover:scale-105`}
+                        
                       >
-                        <Icon className="text-4xl text-white group-hover:scale-110 transition-transform duration-300" />
+                        <Icon className="text-4xl text-white  transition-transform duration-200" />
                       </motion.div>
                     </div>
 
                     <motion.h3 
-                      className={`text-2xl font-bold bg-gradient-to-r ${step.color} bg-clip-text text-transparent mb-6 group-hover:scale-105 transition-transform duration-300`}
-                      whileHover={{ scale: 1.05 }}
+                      className={`text-2xl font-bold bg-gradient-to-r ${step.color} bg-clip-text text-transparent mb-4 `}
+                      
                     >
                       {step.title}
                     </motion.h3>
 
                     <motion.p 
                       className="text-lg text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300"
-                      whileHover={{ scale: 1.02 }}
+                   
                     >
                       {step.text}
                     </motion.p>
@@ -208,8 +223,9 @@ const HowItWorks = () => {
                   <motion.div 
                     className={`absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br ${step.iconBg} rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-2xl`}
                     whileHover={{ 
-                      scale: 1.2,
+                      scale: 1.10,
                       rotate: 360,
+                      
                     }}
                     animate={{
                       boxShadow: [
@@ -219,10 +235,10 @@ const HowItWorks = () => {
                     }}
                     transition={{
                       boxShadow: {
-                        duration: 2,
+                        duration: 5,
                         repeat: Infinity,
                       },
-                      scale: { duration: 0.3 },
+                      scale: { duration: 0.9 },
                       rotate: { duration: 0.5 }
                     }}
                   >
@@ -235,7 +251,7 @@ const HowItWorks = () => {
                       <motion.div
                         key={i}
                         className={`w-2 h-2 rounded-full ${
-                          i <= index ? 'bg-red-400' : 'bg-gray-300'
+                          i <= index ? 'bg-red-600' : 'bg-gray-500'
                         }`}
                         animate={i <= index ? {
                           scale: [1, 1.2, 1],

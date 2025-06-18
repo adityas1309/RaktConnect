@@ -114,7 +114,7 @@ const Navbar = () => {
           />
           <Link
             to="/"
-            className="bg-gradient-to-r from-red-500 to-red-700 bg-clip-text text-transparent"
+            className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent hover:scale-110 hover:bg-red-300 transition-all duration-300"
             onClick={() => setCurrentPath("/")}
           >
             RaktConnect
@@ -150,9 +150,9 @@ const Navbar = () => {
           <div className="flex items-center space-x-3 ml-6">
             {!isLoggedIn ? (
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.15 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-full hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-red-500/25"
+                className="px-6 py-2 bg-gradient-to-r from-red-700 to-red-800 text-white font-semibold rounded-full hover:from-red-800 hover:to-red-900 transition-all duration-300 shadow-lg hover:shadow-red-500/25"
                 onClick={handleLogin}
               >
                 Login
