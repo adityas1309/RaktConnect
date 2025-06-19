@@ -58,7 +58,7 @@ const PatientDashboard = () => {
 
     setLoading(true);
     setError("");
-
+   
     try {
       const response = await fetch(
         `${BASE_URL}/api/getHospitals?district=${encodeURIComponent(
@@ -71,16 +71,16 @@ const PatientDashboard = () => {
           },
         }
       );
+  
+      const data = await response.json();
 
       if (!response.ok) {
-        throw new Error("Failed to fetch hospital data");
+        throw new Error(data.message);
       }
-
-      const data = await response.json();
       setHospitals(data);
     } catch (error) {
       console.error("Error fetching hospitals:", error);
-      setError("Error fetching hospital data. Please try again later.");
+      setError(error.message);
       setHospitals([]);
     } finally {
       setLoading(false);
