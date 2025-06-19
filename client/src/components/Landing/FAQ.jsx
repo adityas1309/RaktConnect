@@ -121,9 +121,20 @@ const FAQ = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+    <div
+      className="min-h-screen py-16 px-4 sm:px-6 lg:px-8"
+      style={{
+        background: "var(--bg-main)",
+        color: "var(--text-main)"
+      }}
+    >
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-red-600 mb-8 text-center mt-12">Frequently Asked Questions</h1>
+        <h1
+          className="text-4xl font-bold mb-8 text-center mt-12"
+          style={{ color: "var(--accent)" }}
+        >
+          Frequently Asked Questions
+        </h1>
         
         {/* Category Navigation */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -131,10 +142,10 @@ const FAQ = () => {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full transition-colors ${
+              className={`px-4 py-2 rounded-full transition-colors font-medium ${
                 activeCategory === category
-                  ? 'bg-red-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-red-50'
+                  ? 'bg-[var(--accent)] text-white'
+                  : 'bg-[var(--bg-surface)] text-[var(--text-main)] hover:bg-red-50'
               }`}
             >
               {faqCategories[category].title}
@@ -145,22 +156,54 @@ const FAQ = () => {
         {/* FAQ Items */}
         <div className="space-y-4">
           {faqCategories[activeCategory].faqs.map((faq, index) => (
-            <div key={index} className={`border rounded-lg bg-white shadow-sm ${
-              faq.isCategory ? 'bg-red-50 border-red-200' : ''
-            }`}>
+            <div
+              key={index}
+              className={`border rounded-lg shadow-sm ${
+                faq.isCategory
+                  ? 'bg-red-50 border-red-200'
+                  : ''
+              }`}
+              style={{
+                background: faq.isCategory ? "var(--bg-surface)" : "var(--bg-main)",
+                borderColor: faq.isCategory
+                  ? "rgba(255,0,0,0.09)"
+                  : "rgba(200,200,200,0.13)",
+                color: "var(--text-main)"
+              }}
+            >
               <button
                 className={`w-full p-4 text-left flex justify-between items-center ${
                   faq.isCategory ? 'cursor-default' : ''
                 }`}
-                onClick={() => !faq.isCategory && setActiveIndex(activeIndex === index ? null : index)}
+                onClick={() =>
+                  !faq.isCategory && setActiveIndex(activeIndex === index ? null : index)
+                }
               >
-                <span className={`font-medium ${faq.isCategory ? 'text-red-700 text-lg' : 'text-gray-800'}`}>
+                <span
+                  className={`font-medium ${
+                    faq.isCategory
+                      ? 'text-red-700 text-lg'
+                      : ''
+                  }`}
+                  style={{
+                    color: faq.isCategory
+                      ? "var(--accent)"
+                      : "var(--text-main)"
+                  }}
+                >
                   {faq.question}
                 </span>
-                {!faq.isCategory && (activeIndex === index ? <FiChevronUp /> : <FiChevronDown />)}
+                {!faq.isCategory &&
+                  (activeIndex === index ? <FiChevronUp /> : <FiChevronDown />)}
               </button>
               {!faq.isCategory && activeIndex === index && (
-                <div className="p-4 pt-0 text-gray-600 border-t">
+                <div
+                  className="p-4 pt-0 border-t"
+                  style={{
+                    color: "var(--text-muted)",
+                    borderColor: "rgba(200,200,200,0.13)"
+                  }}
+                >
                   {faq.answer}
                 </div>
               )}
@@ -168,9 +211,25 @@ const FAQ = () => {
           ))}
         </div>
 
-        <div className="mt-12 bg-red-50 rounded-lg p-6 text-center">
-          <h2 className="text-xl font-semibold text-red-700 mb-4">Still have questions?</h2>
-          <button className="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition-colors">
+        <div
+          className="mt-12 rounded-lg p-6 text-center"
+          style={{
+            background: "var(--bg-surface)"
+          }}
+        >
+          <h2
+            className="text-xl font-semibold mb-4"
+            style={{ color: "var(--accent)" }}
+          >
+            Still have questions?
+          </h2>
+          <button
+            className="px-6 py-2 rounded-md hover:bg-red-700 transition-colors"
+            style={{
+              background: "var(--accent)",
+              color: "#fff"
+            }}
+          >
             Contact Support
           </button>
         </div>
