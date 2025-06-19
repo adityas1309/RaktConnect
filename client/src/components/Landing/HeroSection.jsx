@@ -48,7 +48,7 @@ const HeroSection = ({ onVideoLoaded }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
         >
-          <span className="bg-gradient-to-r from-red-500 to-red-800 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent">
             Save Lives,
           </span>
           <br />
@@ -56,7 +56,7 @@ const HeroSection = ({ onVideoLoaded }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.8 }}
-            className="text-gray-100 font-extralight"
+            className="text-gray-100 font-bold"
           >
             One Donation at a Time
           </motion.span>
@@ -80,13 +80,13 @@ const HeroSection = ({ onVideoLoaded }) => {
         >
           <Link
             to="/login"
-            className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-900/30"
+            className="bg-red-700  hover:shadow-red-950 hover:bg-red-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-110 shadow-xs"
           >
             Get Started
           </Link>
           <Link
             to="/about"
-            className="border-2 border-red-500 text-red-100 hover:bg-red-500/20 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+            className="border-2 border-red-500 text-red-100 hover:bg-red-500/40 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-110"
           >
             Learn More
           </Link>
