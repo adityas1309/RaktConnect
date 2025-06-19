@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { useTheme } from "../../ThemeContext";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +12,7 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userType, setUserType] = useState("");
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,11 +97,14 @@ const Navbar = () => {
     });
   };
 
+  // Use CSS variables for text color for full dark/light support
+  const navTextColor = "text-[var(--text-main)]";
+  const navTextMuted = "text-[var(--text-muted)]";
+
   return (
     <header
-      className={`fixed w-full top-0 z-50 backdrop-blur-lg transition-all duration-400 ${
-        isScrolled ? "bg-black/60" : "bg-black/10"
-      }`}
+      className={`fixed w-full top-0 z-50 backdrop-blur-lg transition-all duration-400`}
+      style={{ background: "var(--nav-bg)" }}
     >
       <div className="flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <motion.div
@@ -124,8 +130,6 @@ const Navbar = () => {
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => {
             const navPath = getNavPath(item);
-            const textColor = isLandingPage ? "text-white" : "text-black";
-
             return (
               <motion.div
                 key={item}
@@ -134,7 +138,7 @@ const Navbar = () => {
               >
                 <Link
                   to={navPath}
-                  className={`${textColor} text-lg font-semibold relative group transition-colors duration-300`}
+                  className={`text-lg font-semibold relative group transition-colors duration-300 ${navTextColor}`}
                   onClick={() => setTimeout(() => setCurrentPath(navPath), 100)}
                 >
                   <span className="transition-colors duration-300 hover:text-red-400">
@@ -146,6 +150,20 @@ const Navbar = () => {
             );
           })}
           
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="ml-4 p-2 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
+            aria-label="Toggle dark/light mode"
+            title="Toggle dark/light mode"
+          >
+            {theme === "light" ? (
+              <FaMoon className="text-xl" />
+            ) : (
+              <FaSun className="text-xl" />
+            )}
+          </button>
+
           {/* Auth Buttons */}
           <div className="flex items-center space-x-3 ml-6">
             {!isLoggedIn ? (
@@ -159,7 +177,7 @@ const Navbar = () => {
               </motion.button>
             ) : (
               <div className="flex items-center space-x-3">
-                <span className={`text-sm font-medium ${isLandingPage ? "text-white" : "text-gray-700"}`}>
+                <span className={`text-sm font-medium ${navTextMuted}`}>
                   Welcome, {userType}
                 </span>
                 <motion.button
@@ -213,13 +231,11 @@ const Navbar = () => {
             <ul className="flex flex-col items-center py-4 space-y-4">
               {navItems.map((item) => {
                 const navPath = getNavPath(item);
-                const textColor = isLandingPage ? "text-white" : "text-black";
-
                 return (
                   <motion.li key={item} className="text-lg font-semibold">
                     <Link
                       to={navPath}
-                      className={`${textColor} hover:text-red-400 transition-colors`}
+                      className={`${navTextColor} hover:text-red-400 transition-colors`}
                       onClick={() => {
                         setIsOpen(false);
                         setTimeout(() => setCurrentPath(navPath), 100);
@@ -231,6 +247,22 @@ const Navbar = () => {
                 );
               })}
               
+              {/* Theme Toggle Button (mobile) */}
+              <motion.li>
+                <button
+                  onClick={toggleTheme}
+                  className="p-2 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                  aria-label="Toggle dark/light mode"
+                  title="Toggle dark/light mode"
+                >
+                  {theme === "light" ? (
+                    <FaMoon className="text-xl" />
+                  ) : (
+                    <FaSun className="text-xl" />
+                  )}
+                </button>
+              </motion.li>
+
               {/* Mobile Auth Buttons */}
               <motion.li className="pt-2">
                 {!isLoggedIn ? (
@@ -247,7 +279,7 @@ const Navbar = () => {
                   </motion.button>
                 ) : (
                   <div className="flex flex-col items-center space-y-3">
-                    <span className={`text-sm font-medium ${isLandingPage ? "text-white" : "text-gray-700"}`}>
+                    <span className={`text-sm font-medium ${navTextMuted}`}>
                       Welcome, {userType}
                     </span>
                     <motion.button

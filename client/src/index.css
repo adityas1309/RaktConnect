@@ -1,13 +1,54 @@
 @import "tailwindcss";
 
+/* Theme CSS variables */
+:root {
+  --bg-main: #fff;
+  --bg-surface: #f9fafb;
+  --text-main: #18181b;
+  --text-muted: #6b7280;
+  --accent: #ef4444;
+  --nav-bg: rgba(255,255,255,0.8);
+}
+
+.dark {
+  --bg-main: #18181b;
+  --bg-surface: #23232b;
+  --text-main: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --accent: #ef4444;
+  --nav-bg: rgba(24,24,27,0.95);
+}
+
+body, html {
+    background: var(--bg-main);
+    color: var(--text-main);
+    transition: background 0.3s, color 0.3s;
+    font-family: var(--font-montserrat), sans-serif;
+}
+
+header {
+  background: var(--nav-bg);
+  transition: background 0.3s;
+}
+
 @theme{
     --font-montserrat:"Montserrat", serif;
-
-    
     --color-primary:#C62E2E;
     --color-secondary:#F9F9F9;
     --color-calm:#0D92F4;
+}
 
+/* Optional: surface backgrounds for cards, panels, etc. */
+.bg-surface {
+  background: var(--bg-surface);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-muted {
+  color: var(--text-muted);
 }
 
 ::-webkit-scrollbar{

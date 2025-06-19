@@ -9,12 +9,16 @@ const LandingPage = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   return (
-    <div className="font-sans bg-gray-50">
+    <div
+      className="font-sans"
+      style={{ background: "var(--bg-main)", color: "var(--text-main)" }}
+    >
       {!isVideoLoaded && <Loader />}
       <HeroSection onVideoLoaded={() => setIsVideoLoaded(true)} />
       <Features />
       <HowItWorks />
- 
+      {/* Uncomment the following if you want the footer on the landing page */}
+      {/* <Footer /> */}
     </div>
   );
 };
