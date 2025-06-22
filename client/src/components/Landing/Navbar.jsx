@@ -27,7 +27,7 @@ const Navbar = () => {
     const checkAuthStatus = () => {
       const authToken = localStorage.getItem("authToken");
       const storedUserType = localStorage.getItem("userType");
-      
+
       if (authToken && storedUserType) {
         setIsLoggedIn(true);
         setUserType(storedUserType);
@@ -51,7 +51,7 @@ const Navbar = () => {
       window.removeEventListener("storage", checkAuthStatus);
     };
   }, []);
-  const navItems = ["Home","banks","eligibility", "about", "campaigns", "FAQ", "contact"];
+  const navItems = [ "banks", "eligibility", "about", "campaigns", "FAQ", "contact"];
   const isLandingPage = currentPath === "/";
 
   // Helper function to get the correct path for each nav item
@@ -77,11 +77,11 @@ const Navbar = () => {
         // Clear localStorage
         localStorage.removeItem("authToken");
         localStorage.removeItem("userType");
-        
+
         // Update state
         setIsLoggedIn(false);
         setUserType("");
-        
+
         // Show success message
         Swal.fire({
           icon: "success",
@@ -90,7 +90,7 @@ const Navbar = () => {
           timer: 2000,
           showConfirmButton: false
         });
-        
+
         // Redirect to home page
         navigate("/");
       }
@@ -103,26 +103,26 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 backdrop-blur-lg transition-all duration-400`}
-      style={{ background: "var(--nav-bg)" }}
+      className={`fixed w-full top-0  z-50 backdrop-blur-lg transition-all duration-400 bg-black`}
+
     >
-      <div className="flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div className="flex bg-black w-full text-white justify-center gap-26 items-center px-4 sm:px-6 lg:px-8 py-3">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           className="text-3xl font-extrabold flex items-center"
         >
-          <img
-            src="https://www.nicepng.com/png/full/364-3647802_blood-symbol-png.png"
-            alt="RaktConnect Logo"
-            className="h-12 w-auto mr-3 drop-shadow-lg transition-transform duration-300 hover:scale-110"
-          />
           <Link
             to="/"
-            className="bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent hover:scale-110 hover:bg-red-300 transition-all duration-300"
+            className="text-3xl font-extrabold flex items-center bg-gradient-to-r from-red-500 to-red-600 bg-clip-text text-transparent transition-all duration-300"
             onClick={() => setCurrentPath("/")}
           >
+            <img
+              src="https://www.nicepng.com/png/full/364-3647802_blood-symbol-png.png"
+              alt="RaktConnect Logo"
+              className="h-12 w-auto mr-3 drop-shadow-lg transition-transform duration-300"
+            />
             RaktConnect
           </Link>
         </motion.div>
@@ -141,7 +141,7 @@ const Navbar = () => {
                   className={`text-lg font-semibold relative group transition-colors duration-300 ${navTextColor}`}
                   onClick={() => setTimeout(() => setCurrentPath(navPath), 100)}
                 >
-                  <span className="transition-colors duration-300 hover:text-red-400">
+                  <span className="transition-colors duration-300 text-white hover:text-red-400">
                     {item.charAt(0).toUpperCase() + item.slice(1)}
                   </span>
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
@@ -149,7 +149,7 @@ const Navbar = () => {
               </motion.div>
             );
           })}
-          
+
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
@@ -246,7 +246,7 @@ const Navbar = () => {
                   </motion.li>
                 );
               })}
-              
+
               {/* Theme Toggle Button (mobile) */}
               <motion.li>
                 <button
