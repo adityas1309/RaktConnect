@@ -11,7 +11,7 @@ import donorRouter from "./routes/donorAPI.js";
 import hospitalRouter from "./routes/hospitalAPI.js";
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
