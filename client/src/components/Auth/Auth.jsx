@@ -4,6 +4,8 @@ import Swal from "sweetalert2";
 import LoginForm from "./LoginForm";
 import BASE_URL from "../../apiConfig";
 import { toast } from "react-toastify";
+import { motion } from "framer-motion";
+
 function Auth() {
   const [userType, setUserType] = useState("Patient");
   const [isSignup, setIsSignup] = useState(false);
@@ -432,702 +434,307 @@ function Auth() {
     }
   };
   return (
-    <div className="w-[100%] h-fit min-h-screen flex justify-evenly items-center flex-col justify-self-center bg-calm/10">
-      <div className="flex flex-row items-center justify-evenly h-fit gap-2.5">
+    <div className="flex min-h-screen w-full">
+      <div className="flex flex-col justify-center items-center bg-gradient-to-b from-red-100 to-red-200 w-32 py-8 gap-8 shadow-lg">
         <button
-          onClick={() => {
-            setUserType("Patient");
-            setIsSignup(false);
-          }}
-          className={`font-semibold rounded-lg cursor-pointer text-xl py-3 px-6 transition-all
-            ${
-              userType === "Patient"
-                ? "bg-blue-600 text-white"
-                : "bg-white text-blue-600 border-2 border-blue-500 hover:bg-blue-100"
-            }`}
+          onClick={() => { setUserType("Patient"); setIsSignup(false); }}
+          className={`transition-all duration-300 w-24 h-20 rounded-2xl flex flex-col items-center justify-center text-lg font-bold shadow-md border-2 gap-1 ${userType === "Patient" ? "bg-blue-100 text-blue-700 border-blue-400 scale-105" : "bg-white text-blue-600 border-blue-200 hover:bg-blue-50"}`}
+          aria-label="Patient"
         >
+          <svg className="w-7 h-7 mb-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
           Patient
         </button>
-
         <button
-          onClick={() => {
-            setUserType("Donor");
-            setIsSignup(false);
-          }}
-          className={`font-semibold rounded-lg cursor-pointer text-xl py-3 px-6 transition-all
-            ${
-              userType === "Donor"
-                ? "bg-green-600 text-white"
-                : "bg-white text-green-600 border-2 border-green-500 hover:bg-green-100"
-            }`}
+          onClick={() => { setUserType("Donor"); setIsSignup(false); }}
+          className={`transition-all duration-300 w-24 h-20 rounded-2xl flex flex-col items-center justify-center text-lg font-bold shadow-md border-2 gap-1 ${userType === "Donor" ? "bg-green-100 text-green-700 border-green-400 scale-105" : "bg-white text-green-600 border-green-200 hover:bg-green-50"}`}
+          aria-label="Donor"
         >
+          <svg className="w-7 h-7 mb-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg>
           Donor
         </button>
-
         <button
-          onClick={() => {
-            setUserType("Hospital");
-            setIsSignup(false);
-          }}
-          className={`font-semibold rounded-lg cursor-pointer text-xl py-3 px-6 transition-all
-            ${
-              userType === "Hospital"
-                ? "bg-purple-600 text-white"
-                : "bg-white text-purple-600 border-2 border-purple-500 hover:bg-purple-100"
-            }`}
+          onClick={() => { setUserType("Hospital"); setIsSignup(false); }}
+          className={`transition-all duration-300 w-24 h-20 rounded-2xl flex flex-col items-center justify-center text-lg font-bold shadow-md border-2 gap-1 ${userType === "Hospital" ? "bg-purple-100 text-purple-700 border-purple-400 scale-105" : "bg-white text-purple-600 border-purple-200 hover:bg-purple-50"}`}
+          aria-label="Hospital"
         >
+          <svg className="w-7 h-7 mb-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 21V7a2 2 0 012-2h14a2 2 0 012 2v14M16 3v4M8 3v4M4 11h16" /></svg>
           Hospital
         </button>
       </div>
+      <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-red-50 to-red-100">
+        {userType === "Patient" && isSignup === false && (
+          <LoginForm
+            title="Patient Login"
+            color="blue"
+            submit={handlePatientLogin}
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            showPassword={showPassword}
+            setShowPassword={setShowPassword}
+            onSignUpClick={() => setIsSignup(true)}
+            fullPage
+          />
+        )}
 
-      <div className="w-[80vw] flex flex-col justify-center items-center border-2 my-[50px] border-black lg:h-[80vh] rounded-lg lg:flex-row lg:my-0">
-        <div className="w-full h-full flex flex-col">
-          {userType === "Patient" && isSignup === false && (
-            <LoginForm
-              title="Patient Login"
-              color="blue"
-              submit={handlePatientLogin}
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-              showPassword={showPassword}
-              setShowPassword={setShowPassword}
-            />
-          )}
-
-          {userType === "Patient" && isSignup && (
-            <div className="bg-calm/50 flex items-center justify-center h-full">
-              <div className="bg-blue-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 className="text-xl font-bold text-blue-700 mb-4">
-                  Already have an account?
-                </h2>
-                <p className="text-blue-700 mb-6">
-                  Login to your account to manage your blood donation requests
-                  and appointments.
-                </p>
-                <button
-                  onClick={() => setIsSignup(false)}
-                  className="bg-white text-blue-600 font-semibold py-2 px-4 rounded-full w-full shadow-md hover:bg-gray-100 cursor-pointer"
-                >
-                  Login
+        {userType === "Patient" && isSignup && (
+          <div className="w-full h-full flex items-center justify-center min-h-screen bg-gradient-to-br from-red-500 via-rose-400 to-pink-300">
+            <motion.form
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              onSubmit={handlePatientSignup}
+              className="w-full max-w-lg flex flex-col gap-6 px-6 py-12 bg-white/80 backdrop-blur-md rounded-3xl shadow-xl"
+              style={{ boxShadow: "0 8px 32px 0 rgba(255, 0, 0, 0.10)" }}
+            >
+              <h2 className="text-4xl font-extrabold text-blue-700 mb-1 tracking-tight text-left">Patient Registration</h2>
+              {/* Name */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Name</label>
+                <input type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* Age */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Age</label>
+                <input type="number" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* Contact */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Contact</label>
+                <input type="tel" placeholder="Contact Number" value={contact} onChange={(e) => setContact(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* Email */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Email</label>
+                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* Password */}
+              <div className="relative">
+                <label className="block text-gray-700 font-medium mb-1">Set Password</label>
+                <input type={showPassword ? "text" : "password"} placeholder="Password" value={password} onChange={(e) => handlePasswordChange(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+                <button type="button" className="absolute right-4 top-10" onClick={() => setShowPassword(!showPassword)}>
+                  <img src={showPassword ? "/eye-open.png" : "/eye-closed.png"} alt="Toggle Password" className="w-6 h-6 opacity-70 cursor-pointer" />
                 </button>
               </div>
-            </div>
-          )}
+              {/* Password rule indicators */}
+              <div className="mt-2 text-sm text-gray-700 space-y-1">
+                <p className={passwordChecks.length ? "text-green-600" : "text-red-500"}>{passwordChecks.length ? "✔" : "✘"} At least 8 characters</p>
+                <p className={passwordChecks.upper ? "text-green-600" : "text-red-500"}>{passwordChecks.upper ? "✔" : "✘"} At least one uppercase letter</p>
+                <p className={passwordChecks.lower ? "text-green-600" : "text-red-500"}>{passwordChecks.lower ? "✔" : "✘"} At least one lowercase letter</p>
+                <p className={passwordChecks.number ? "text-green-600" : "text-red-500"}>{passwordChecks.number ? "✔" : "✘"} At least one number</p>
+                <p className={passwordChecks.symbol ? "text-green-600" : "text-red-500"}>{passwordChecks.symbol ? "✔" : "✘"} At least one special character</p>
+              </div>
+              {/* Medical Condition */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Medical Condition</label>
+                <input type="text" placeholder="Medical Condition (if any)" value={medicalCondition} onChange={(e) => setMedicalCondition(e.target.value)} className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              <button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-semibold py-3 rounded-xl transition-all text-lg tracking-wide shadow-md mt-4">Register</button>
+            </motion.form>
+          </div>
+        )}
 
-          {userType === "Donor" && isSignup === false && (
-            <LoginForm
-              title="Donor Login"
-              color="green"
-              submit={handleDonorLogin}
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-              showPassword={showPassword}
-              setShowPassword={setShowPassword}
-            />
-          )}
+        {userType === "Donor" && isSignup === false && (
+          <LoginForm
+            title="Donor Login"
+            color="green"
+            submit={handleDonorLogin}
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            showPassword={showPassword}
+            setShowPassword={setShowPassword}
+            onSignUpClick={() => setIsSignup(true)}
+            fullPage
+          />
+        )}
 
-          {userType === "Donor" && isSignup && (
-            <div className="bg-green-900/50 flex items-center justify-center h-full">
-              <div className="bg-green-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 className="text-xl font-bold text-green-700 mb-4">
-                  Already have an account?
-                </h2>
-                <p className="text-green-700 mb-6">
-                  Login to your account to manage your blood donation requests
-                  and appointments.
-                </p>
-                <button
-                  onClick={() => setIsSignup(false)}
-                  className="bg-white text-green-600 font-semibold py-2 px-4 rounded-full w-full shadow-md hover:bg-gray-100 cursor-pointer"
-                >
-                  Login
+        {userType === "Donor" && isSignup && (
+          <div className="w-full h-full flex items-center justify-center min-h-screen bg-gradient-to-br from-red-500 via-rose-400 to-pink-300">
+            <motion.form
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              onSubmit={handleDonorSignup}
+              className="w-full max-w-lg flex flex-col gap-6 px-6 py-12 bg-white/80 backdrop-blur-md rounded-3xl shadow-xl"
+              style={{ boxShadow: "0 8px 32px 0 rgba(255, 0, 0, 0.10)" }}
+            >
+              <h2 className="text-4xl font-extrabold text-green-700 mb-1 tracking-tight text-left">Donor Registration</h2>
+              {/* Name */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Name</label>
+                <input type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* Age */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Age</label>
+                <input type="number" placeholder="Age" value={age} onChange={(e) => setAge(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* Contact */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Contact</label>
+                <input type="tel" placeholder="Contact Number" value={contact} onChange={(e) => setContact(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* Email */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Email</label>
+                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* Password */}
+              <div className="relative">
+                <label className="block text-gray-700 font-medium mb-1">Set Password</label>
+                <input type={showPassword ? "text" : "password"} placeholder="Password" value={password} onChange={(e) => handlePasswordChange(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+                <button type="button" className="absolute right-4 top-10" onClick={() => setShowPassword(!showPassword)}>
+                  <img src={showPassword ? "/eye-open.png" : "/eye-closed.png"} alt="Toggle Password" className="w-6 h-6 opacity-70 cursor-pointer" />
                 </button>
               </div>
-            </div>
-          )}
+              {/* Password rule indicators */}
+              <div className="mt-2 text-sm text-gray-700 space-y-1">
+                <p className={passwordChecks.length ? "text-green-600" : "text-red-500"}>{passwordChecks.length ? "✔" : "✘"} At least 8 characters</p>
+                <p className={passwordChecks.upper ? "text-green-600" : "text-red-500"}>{passwordChecks.upper ? "✔" : "✘"} At least one uppercase letter</p>
+                <p className={passwordChecks.lower ? "text-green-600" : "text-red-500"}>{passwordChecks.lower ? "✔" : "✘"} At least one lowercase letter</p>
+                <p className={passwordChecks.number ? "text-green-600" : "text-red-500"}>{passwordChecks.number ? "✔" : "✘"} At least one number</p>
+                <p className={passwordChecks.symbol ? "text-green-600" : "text-red-500"}>{passwordChecks.symbol ? "✔" : "✘"} At least one special character</p>
+              </div>
+              <button type="submit" className="w-full bg-gradient-to-r from-green-600 to-teal-400 hover:from-green-700 hover:to-teal-500 text-white font-semibold py-3 rounded-xl transition-all text-lg tracking-wide shadow-md mt-4">Register</button>
+            </motion.form>
+          </div>
+        )}
 
-          {userType === "Hospital" && isSignup === false && (
-            <LoginForm
-              title="Hospital Login"
-              color="purple"
-              submit={handleHospitalLogin}
-              email={email}
-              setEmail={setEmail}
-              password={password}
-              setPassword={setPassword}
-              showPassword={showPassword}
-              setShowPassword={setShowPassword}
-            />
-          )}
+        {userType === "Hospital" && isSignup === false && (
+          <LoginForm
+            title="Hospital Login"
+            color="purple"
+            submit={handleHospitalLogin}
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            showPassword={showPassword}
+            setShowPassword={setShowPassword}
+            onSignUpClick={() => setIsSignup(true)}
+            fullPage
+          />
+        )}
 
-          {userType === "Hospital" && isSignup && (
-            <div className="bg-purple-900/50 flex items-center justify-center h-full">
-              <div className="bg-purple-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 className="text-xl font-bold text-purple-700 mb-4">
-                  Already have an account?
-                </h2>
-                <p className="text-purple-700 mb-6">
-                  Login to your account to access blood donation management
-                  tools.
-                </p>
-                <button
-                  onClick={() => setIsSignup(false)}
-                  className="bg-white text-purple-600 font-semibold py-2 px-4 rounded-full w-full shadow-md hover:bg-gray-100 cursor-pointer"
-                >
-                  Login
+        {userType === "Hospital" && isSignup && (
+          <div className="w-full h-full flex items-center justify-center min-h-screen bg-gradient-to-br from-red-500 via-rose-400 to-pink-300">
+            <motion.form
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              onSubmit={handleHospitalSignup}
+              className="w-full max-w-lg flex flex-col gap-6 px-6 py-12 bg-white/80 backdrop-blur-md rounded-3xl shadow-xl"
+              style={{ boxShadow: "0 8px 32px 0 rgba(255, 0, 0, 0.10)" }}
+            >
+              <h2 className="text-4xl font-extrabold text-purple-700 mb-1 tracking-tight text-left">Hospital Registration</h2>
+              {/* Name */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Name</label>
+                <input type="text" placeholder="Full Name" value={name} onChange={(e) => setName(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* License */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">License Number</label>
+                <input type="text" placeholder="License" value={license} onChange={(e) => setLicense(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* Contact */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Contact</label>
+                <input type="tel" placeholder="Contact Number" value={contact} onChange={(e) => setContact(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* Email */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">Email</label>
+                <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+              </div>
+              {/* Password */}
+              <div className="relative">
+                <label className="block text-gray-700 font-medium mb-1">Set Password</label>
+                <input type={showPassword ? "text" : "password"} placeholder="Password" value={password} onChange={(e) => handlePasswordChange(e.target.value)} required className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black" />
+                <button type="button" className="absolute right-4 top-10" onClick={() => setShowPassword(!showPassword)}>
+                  <img src={showPassword ? "/eye-open.png" : "/eye-closed.png"} alt="Toggle Password" className="w-6 h-6 opacity-70 cursor-pointer" />
                 </button>
               </div>
-            </div>
-          )}
-        </div>
-
-        <div className="w-full h-full flex flex-col">
-          {userType === "Patient" && isSignup === false && (
-            <div className="bg-calm/50 flex items-center justify-center h-full">
-              <div className="bg-blue-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 className="text-xl font-bold text-blue-700 mb-4">
-                  New Patient?
-                </h2>
-                <p className="text-blue-700 mb-6">
-                  Sign up now to access our blood donation services and find
-                  donors quickly.
-                </p>
-                <button
-                  onClick={() => {
-                    setUserType("Patient");
-                    setIsSignup(true);
+              {/* Password rule indicators */}
+              <div className="mt-2 text-sm text-gray-700 space-y-1">
+                <p className={passwordChecks.length ? "text-green-600" : "text-red-500"}>{passwordChecks.length ? "✔" : "✘"} At least 8 characters</p>
+                <p className={passwordChecks.upper ? "text-green-600" : "text-red-500"}>{passwordChecks.upper ? "✔" : "✘"} At least one uppercase letter</p>
+                <p className={passwordChecks.lower ? "text-green-600" : "text-red-500"}>{passwordChecks.lower ? "✔" : "✘"} At least one lowercase letter</p>
+                <p className={passwordChecks.number ? "text-green-600" : "text-red-500"}>{passwordChecks.number ? "✔" : "✘"} At least one number</p>
+                <p className={passwordChecks.symbol ? "text-green-600" : "text-red-500"}>{passwordChecks.symbol ? "✔" : "✘"} At least one special character</p>
+              </div>
+              {/* State */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">State</label>
+                <select
+                  value={state}
+                  onChange={(e) => {
+                    setState(e.target.value);
+                    fetchDistricts(e.target.value);
                   }}
-                  className="bg-white text-blue-700 font-semibold py-2 px-4 rounded-full w-full hover:bg-gray-100 cursor-pointer"
+                  required
+                  className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black"
                 >
-                  Sign Up
-                </button>
+                  <option value="">Select State</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Uttarakhand">Uttarakhand</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Lakshadweep">Lakshadweep</option>
+                  <option value="Puducherry">Puducherry</option>
+                </select>
               </div>
-            </div>
-          )}
-
-          {userType === "Patient" && isSignup && (
-            <div className="flex justify-center bg-calm/5 h-full overflow-y-scroll">
-              <form
-                onSubmit={handlePatientSignup}
-                className="bg-white p-8 rounded-lg shadow-md w-[400px] h-fit"
-              >
-                <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">
-                  Patient Registration
-                </h2>
-
-                {/* Name */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                </div>
-
-                {/* Age */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">Age</label>
-                  <input
-                    type="number"
-                    placeholder="Age"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                </div>
-
-                {/* Contact */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    Contact
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="Contact Number"
-                    value={contact}
-                    onChange={(e) => setContact(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                </div>
-
-                {/* Email */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                </div>
-
-                {/* Password */}
-                <div className="mb-6 relative">
-                  <label className="block text-gray-700 font-medium">Set Password</label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => handlePasswordChange(e.target.value)}
-                    required
-                    className={`w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                      Object.values(passwordChecks).every((v) => v)
-                        ? "focus:ring-green-400"
-                        : "focus:ring-purple-400"
-                    }`}
-                  />
-                  <button
-                    type="button"
-                    className="absolute right-4 top-10"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    <img
-                      src={showPassword ? "/eye-open.png" : "/eye-closed.png"}
-                      alt="Toggle Password"
-                      className="w-6 h-6 invert-50 cursor-pointer"
-                    />
-                  </button>
-
-                  {/* Password rule indicators */}
-                  <div className="mt-2 text-sm text-gray-700 space-y-1">
-                    <p className={passwordChecks.length ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.length ? "✔" : "✘"} At least 8 characters
-                    </p>
-                    <p className={passwordChecks.upper ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.upper ? "✔" : "✘"} At least one uppercase letter
-                    </p>
-                    <p className={passwordChecks.lower ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.lower ? "✔" : "✘"} At least one lowercase letter
-                    </p>
-                    <p className={passwordChecks.number ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.number ? "✔" : "✘"} At least one number
-                    </p>
-                    <p className={passwordChecks.symbol ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.symbol ? "✔" : "✘"} At least one special character
-                    </p>
-                  </div>
-                </div>
-
-
-                {/* Medical Condition */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    Medical Condition
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Medical Condition (if any)"
-                    value={medicalCondition}
-                    onChange={(e) => setMedicalCondition(e.target.value)}
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg cursor-pointer"
+              {/* District */}
+              <div>
+                <label className="block text-gray-700 font-medium mb-1">District</label>
+                <select
+                  value={district}
+                  onChange={(e) => setDistrict(e.target.value)}
+                  required
+                  className="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-400 bg-gray-50 focus:bg-white transition-all duration-300 text-black"
+                  disabled={!districts.length}
                 >
-                  Register
-                </button>
-              </form>
-            </div>
-          )}
-
-          {userType === "Donor" && isSignup === false && (
-            <div className="bg-green-900/50 flex items-center justify-center h-full">
-              <div className="bg-green-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 className="text-xl font-bold text-green-700 mb-4">
-                  New Donor?
-                </h2>
-                <p className="text-green-700 mb-6">
-                  Sign up now to start saving lives through blood donation.
-                </p>
-                <button
-                  onClick={() => {
-                    setUserType("Donor");
-                    setIsSignup(true);
-                  }}
-                  className="bg-white text-green-700 font-semibold py-2 px-4 rounded-full w-full hover:bg-gray-100 cursor-pointer"
-                >
-                  Sign Up
-                </button>
+                  <option value="">Select District</option>
+                  {districts.map((district, index) => (
+                    <option key={index} value={district.district}>{district.district}</option>
+                  ))}
+                </select>
               </div>
-            </div>
-          )}
-
-          {userType === "Donor" && isSignup && (
-            <div className="flex justify-center bg-green-900/5 h-full overflow-y-scroll">
-              <form
-                onSubmit={handleDonorSignup}
-                className="bg-white p-8 rounded-lg shadow-md w-[400px] h-fit"
-              >
-                <h2 className="text-2xl font-bold text-center text-green-600 mb-6">
-                  Donor Registration
-                </h2>
-
-                {/* Name */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                  />
-                </div>
-
-                {/* Age */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">Age</label>
-                  <input
-                    type="number"
-                    placeholder="Age"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                  />
-                </div>
-
-                {/* Contact */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    Contact
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="Contact Number"
-                    value={contact}
-                    onChange={(e) => setContact(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                  />
-                </div>
-
-                {/* Email */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
-                  />
-                </div>
-
-                {/* Password */}
-                <div className="mb-6 relative">
-                  <label className="block text-gray-700 font-medium">Set Password</label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => handlePasswordChange(e.target.value)}
-                    required
-                    className={`w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                      Object.values(passwordChecks).every((v) => v)
-                        ? "focus:ring-green-400"
-                        : "focus:ring-purple-400"
-                    }`}
-                  />
-                  <button
-                    type="button"
-                    className="absolute right-4 top-10"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    <img
-                      src={showPassword ? "/eye-open.png" : "/eye-closed.png"}
-                      alt="Toggle Password"
-                      className="w-6 h-6 invert-50 cursor-pointer"
-                    />
-                  </button>
-
-                  {/* Password rule indicators */}
-                  <div className="mt-2 text-sm text-gray-700 space-y-1">
-                    <p className={passwordChecks.length ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.length ? "✔" : "✘"} At least 8 characters
-                    </p>
-                    <p className={passwordChecks.upper ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.upper ? "✔" : "✘"} At least one uppercase letter
-                    </p>
-                    <p className={passwordChecks.lower ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.lower ? "✔" : "✘"} At least one lowercase letter
-                    </p>
-                    <p className={passwordChecks.number ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.number ? "✔" : "✘"} At least one number
-                    </p>
-                    <p className={passwordChecks.symbol ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.symbol ? "✔" : "✘"} At least one special character
-                    </p>
-                  </div>
-                </div>
-
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg cursor-pointer"
-                >
-                  Register
-                </button>
-              </form>
-            </div>
-          )}
-
-          {userType === "Hospital" && isSignup === false && (
-            <div className="bg-purple-900/50 flex items-center justify-center h-full">
-              <div className="bg-purple-100 p-8 rounded-lg shadow-md w-full max-w-md">
-                <h2 className="text-xl font-bold text-purple-700 mb-4">
-                  New Hospital ?
-                </h2>
-                <p className="text-purple-700 mb-6">
-                  Sign up now to manage blood donations and requests
-                  efficiently.
-                </p>
-                <button
-                  onClick={() => {
-                    setUserType("Hospital");
-                    setIsSignup(true);
-                  }}
-                  className="bg-white text-purple-700 font-semibold py-2 px-4 rounded-full w-full hover:bg-gray-100 cursor-pointer"
-                >
-                  Sign Up
-                </button>
-              </div>
-            </div>
-          )}
-
-          {userType === "Hospital" && isSignup && (
-            <div className="flex justify-center bg-purple-800/5 h-full overflow-y-scroll ">
-              <form
-                onSubmit={handleHospitalSignup}
-                className="bg-white p-8 rounded-lg shadow-md h-fit w-full"
-              >
-                <h2 className="text-2xl font-bold text-center text-purple-600 mb-6">
-                  Hospital Registration
-                </h2>
-
-                {/* Name */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  />
-                </div>
-
-                {/* License */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    License Number
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="License"
-                    value={license}
-                    onChange={(e) => setLicense(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  />
-                </div>
-
-                {/* Contact */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    Contact
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="Contact Number"
-                    value={contact}
-                    onChange={(e) => setContact(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  />
-                </div>
-
-                {/* Email */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  />
-                </div>
-
-                {/* Password */}
-                <div className="mb-6 relative">
-                  <label className="block text-gray-700 font-medium">Set Password</label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => handlePasswordChange(e.target.value)}
-                    required
-                    className={`w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                      Object.values(passwordChecks).every((v) => v)
-                        ? "focus:ring-green-400"
-                        : "focus:ring-purple-400"
-                    }`}
-                  />
-                  <button
-                    type="button"
-                    className="absolute right-4 top-10"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    <img
-                      src={showPassword ? "/eye-open.png" : "/eye-closed.png"}
-                      alt="Toggle Password"
-                      className="w-6 h-6 invert-50 cursor-pointer"
-                    />
-                  </button>
-
-                  {/* Password rule indicators */}
-                  <div className="mt-2 text-sm text-gray-700 space-y-1">
-                    <p className={passwordChecks.length ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.length ? "✔" : "✘"} At least 8 characters
-                    </p>
-                    <p className={passwordChecks.upper ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.upper ? "✔" : "✘"} At least one uppercase letter
-                    </p>
-                    <p className={passwordChecks.lower ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.lower ? "✔" : "✘"} At least one lowercase letter
-                    </p>
-                    <p className={passwordChecks.number ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.number ? "✔" : "✘"} At least one number
-                    </p>
-                    <p className={passwordChecks.symbol ? "text-green-600" : "text-red-500"}>
-                      {passwordChecks.symbol ? "✔" : "✘"} At least one special character
-                    </p>
-                  </div>
-                </div>
-
-
-                {/* State */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    State
-                  </label>
-                  <select
-                    value={state}
-                    onChange={(e) => {
-                      setState(e.target.value);
-                      fetchDistricts(e.target.value);
-                    }}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  >
-                    <option value="">Select State</option>
-                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                    <option value="Assam">Assam</option>
-                    <option value="Bihar">Bihar</option>
-                    <option value="Chhattisgarh">Chhattisgarh</option>
-                    <option value="Goa">Goa</option>
-                    <option value="Gujarat">Gujarat</option>
-                    <option value="Haryana">Haryana</option>
-                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                    <option value="Jharkhand">Jharkhand</option>
-                    <option value="Karnataka">Karnataka</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Manipur">Manipur</option>
-                    <option value="Meghalaya">Meghalaya</option>
-                    <option value="Mizoram">Mizoram</option>
-                    <option value="Nagaland">Nagaland</option>
-                    <option value="Odisha">Odisha</option>
-                    <option value="Punjab">Punjab</option>
-                    <option value="Rajasthan">Rajasthan</option>
-                    <option value="Sikkim">Sikkim</option>
-                    <option value="Tamil Nadu">Tamil Nadu</option>
-                    <option value="Telangana">Telangana</option>
-                    <option value="Tripura">Tripura</option>
-                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                    <option value="Uttarakhand">Uttarakhand</option>
-                    <option value="West Bengal">West Bengal</option>
-                    <option value="Andaman and Nicobar Islands">
-                      Andaman and Nicobar Islands
-                    </option>
-                    <option value="Chandigarh">Chandigarh</option>
-                    <option value="Dadra and Nagar Haveli and Daman and Diu">
-                      Dadra and Nagar Haveli and Daman and Diu
-                    </option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Lakshadweep">Lakshadweep</option>
-                    <option value="Puducherry">Puducherry</option>
-                  </select>
-                </div>
-
-                {/* District */}
-                <div className="mb-4">
-                  <label className="block text-gray-700 font-medium">
-                    District
-                  </label>
-                  <select
-                    value={district}
-                    onChange={(e) => setDistrict(e.target.value)}
-                    required
-                    className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
-                    disabled={!districts.length} // Disable if no districts are available
-                  >
-                    <option value="">Select District</option>
-                    {districts.map((district, index) => (
-                      <option key={index} value={district.district}>
-                        {district.district}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-lg cursor-pointer"
-                >
-                  Register
-                </button>
-              </form>
-            </div>
-          )}
-        </div>
+              <button type="submit" className="w-full bg-gradient-to-r from-purple-600 to-indigo-400 hover:from-purple-700 hover:to-indigo-500 text-white font-semibold py-3 rounded-xl transition-all text-lg tracking-wide shadow-md mt-4">Register</button>
+            </motion.form>
+          </div>
+        )}
       </div>
     </div>
   );
