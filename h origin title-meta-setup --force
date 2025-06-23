@@ -1,0 +1,255 @@
+* [33mcb658b0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mtitle-meta-setup[m[33m, [m[1;31morigin/title-meta-setup[m[33m, [m[1;32mmain[m[33m)[m Add page titles and favicons using PageMeta
+*   [33me562f09[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge pull request #74 from Webwizzz22/main
+[32m|[m[33m\[m  
+[32m|[m * [33mdd3e139[m issue #43 resolved
+* [33m|[m   [33m5afa24c[m Merge pull request #67 from MayankV004/issue-18-MayankV004
+[34m|[m[35m\[m [33m\[m  
+[34m|[m * [33m|[m [33mca4f876[m made changes in the fetchHospitals function in PatientDashboard file
+[34m|[m * [33m|[m [33mda54f7a[m made changes in the fetchHospitals function in PatientDashboard file
+* [35m|[m [33m|[m   [33mcec2e7b[m Merge pull request #75 from manavi-24/manavi
+[33m|[m[1;31m\[m [35m\[m [33m\[m  
+[33m|[m [1;31m|[m[33m_[m[35m|[m[33m/[m  
+[33m|[m[33m/[m[1;31m|[m [35m|[m   
+[33m|[m * [35m|[m [33m5b18ae9[m add dark/light mode to all pages
+[33m|[m[33m/[m [35m/[m  
+* [35m|[m   [33mfc9042f[m Merge pull request #68 from Dipanita45/main
+[1;32m|[m[1;33m\[m [35m\[m  
+[1;32m|[m * [35m|[m [33mf641076[m Added the code of conduct
+[1;32m|[m [35m|[m[35m/[m  
+* [35m|[m   [33m8f25d0f[m Merge pull request #70 from ayushjava07/signup-password-issue
+[1;34m|[m[1;35m\[m [35m\[m  
+[1;34m|[m * [35m|[m [33m844a7eb[m Minor fixes:change the url of apiconfig.js
+[1;34m|[m * [35m|[m [33mb127c38[m Enhanced password validator and improved swal error timing
+* [1;35m|[m [35m|[m   [33m4486ec0[m Merge pull request #71 from YashChauhan-2303/main
+[1;35m|[m[31m\[m [1;35m\[m [35m\[m  
+[1;35m|[m [31m|[m[1;35m/[m [35m/[m  
+[1;35m|[m[1;35m/[m[31m|[m [35m|[m   
+[1;35m|[m * [35m|[m [33m707e915[m Fixed: Signup fails despite strong password entered #66
+[1;35m|[m[1;35m/[m [35m/[m  
+* [35m|[m   [33m925246b[m Merge pull request #69 from snehaapratap/main
+[35m|[m[33m\[m [35m\[m  
+[35m|[m [33m|[m[35m/[m  
+[35m|[m[35m/[m[33m|[m   
+[35m|[m * [33m912b41f[m ✨ Added Prophet-based time series forecasting for blood demand
+[35m|[m[35m/[m  
+*   [33m94c0950[m Merge pull request #60 from dishaagrawalcodes/blog/content-update
+[34m|[m[35m\[m  
+[34m|[m *   [33mbc019ae[m Merge branch 'blog/content-update' of https://github.com/dishaagrawalcodes/RaktConnect into blog/content-update
+[34m|[m [36m|[m[1;31m\[m  
+[34m|[m [36m|[m *   [33m8503fbb[m Merge branch 'main' into blog/content-update
+[34m|[m [36m|[m [1;32m|[m[1;33m\[m  
+[34m|[m * [1;32m|[m [1;33m|[m [33m2905ffc[m solved y issue
+[34m|[m [1;32m|[m[1;32m/[m [1;33m/[m  
+[34m|[m * [1;33m|[m [33md0ea3e8[m solved blog issue and error
+* [1;33m|[m [1;33m|[m   [33m3405fd2[m Merge pull request #63 from aryanguptacsvtu/add-security-raktConnect
+[1;34m|[m[1;35m\[m [1;33m\[m [1;33m\[m  
+[1;34m|[m * [1;33m|[m [1;33m|[m [33m8e6cc5f[m SECURITY.md
+[1;34m|[m [1;33m|[m [1;33m|[m[1;33m/[m  
+[1;34m|[m [1;33m|[m[1;33m/[m[1;33m|[m   
+* [1;33m|[m [1;33m|[m   [33m1c69091[m Merge pull request #64 from YashChauhan-2303/main
+[1;36m|[m[31m\[m [1;33m\[m [1;33m\[m  
+[1;36m|[m * [1;33m|[m [1;33m|[m [33md32bafb[m Fixed:Contact Form Allows Empty Name and Email Fields #49
+[1;36m|[m [32m|[m[1;33m\[m[1;33m|[m [1;33m|[m 
+[1;36m|[m * [1;33m|[m [1;33m|[m [33m9c01cb7[m Fixed:Contact Form Allows Empty Name and Email Fields #49
+[1;36m|[m [1;33m|[m [1;33m|[m[1;33m/[m  
+[1;36m|[m [1;33m|[m[1;33m/[m[1;33m|[m   
+* [1;33m|[m [1;33m|[m   [33m1761620[m Merge pull request #65 from ayushjava07/donor-auth-fix
+[1;33m|[m[35m\[m [1;33m\[m [1;33m\[m  
+[1;33m|[m [35m|[m[1;33m_[m[1;33m|[m[1;33m/[m  
+[1;33m|[m[1;33m/[m[35m|[m [1;33m|[m   
+[1;33m|[m * [1;33m|[m [33m64ed16d[m Fix: Donor auth issue and improved toast design
+[1;33m|[m * [1;33m|[m [33m7da85ea[m Improved toast UI, added redirect, and fixed error handling in donor auth
+[1;33m|[m[1;33m/[m [1;33m/[m  
+* [1;33m|[m   [33m7015717[m Merge pull request #53 from Vitalvarma/bugfix/donor-login-route-error
+[36m|[m[1;31m\[m [1;33m\[m  
+[36m|[m * [1;33m|[m [33mebf7aef[m fixed_bug_in_donor_login_route
+[36m|[m [1;33m|[m[1;33m/[m  
+* [1;33m|[m   [33mb0ee778[m Merge pull request #39 from Sanjna07/Searchbar
+[1;33m|[m[1;33m\[m [1;33m\[m  
+[1;33m|[m [1;33m|[m[1;33m/[m  
+[1;33m|[m[1;33m/[m[1;33m|[m   
+[1;33m|[m * [33m793aa33[m fix #9: Added a search bar for blood banks
+* [1;33m|[m   [33mdf3c457[m Merge pull request #36 from DivyaMandve/enhanced-disease-ui
+[1;34m|[m[1;35m\[m [1;33m\[m  
+[1;34m|[m * [1;33m|[m [33m8c50815[m Merge branch 'main' into enhanced-disease-ui
+[1;34m|[m [1;36m|[m[1;33m\[m[1;33m|[m 
+[1;34m|[m * [1;33m|[m [33mb2c546a[m Enhanced Disease Predictor with auto-suggestions, red UI theme, and motivational quote rotation
+* [31m|[m [1;33m|[m   [33m2134af0[m Merge pull request #13 from Ranganivandan/main
+[32m|[m[33m\[m [31m\[m [1;33m\[m  
+[32m|[m * [31m\[m [1;33m\[m   [33m879281f[m Merge branch 'main' into main
+[32m|[m [34m|[m[32m\[m [31m\[m [1;33m\[m  
+[32m|[m [34m|[m[32m/[m [31m/[m [1;33m/[m  
+[32m|[m[32m/[m[34m|[m [31m|[m [1;33m|[m   
+* [34m|[m [31m|[m [1;33m|[m   [33mcb96c00[m Merge pull request #32 from aryann2319/feat/eligibility-test-page
+[36m|[m[1;31m\[m [34m\[m [31m\[m [1;33m\[m  
+[36m|[m * [34m\[m [31m\[m [1;33m\[m   [33m0ed8323[m Merge branch 'main' into feat/eligibility-test-page
+[36m|[m [1;32m|[m[36m\[m [34m\[m [31m\[m [1;33m\[m  
+[36m|[m [1;32m|[m[36m/[m [34m/[m [31m/[m [1;33m/[m  
+[36m|[m[36m/[m[1;32m|[m [34m|[m [31m|[m [1;33m|[m   
+* [1;32m|[m [34m|[m [31m|[m [1;33m|[m   [33m7a9c5d5[m Merge pull request #40 from AnoushkaSamanta/issue-8-anoushkasamanta
+[1;34m|[m[1;35m\[m [1;32m\[m [34m\[m [31m\[m [1;33m\[m  
+[1;34m|[m * [1;32m\[m [34m\[m [31m\[m [1;33m\[m   [33m7930031[m Merge branch 'main' into issue-8-anoushkasamanta
+[1;34m|[m [1;36m|[m[1;34m\[m [1;32m\[m [34m\[m [31m\[m [1;33m\[m  
+[1;34m|[m [1;36m|[m[1;34m/[m [1;32m/[m [34m/[m [31m/[m [1;33m/[m  
+[1;34m|[m[1;34m/[m[1;36m|[m [1;32m|[m [34m|[m [31m|[m [1;33m|[m   
+* [1;36m|[m [1;32m|[m [34m|[m [31m|[m [1;33m|[m   [33m6437cdf[m Merge pull request #30 from Vitalvarma/BUGFIX_replace_className_with_class
+[32m|[m[33m\[m [1;36m\[m [1;32m\[m [34m\[m [31m\[m [1;33m\[m  
+[32m|[m * [1;36m|[m [1;32m|[m [34m|[m [31m|[m [1;33m|[m [33m442bb87[m sloved bug in app.jsx(class->className)
+[32m|[m [1;33m|[m [1;36m|[m[1;33m_[m[1;32m|[m[1;33m_[m[34m|[m[1;33m_[m[31m|[m[1;33m/[m  
+[32m|[m [1;33m|[m[1;33m/[m[1;36m|[m [1;32m|[m [34m|[m [31m|[m   
+* [1;33m|[m [1;36m|[m [1;32m|[m [34m|[m [31m|[m   [33m949ff23[m Merge pull request #46 from Mitali-119/add-footer-to-all-pages
+[34m|[m[35m\[m [1;33m\[m [1;36m\[m [1;32m\[m [34m\[m [31m\[m  
+[34m|[m * [1;33m|[m [1;36m|[m [1;32m|[m [34m|[m [31m|[m [33m7210726[m Added Footer component to all pages
+[34m|[m [1;33m|[m[1;33m/[m [1;36m/[m [1;32m/[m [34m/[m [31m/[m  
+* [1;33m|[m [1;36m|[m [1;32m|[m [34m|[m [31m|[m   [33md4dc6e9[m Merge pull request #47 from Samriddhi903/fix/adding-functionality-to-buttons-on-about-page
+[1;33m|[m[1;31m\[m [1;33m\[m [1;36m\[m [1;32m\[m [34m\[m [31m\[m  
+[1;33m|[m [1;31m|[m[1;33m/[m [1;36m/[m [1;32m/[m [34m/[m [31m/[m  
+[1;33m|[m[1;33m/[m[1;31m|[m [1;36m|[m [1;32m|[m [34m|[m [31m|[m   
+[1;33m|[m * [1;36m|[m [1;32m|[m [34m|[m [31m|[m [33m6590650[m fix:sign in route added at sign in link and added functionality to buttons find a donation center and become a donor
+[1;33m|[m[1;33m/[m [1;36m/[m [1;32m/[m [34m/[m [31m/[m  
+[1;33m|[m * [1;32m/[m [34m/[m [31m/[m [33m5f31dd9[m Issue #8 :UI Enhancement
+[1;33m|[m[1;33m/[m [1;32m/[m [34m/[m [31m/[m  
+[1;33m|[m * [34m|[m [31m|[m   [33mcf7beb7[m Merge branch 'main' into feat/eligibility-test-page
+[1;33m|[m [1;32m|[m[1;33m\[m [34m\[m [31m\[m  
+[1;33m|[m [1;32m|[m[1;33m/[m [34m/[m [31m/[m  
+[1;33m|[m[1;33m/[m[1;32m|[m [34m|[m [31m|[m   
+* [1;32m|[m [34m|[m [31m|[m   [33m74d11cf[m Merge pull request #19 from SK8-infi/main
+[1;34m|[m[1;35m\[m [1;32m\[m [34m\[m [31m\[m  
+[1;34m|[m * [1;32m|[m [34m|[m [31m|[m [33maa40cd2[m Update README.md
+[1;34m|[m * [1;32m|[m [34m|[m [31m|[m [33m5592115[m Create LICENSE
+[1;34m|[m [31m|[m [1;32m|[m[31m_[m[34m|[m[31m/[m  
+[1;34m|[m [31m|[m[31m/[m[1;32m|[m [34m|[m   
+* [31m|[m [1;32m|[m [34m|[m   [33mc4ab96d[m Merge pull request #20 from arthavjain103/fix/FAQ-content-update
+[1;36m|[m[31m\[m [31m\[m [1;32m\[m [34m\[m  
+[1;36m|[m * [31m|[m [1;32m|[m [34m|[m [33m5b25163[m FIX #6: updated FAQ content with categorywise FAQ
+[1;36m|[m [31m|[m[31m/[m [1;32m/[m [34m/[m  
+* [31m|[m [1;32m|[m [34m|[m   [33m6242157[m Merge pull request #21 from Vitalvarma/new-feature-toast-notification
+[31m|[m[33m\[m [31m\[m [1;32m\[m [34m\[m  
+[31m|[m [33m|[m[31m/[m [1;32m/[m [34m/[m  
+[31m|[m[31m/[m[33m|[m [1;32m|[m [34m|[m   
+[31m|[m * [1;32m|[m [34m|[m [33m4054a0d[m added toast feature
+* [33m|[m [1;32m|[m [34m|[m   [33m812ed33[m Merge pull request #17 from adwityac/adwityac
+[33m|[m[35m\[m [33m\[m [1;32m\[m [34m\[m  
+[33m|[m [35m|[m[33m/[m [1;32m/[m [34m/[m  
+[33m|[m[33m/[m[35m|[m [1;32m|[m [34m|[m   
+[33m|[m * [1;32m|[m [34m|[m [33m61d8a53[m added conttributing.md
+[33m|[m[33m/[m [1;32m/[m [34m/[m  
+[33m|[m * [34m/[m [33ma6071d3[m Donor Eligibility Functionality
+[33m|[m[33m/[m [34m/[m  
+[33m|[m * [33m1ea8692[m change url
+[33m|[m * [33ma7f1677[m update BASE URL for production ready code
+[33m|[m * [33mf57ab55[m create file to make base url
+[33m|[m[33m/[m  
+*   [33m3c2a2dd[m Merge pull request #1 from adityas1309/adityas1309-patch-1
+[36m|[m[1;31m\[m  
+[36m|[m * [33ma8aafd5[m Update About.jsx
+[36m|[m[36m/[m  
+*   [33m6e51106[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33m70a4d67[m Update app.js
+* [1;33m|[m [33m394ae3c[m Update API endpoints to use Vercel server URLs
+[1;33m|[m[1;33m/[m  
+* [33m60fe9c3[m OLD AUTH PAGE
+* [33m0bad121[m Auth Page UI update
+* [33mb97d3ff[m Backend vercel.json
+* [33macbe0f7[m Api Limit increase
+* [33m6db83a9[m Update README.md
+* [33m27dd0b2[m Update BloodRequestManagement.jsx
+* [33m362f57e[m .
+* [33me62b745[m Deploy Fix
+* [33m8de4e49[m Typo FIx
+* [33m72f9e2b[m .
+*   [33mfa5aa32[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33m2886d9c[m dates changes
+[1;34m|[m *   [33mcd40d31[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[1;34m|[m [1;36m|[m[31m\[m  
+[1;34m|[m * [31m|[m [33mb298388[m blood request management working
+* [31m|[m [31m|[m [33m736b306[m deploying
+[31m|[m [31m|[m[31m/[m  
+[31m|[m[31m/[m[31m|[m   
+* [31m|[m [33maf541d9[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[32m|[m[31m\[m[31m|[m 
+[32m|[m * [33m2470c7e[m blood request management
+* [33m|[m [33m3cf2b7c[m Graph Change
+[33m|[m[33m/[m  
+* [33md25a3b3[m donor dashboard ui improved
+*   [33ma428c3a[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[34m|[m[35m\[m  
+[34m|[m *   [33m46d158c[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[34m|[m [36m|[m[1;31m\[m  
+[34m|[m * [1;31m|[m [33m857866b[m blood donation schema
+* [1;31m|[m [1;31m|[m [33m3ca1e11[m Fetching Blood Banks through API
+[1;31m|[m [1;31m|[m[1;31m/[m  
+[1;31m|[m[1;31m/[m[1;31m|[m   
+* [1;31m|[m [33m62dc258[m Donor Second Registration
+* [1;31m|[m [33maa02c10[m Working Donor API
+[1;31m|[m[1;31m/[m  
+* [33mee339cf[m donor update
+*   [33mc720d98[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33m04abb04[m DONOR NEW
+[1;32m|[m * [33m6aff20a[m AI HAEMOGLOBIN PREDICTOR
+* [1;33m|[m [33mfb79414[m .
+[1;33m|[m[1;33m/[m  
+*   [33mc9d523f[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[1;34m|[m[1;35m\[m  
+[1;34m|[m * [33mdc004ef[m few changes
+* [1;35m|[m [33m88e413d[m donor registration
+[1;35m|[m[1;35m/[m  
+* [33mf313822[m updating gitignore
+*   [33m3577f7f[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[1;36m|[m[31m\[m  
+[1;36m|[m * [33mce88655[m adding donor routes
+[1;36m|[m * [33m5d49a1d[m Added donor section
+[1;36m|[m *   [33mced9b57[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[1;36m|[m [32m|[m[33m\[m  
+[1;36m|[m [32m|[m *   [33m7a433a0[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[1;36m|[m [32m|[m [34m|[m[35m\[m  
+[1;36m|[m [32m|[m * [35m|[m [33m29cabef[m update navbar
+[1;36m|[m * [35m|[m [35m|[m [33m26667e3[m blood requests, history, cancelling
+[1;36m|[m [35m|[m[35m/[m [35m/[m  
+* [35m|[m [35m/[m [33mf9e5888[m AI Blood Demand Integration
+[35m|[m [35m|[m[35m/[m  
+[35m|[m[35m/[m[35m|[m   
+* [35m|[m [33me9acbb5[m hospital segment added
+[35m|[m[35m/[m  
+* [33m6f0a2ee[m Typo fixed
+* [33m93bb291[m Updated the navbar components.
+* [33mbff12fb[m added patient child routes
+* [33mc253528[m corrected routing
+*   [33meb2b976[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[36m|[m[1;31m\[m  
+[36m|[m * [33m53b19c6[m auth backend
+* [1;31m|[m [33m510b95e[m Patient Segment added
+[1;31m|[m[1;31m/[m  
+*   [33m777f889[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33mc062dca[m improve landing page and added loader
+[1;32m|[m *   [33m111a139[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[1;32m|[m [1;34m|[m[1;35m\[m  
+[1;32m|[m [1;34m|[m * [33m9f37d51[m contact us
+[1;32m|[m [1;34m|[m * [33m07fc4bc[m about section
+[1;32m|[m * [1;35m|[m [33m34818f1[m blood request schema
+[1;32m|[m [1;35m|[m[1;35m/[m  
+[1;32m|[m *   [33m6aef107[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[1;32m|[m [1;36m|[m[31m\[m  
+[1;32m|[m [1;36m|[m * [33m0a2fee9[m updating readme
+[1;32m|[m * [31m|[m [33mc3c5ef3[m added user schemas
+[1;32m|[m [31m|[m[31m/[m  
+* [31m/[m [33m2035d2b[m Login and Signup Authentication
+[31m|[m[31m/[m  
+*   [33mc6a3965[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[32m|[m[33m\[m  
+[32m|[m * [33m066e001[m Added Navbar
+* [33m|[m [33mc0f46f8[m HeroSection added with video
+[33m|[m[33m/[m  
+* [33me252af9[m connecting footer to landing page
+*   [33m00c4cc4[m Merge branch 'main' of https://github.com/adityas1309/RaktConnect
+[34m|[m[35m\[m  
+[34m|[m * [33mfb03789[m added footer
+[34m|[m * [33m17bf73f[m app setup and initial routing
+* [35m|[m [33mf428a56[m db connected
+[35m|[m[35m/[m  
+* [33m7550b24[m INITIAL SETUP
+* [33m0271e03[m Initial commit
