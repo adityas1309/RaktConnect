@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
-
+import PageMeta from "../../common/PageMeta";
 const API_URL = "https://raktconnect-ai-backend.onrender.com/predict/bloodDemand"; 
 
 const BloodDemandChart = () => {
@@ -30,6 +30,8 @@ const BloodDemandChart = () => {
   if (error) return <p className="text-center text-red-500">Error: {error}</p>;
 
   return (
+    <>
+     <PageMeta title="Demand | RaktConnect" />
     <div className="p-6 bg-white shadow-lg rounded-lg">
       <h3 className="text-xl font-semibold mb-4 text-gray-700 text-center">Blood Demand Forecast</h3>
       {predictions.length > 0 ? (
@@ -49,6 +51,7 @@ const BloodDemandChart = () => {
         <p className="text-center text-gray-500">No prediction data available</p>
       )}
     </div>
+    </>
   );
 };
 

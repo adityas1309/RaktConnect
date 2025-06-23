@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaUser, FaTint, FaCalendarAlt, FaNotesMedical } from "react-icons/fa";
 import BASE_URL from "../../apiConfig";
-
+import PageMeta from "../common/PageMeta";
 const DonorProfile = () => {
   const [donor, setDonor] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -51,6 +51,8 @@ const DonorProfile = () => {
   }
 
   return (
+    <>
+     <PageMeta title="DonorProfile | RaktConnect" />
     <div className="p-8 bg-gray-50 min-h-screen">
       <div className="w-full mx-auto bg-white p-8 shadow-lg rounded-lg space-y-6">
         <h3 className="text-2xl font-semibold text-gray-800 border-b-2 pb-4 mb-6">
@@ -89,6 +91,7 @@ const DonorProfile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

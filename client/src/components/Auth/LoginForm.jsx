@@ -7,6 +7,9 @@ const LoginForm = ({ title, color, submit, email, setEmail, password, setPasswor
   
 
   return (
+    <>
+    <PageMeta title="Login | RaktConnect" />
+
     <div className="flex justify-center items-center bg-calm/5 h-full">
       <form
         onSubmit={submit}
@@ -59,6 +62,7 @@ const LoginForm = ({ title, color, submit, email, setEmail, password, setPasswor
         </button>
       </form>
     </div>
+    </>
   );
 };
 

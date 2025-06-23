@@ -37,6 +37,7 @@ const PatientNavbar = () => {
   };
 
   return (
+    <>
     <header
       className={`w-full bg-gray-100 transition-all duration-400 text-black`}
     >
@@ -179,6 +180,7 @@ const PatientNavbar = () => {
         )}
       </AnimatePresence>
     </header>
+    </>
   );
 };
 

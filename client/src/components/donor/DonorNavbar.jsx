@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaUserCircle, FaBell } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
 import { Link, useNavigate } from "react-router";
-
+import PageMeta from "../common/PageMeta";
 const DonorNavbar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -37,6 +37,8 @@ const DonorNavbar = () => {
   };
 
   return (
+    <>
+     <PageMeta title="DonorDashboard | RaktConnect" />
     <header className={`w-full bg-gray-100 transition-all duration-400 text-black`}>
       <div className="flex justify-between items-center w-full mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <motion.div
@@ -173,6 +175,7 @@ const DonorNavbar = () => {
         )}
       </AnimatePresence>
     </header>
+    </>
   );
 };
 

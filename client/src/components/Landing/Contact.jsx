@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import PageMeta from '../common/PageMeta';
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -40,6 +40,9 @@ const Contact = () => {
   };
 
   return (
+    <>
+    <PageMeta title="Contact | RaktConnect" />
+
     <div
       className="relative min-h-screen py-16 px-4 sm:px-6 lg:px-8"
       style={{
@@ -194,6 +197,7 @@ const Contact = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import LoginForm from "./LoginForm";
 import BASE_URL from "../../apiConfig";
 import { toast } from "react-toastify";
+import PageMeta from "../common/PageMeta";
 function Auth() {
   const [userType, setUserType] = useState("Patient");
   const [isSignup, setIsSignup] = useState(false);
@@ -432,6 +433,8 @@ function Auth() {
     }
   };
   return (
+    <>
+    <PageMeta title="RaktConnect" />
     <div className="w-[100%] h-fit min-h-screen flex justify-evenly items-center flex-col justify-self-center bg-calm/10">
       <div className="flex flex-row items-center justify-evenly h-fit gap-2.5">
         <button
@@ -1130,6 +1133,7 @@ function Auth() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

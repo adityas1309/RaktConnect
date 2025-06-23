@@ -34,6 +34,7 @@ const Footer = () => {
   };
 
   return (
+    <>
     <motion.footer 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -112,6 +113,7 @@ const Footer = () => {
         </motion.div>
       </div>
     </motion.footer>
+    </>
   );
 };
 
