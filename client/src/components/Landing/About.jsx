@@ -13,25 +13,25 @@ const About = () => {
         color: "var(--text-main)"
       }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Hero Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
           className="text-center mb-20"
         >
           <motion.div
-            initial={{ scale: 0.9 }}
+            initial={{ scale: 0.6 }}
             animate={{ scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="bg-gradient-to-r from-red-500 to-pink-600 text-white text-sm font-semibold px-6 py-2 rounded-full inline-block mb-8 shadow-lg"
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="bg-gradient-to-r from-red-500 to-red-700 text-white text-md font-semibold px-9 py-4 rounded-full inline-block mb-8 shadow-lg shadow-red-300 border border-white"
           >
             Life-Saving Community
           </motion.div>
           
           <motion.h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-pink-700 mb-6 leading-tight"
+            className="text-6xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent py-10 bg-gradient-to-r from-red-600 to-red-800 border-gray-300 border-y-2 mb-6 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -40,8 +40,8 @@ const About = () => {
           </motion.h1>
           
           <motion.p
-            className="text-xl max-w-3xl mx-auto"
-            style={{ color: "var(--text-muted)" }}
+            className="text-2xl max-w-3xl mx-auto bg-clip-text text-transparent bg-gray-700"
+            
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -58,51 +58,35 @@ const About = () => {
           transition={{ delay: 0.6 }}
         >
           <div
-            className="rounded-2xl p-6 text-center shadow-xl border"
-            style={{
-              background: "var(--bg-surface)",
-              borderColor: "rgba(200,0,0,0.08)",
-              color: "var(--text-main)"
-            }}
+            className="rounded-2xl p-6 bg-red-50 border-2 border-red-300 hover:border-2 hover:border-red-500 hover:bg- text-center shadow-xl  hover:scale-110 transition-all duration-300 hover:shadow-red-200 "
+            
           >
             <div className="text-4xl font-bold" style={{ color: "var(--accent)" }}>50K+</div>
-            <div className="mt-2" style={{ color: "var(--text-muted)" }}>Lives Saved</div>
+            <div className="mt-2 text-gray-700 text-xl font-medium" >Lives Saved</div>
           </div>
           
           <div
-            className="rounded-2xl p-6 text-center shadow-xl border"
-            style={{
-              background: "var(--bg-surface)",
-              borderColor: "rgba(200,0,0,0.08)",
-              color: "var(--text-main)"
-            }}
+            className="rounded-2xl p-6 bg-red-50 border-2 border-red-300 hover:border-2 hover:border-red-500 hover:bg- text-center shadow-xl  hover:scale-110 transition-all duration-300 hover:shadow-red-200"
+         
           >
             <div className="text-4xl font-bold" style={{ color: "var(--accent)" }}>120K+</div>
-            <div className="mt-2" style={{ color: "var(--text-muted)" }}>Donors</div>
+            <div className="mt-2 text-gray-700 text-xl font-medium">Donors</div>
           </div>
           
           <div
-            className="rounded-2xl p-6 text-center shadow-xl border"
-            style={{
-              background: "var(--bg-surface)",
-              borderColor: "rgba(200,0,0,0.08)",
-              color: "var(--text-main)"
-            }}
+            className="rounded-2xl p-6 bg-red-50 border-2 border-red-300 hover:border-2 hover:border-red-500 hover:bg- text-center shadow-xl  hover:scale-110 transition-all duration-300 hover:shadow-red-200"
+           
           >
             <div className="text-4xl font-bold" style={{ color: "var(--accent)" }}>500+</div>
-            <div className="mt-2" style={{ color: "var(--text-muted)" }}>Hospitals</div>
+            <div className="mt-2 text-gray-700 text-xl font-medium">Hospitals</div>
           </div>
           
           <div
-            className="rounded-2xl p-6 text-center shadow-xl border"
-            style={{
-              background: "var(--bg-surface)",
-              borderColor: "rgba(200,0,0,0.08)",
-              color: "var(--text-main)"
-            }}
+            className="rounded-2xl p-6 bg-red-50 border-2 border-red-300 hover:border-2 hover:border-red-500 hover:bg- text-center shadow-xl  hover:scale-110 transition-all duration-300 hover:shadow-red-200"
+          
           >
             <div className="text-4xl font-bold" style={{ color: "var(--accent)" }}>98%</div>
-            <div className="mt-2" style={{ color: "var(--text-muted)" }}>Success Rate</div>
+            <div className="mt-2 text-gray-700 text-xl font-medium">Success Rate</div>
           </div>
         </motion.div>
 
@@ -114,28 +98,26 @@ const About = () => {
           transition={{ delay: 0.8 }}
         >
           <div
-            className="relative bg-gradient-to-r from-red-500 to-pink-600 rounded-3xl shadow-2xl overflow-hidden"
-            style={{
-              background: "linear-gradient(to right, #ef4444, #ec4899)"
-            }}
+            className="relative  border-2 border-red-300 bg-gradient-to-r from-red-500 to-red-500 rounded-3xl shadow-2xl shadow-red-300 overflow-hidden p-10"
+           
+            
           >
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48Y2lyY2xlIGN4PSIyMCIgY3k9IjIwIiByPSIxIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3N2Zz4=')] opacity-20"></div>
-            <div className="relative z-10 p-10 md:p-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 text-center">Our Mission</h2>
-              <p className="text-xl text-white leading-relaxed text-center max-w-4xl mx-auto">
+          
+              <h2 className="text-5xl md:text-4xl font-bold  text-white mb-6 text-center">Our Mission</h2>
+              <p className="text-xl text-white leading-snug text-center max-w-4xl mx-auto ">
                 To create a reliable, efficient, and transparent platform that connects blood donors with 
                 hospitals and patients in need, ensuring timely access to safe blood supplies while 
                 promoting a culture of regular blood donation.
               </p>
-            </div>
+           
           </div>
         </motion.div>
 
         {/* Features Section */}
         <div className="mb-20">
           <motion.h2 
-            className="text-3xl font-bold text-center mb-16"
-            style={{ color: "var(--text-main)" }}
+            className="text-5xl font-bold text-center mb-16"
+            
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
@@ -145,13 +127,9 @@ const About = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div 
-              whileHover={{ scale: 1.05, y: -10 }}
-              className="p-8 rounded-3xl shadow-xl border flex flex-col items-center text-center"
-              style={{
-                background: "var(--bg-surface)",
-                borderColor: "rgba(200,0,0,0.08)",
-                color: "var(--text-main)"
-              }}
+            
+              className=" hover:scale-105 transition-all duration-300 hover:border hover:border-white hover:bg-red-200 p-8 rounded-3xl shadow-xl border-2 border-red-500  flex flex-col items-center text-center"
+             
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2 }}
@@ -159,20 +137,16 @@ const About = () => {
               <div className="bg-red-100 w-20 h-20 rounded-full flex items-center justify-center mb-6">
                 <FaTint className="text-red-600 text-3xl" />
               </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: "var(--text-main)" }}>Simplified Donation</h3>
-              <p style={{ color: "var(--text-muted)" }}>
+              <h3 className="text-3xl font-bold mb-3 text-gray-900" >Simplified Donation</h3>
+              <p className='hover:text-black text-gray-700 text-lg'>
                 Intuitive platform connecting donors with verified blood banks and hospitals
               </p>
             </motion.div>
 
             <motion.div 
-              whileHover={{ scale: 1.05, y: -10 }}
-              className="p-8 rounded-3xl shadow-xl border flex flex-col items-center text-center"
-              style={{
-                background: "var(--bg-surface)",
-                borderColor: "rgba(200,0,0,0.08)",
-                color: "var(--text-main)"
-              }}
+             
+              className="hover:scale-105 transition-all duration-300 hover:border hover:border-white hover:bg-red-200 p-8 rounded-3xl shadow-xl border-2 border-red-500  flex flex-col items-center text-center"
+             
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.4 }}
@@ -180,20 +154,16 @@ const About = () => {
               <div className="bg-pink-100 w-20 h-20 rounded-full flex items-center justify-center mb-6">
                 <FaHandHoldingHeart className="text-pink-600 text-3xl" />
               </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: "var(--text-main)" }}>Community Driven</h3>
-              <p style={{ color: "var(--text-muted)" }}>
+              <h3 className="text-3xl font-bold mb-3 text-gray-900" >Community Driven</h3>
+              <p className='hover:text-black text-gray-700 text-lg'>
                 Powered by compassionate donors committed to saving lives daily
               </p>
             </motion.div>
 
             <motion.div 
               whileHover={{ scale: 1.05, y: -10 }}
-              className="p-8 rounded-3xl shadow-xl border flex flex-col items-center text-center"
-              style={{
-                background: "var(--bg-surface)",
-                borderColor: "rgba(200,0,0,0.08)",
-                color: "var(--text-main)"
-              }}
+              className="hover:scale-105 transition-all duration-300 hover:border hover:border-white hover:bg-red-200 p-8 rounded-3xl shadow-xl border-2 border-red-500  flex flex-col items-center text-center"
+             
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.6 }}
@@ -201,20 +171,16 @@ const About = () => {
               <div className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mb-6">
                 <FaShieldAlt className="text-blue-600 text-3xl" />
               </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: "var(--text-main)" }}>Safe & Verified</h3>
-              <p style={{ color: "var(--text-muted)" }}>
+             <h3 className="text-3xl font-bold mb-3 text-gray-900" >Safe & Verified</h3>
+              <p className='hover:text-black text-gray-700 text-lg'>
                 Rigorous screening and quality control for all donations
               </p>
             </motion.div>
 
             <motion.div 
-              whileHover={{ scale: 1.05, y: -10 }}
-              className="p-8 rounded-3xl shadow-xl border flex flex-col items-center text-center"
-              style={{
-                background: "var(--bg-surface)",
-                borderColor: "rgba(200,0,0,0.08)",
-                color: "var(--text-main)"
-              }}
+
+              className="hover:scale-105 transition-all duration-300 hover:border hover:border-white hover:bg-red-200 p-8 rounded-3xl shadow-xl border-2 border-red-500  flex flex-col items-center text-center"
+             
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8 }}
@@ -222,20 +188,16 @@ const About = () => {
               <div className="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mb-6">
                 <FaMapMarkerAlt className="text-purple-600 text-3xl" />
               </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: "var(--text-main)" }}>Location Tracking</h3>
-              <p style={{ color: "var(--text-muted)" }}>
+             <h3 className="text-3xl font-bold mb-3 text-gray-900" >Location Tracking</h3>
+              <p className='hover:text-black text-gray-700 text-lg'>
                 Find the nearest donation centers with real-time availability
               </p>
             </motion.div>
 
             <motion.div 
-              whileHover={{ scale: 1.05, y: -10 }}
-              className="p-8 rounded-3xl shadow-xl border flex flex-col items-center text-center"
-              style={{
-                background: "var(--bg-surface)",
-                borderColor: "rgba(200,0,0,0.08)",
-                color: "var(--text-main)"
-              }}
+              
+              className="hover:scale-105 transition-all duration-300 hover:border hover:border-white hover:bg-red-200 p-8 rounded-3xl shadow-xl border-2 border-red-500  flex flex-col items-center text-center"
+             
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.0 }}
@@ -243,20 +205,16 @@ const About = () => {
               <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mb-6">
                 <FaUsers className="text-green-600 text-3xl" />
               </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: "var(--text-main)" }}>Donor Network</h3>
-              <p style={{ color: "var(--text-muted)" }}>
+               <h3 className="text-3xl font-bold mb-3 text-gray-900" >Donor Network</h3>
+               <p className='hover:text-black text-gray-700 text-lg'>
                 Connect with other donors and organize community drives
               </p>
             </motion.div>
 
             <motion.div 
               whileHover={{ scale: 1.05, y: -10 }}
-              className="p-8 rounded-3xl shadow-xl border flex flex-col items-center text-center"
-              style={{
-                background: "var(--bg-surface)",
-                borderColor: "rgba(200,0,0,0.08)",
-                color: "var(--text-main)"
-              }}
+              className="hover:scale-105 transition-all duration-300 hover:border hover:border-white hover:bg-red-200 p-8 rounded-3xl shadow-xl border-2 border-red-500  flex flex-col items-center text-center"
+             
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.2 }}
@@ -264,8 +222,8 @@ const About = () => {
               <div className="bg-amber-100 w-20 h-20 rounded-full flex items-center justify-center mb-6">
                 <FaHeartbeat className="text-amber-600 text-3xl" />
               </div>
-              <h3 className="text-xl font-bold mb-3" style={{ color: "var(--text-main)" }}>Health Tracking</h3>
-              <p style={{ color: "var(--text-muted)" }}>
+               <h3 className="text-3xl font-bold mb-3 text-gray-900" >Health Tracking</h3>
+               <p className='hover:text-black text-gray-700 text-lg'>
                 Monitor your donation history and health impact
               </p>
             </motion.div>
@@ -274,25 +232,22 @@ const About = () => {
 
         {/* CTA Section */}
         <motion.div 
-          className="mt-16 rounded-3xl p-10 text-center shadow-2xl"
-          style={{
-            background: "linear-gradient(to right, #ef4444, #ec4899)",
-            color: "#fff"
-          }}
+          className="mt-16 rounded-3xl p-10 text-center shadow-2xl shadow-red-200 bg-red-500 "
+         
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.4 }}
         >
-          <h2 className="text-3xl font-bold mb-6">
+          <h2 className="text-4xl font-bold mb-6 text-white">
             Join Our Life-Saving Community
           </h2>
-          <p className="text-xl max-w-2xl mx-auto mb-8">
+          <p className="text-xl max-w-2xl mx-auto mb-8 text-white">
             Every donation matters. Become part of a network that's saved thousands of lives 
             and continues to make a difference daily.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <motion.button 
-              className="bg-white text-red-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-100 transition-colors shadow-lg"
+              className="bg-white cursor-pointer text-red-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-200 text-xl transition-colors shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate("/login")}
@@ -300,7 +255,7 @@ const About = () => {
               Become a Donor
             </motion.button>
             <motion.button 
-              className="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-colors"
+              className="bg-transparent border-2 cursor-pointer border-white text-white font-bold px-8 py-4 rounded-xl hover:bg-white/10 text-xl transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate("/banks")}
@@ -308,7 +263,7 @@ const About = () => {
               Find a Donation Center
             </motion.button>
           </div>
-          <div className="mt-8 text-white/80">
+          <div className="mt-8 text-white/80 text-lg">
             <p>Already a member? <a href="/login" className="text-white font-semibold underline">Sign in</a></p>
           </div>
         </motion.div>
@@ -320,7 +275,7 @@ const About = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 2.6 }}
         >
-          <h2 className="text-3xl font-bold text-center mb-12" style={{ color: "var(--text-main)" }}>Donor Stories</h2>
+          <h2 className="text-7xl py-20 border-y-4 border-red-400 font-bold text-center mb-12 ">Donor Stories</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div
               className="rounded-3xl p-8 shadow-lg"
@@ -330,7 +285,7 @@ const About = () => {
               }}
             >
               <div className="flex items-center mb-6">
-                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
+                <div className="bg-gray-200 border-2 border-red-200 rounded-xl w-16 h-16" />
                 <div className="ml-4">
                   <h4 className="font-bold" style={{ color: "var(--text-main)" }}>Sarah Johnson</h4>
                   <p className="" style={{ color: "var(--text-muted)" }}>Regular donor for 5 years</p>
@@ -350,10 +305,10 @@ const About = () => {
               }}
             >
               <div className="flex items-center mb-6">
-                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
+                <div className="bg-gray-200 border-2 border-red-200 rounded-xl w-16 h-16" />
                 <div className="ml-4">
                   <h4 className="font-bold" style={{ color: "var(--text-main)" }}>Michael Chen</h4>
-                  <p style={{ color: "var(--text-muted)" }}>Blood recipient</p>
+                   <p className='hover:text-black text-gray-700 text-lg'>Blood recipient</p>
                 </div>
               </div>
               <p className="italic" style={{ color: "var(--text-main)" }}>
@@ -370,10 +325,10 @@ const About = () => {
               }}
             >
               <div className="flex items-center mb-6">
-                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16" />
+                <div className="bg-gray-200 border-2 border-red-200 rounded-xl w-16 h-16" />
                 <div className="ml-4">
                   <h4 className="font-bold" style={{ color: "var(--text-main)" }}>Dr. Anika Patel</h4>
-                  <p style={{ color: "var(--text-muted)" }}>Hospital Administrator</p>
+                   <p className='hover:text-black text-gray-700 text-lg'>Hospital Administrator</p>
                 </div>
               </div>
               <p className="italic" style={{ color: "var(--text-main)" }}>
