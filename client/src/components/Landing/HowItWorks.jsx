@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { UserPlus, Heart, Truck } from "lucide-react";
-
+import PageMeta from "../common/PageMeta";
 const HowItWorks = () => {
   const steps = [
     {
@@ -75,6 +75,9 @@ const HowItWorks = () => {
   };
 
   return (
+    <>
+    <PageMeta title="RaktConnect" />
+
     <section className="relative pt-10 pb-20 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Animated background patterns */}
       <div className="absolute inset-0 opacity-30">
@@ -272,6 +275,7 @@ const HowItWorks = () => {
         </motion.div>
       </div>
     </section>
+    </>
   );
 };
 

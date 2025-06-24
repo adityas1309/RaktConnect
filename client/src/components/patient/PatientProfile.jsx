@@ -8,7 +8,7 @@ import {
   FaAngleDoubleUp,
 } from "react-icons/fa";
 import BASE_URL from "../../apiConfig";
-
+import PageMeta from "../common/PageMeta";
 const PatientProfile = () => {
   const [patient, setPatient] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -52,6 +52,7 @@ const PatientProfile = () => {
 
   if (loading) {
     return (
+    
       <div className="p-8 bg-gray-50 min-h-screen">
         <div className="w-full p-6 bg-white rounded-lg shadow-md animate-pulse">
           <div className="h-6 w-1/3 bg-gray-300 rounded mb-4"></div>
@@ -72,6 +73,9 @@ const PatientProfile = () => {
 
 
   return (
+      <>
+      <PageMeta title="PatientProfile | RaktConnect" />
+
     <div className="p-8 bg-gray-50 min-h-screen">
       
       
@@ -125,6 +129,7 @@ const PatientProfile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import BASE_URL from "../../apiConfig";
-
+import PageMeta from "../common/PageMeta";
 const checkDonorInfo = async () => {
   const token = localStorage.getItem("authToken");
   if (!token) return { error: "No auth token found" };
@@ -200,6 +200,10 @@ const DonorDashboard = () => {
   };
 
   return (
+    <>
+    <PageMeta title="DonorDashboard | RaktConnect" />
+
+
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full  bg-white shadow-lg rounded-lg p-6">
         {missingInfo ? (
@@ -380,6 +384,8 @@ const DonorDashboard = () => {
         )}
       </div>
     </div>
+    
+    </>
   );
 };
 

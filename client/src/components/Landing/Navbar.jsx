@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { useTheme } from "../../ThemeContext";
 import { FaMoon, FaSun } from "react-icons/fa";
-
+import PageMeta from "../common/PageMeta";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -102,6 +102,9 @@ const Navbar = () => {
   const navTextMuted = "text-[var(--text-muted)]";
 
   return (
+    <>
+    <PageMeta title="Navbar | RaktConnect" />
+
     <header
       className={`fixed w-full top-0 z-50 backdrop-blur-lg transition-all duration-400`}
       style={{ background: "var(--nav-bg)" }}
@@ -301,6 +304,7 @@ const Navbar = () => {
         )}
       </AnimatePresence>
     </header>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import { motion } from "framer-motion";
-
+import PageMeta from "../common/PageMeta";
 const HeroSection = ({ onVideoLoaded }) => {
   const videoRef = useRef(null);
 
@@ -26,6 +26,9 @@ const HeroSection = ({ onVideoLoaded }) => {
   }, [onVideoLoaded]);
 
   return (
+    <>
+    <PageMeta title="HeroSection | RaktConnect" />
+
     <section className="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
       {/* Video Background with overlay */}
       <div className="absolute inset-0 z-0">
@@ -112,6 +115,7 @@ const HeroSection = ({ onVideoLoaded }) => {
         </div>
       </motion.div>
     </section>
+    </>
   );
 };
 

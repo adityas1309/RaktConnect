@@ -10,6 +10,10 @@
     "lint": "npm run lint --workspace=client"
   },
   "dependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-helmet-async": "^2.0.5",
+    "react-leaflet": "^4.2.1"
   }
 }

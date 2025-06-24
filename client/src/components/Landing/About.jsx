@@ -2,10 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaTint, FaHandHoldingHeart, FaShieldAlt, FaMapMarkerAlt, FaUsers, FaHeartbeat } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-
+import PageMeta from '../common/PageMeta';
 const About = () => {
   const navigate = useNavigate();
   return (
+    <>
+    <PageMeta title="About | RaktConnect" />
+
     <div
       className="min-h-screen py-30 px-4 sm:px-6 lg:px-8"
       style={{
@@ -340,6 +343,7 @@ const About = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-
+import PageMeta from '../common/PageMeta';
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [activeCategory, setActiveCategory] = useState('donors');
@@ -121,6 +121,9 @@ const FAQ = () => {
   };
 
   return (
+    <>
+    <PageMeta title="FAQ's | RaktConnect" />
+
     <div
       className="min-h-screen py-16 px-4 sm:px-6 lg:px-8"
       style={{
@@ -235,6 +238,7 @@ const FAQ = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

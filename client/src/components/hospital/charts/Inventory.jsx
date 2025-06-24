@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import BASE_URL from "../../../apiConfig";
-
+import PageMeta from "../../common/PageMeta";
 const Inventory = () => {
   const [bloodData, setBloodData] = useState([]);
   const navigate = useNavigate();
@@ -61,6 +61,8 @@ const Inventory = () => {
   }, [navigate]);
 
   return (
+    <>
+     <PageMeta title="Inventory | RaktConnect" />
     <div className="bg-white p-6 shadow-lg rounded-lg">
       <h3 className="text-xl font-semibold mb-4 text-gray-700">
         Blood Unit Availability
@@ -76,6 +78,7 @@ const Inventory = () => {
         </BarChart>
       </ResponsiveContainer>
     </div>
+    </>
   );
 };
 

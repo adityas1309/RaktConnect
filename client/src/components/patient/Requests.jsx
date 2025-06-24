@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import BASE_URL from "../../apiConfig";
 import { toast } from "react-toastify";
-
+import PageMeta from "../common/PageMeta";
 const Requests = () => {
   const navigate = useNavigate();
   const [requestHistory, setRequestHistory] = useState([]);
@@ -106,6 +106,10 @@ const Requests = () => {
   };
 
   return (
+  
+      <>
+      <PageMeta title="Requests | RaktConnect" />
+
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
       {/* Request History Section */}
       <div className="bg-white p-8 shadow-lg rounded-lg mt-6 border border-gray-300 md:col-span-2">
@@ -209,6 +213,7 @@ const Requests = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

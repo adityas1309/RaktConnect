@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { format, differenceInMonths } from "date-fns";
 import bloodDonationImg from '/public/bloodDonation.png';
-
+import PageMeta from '../common/PageMeta';
 const Eligibility = () => {
 
   const [formData, setFormData] = useState({
@@ -46,6 +46,9 @@ const Eligibility = () => {
   };
 
   return (
+    <>
+    <PageMeta title="Eligibility | RaktConnect" />
+
     <div
       className="min-h-screen pt-24 px-4 pb-20"
       style={{
@@ -219,7 +222,8 @@ const Eligibility = () => {
         </div>
       </div>
     </div>
-  )
-}
+    </>
+  );
+};
 
 export default Eligibility;
