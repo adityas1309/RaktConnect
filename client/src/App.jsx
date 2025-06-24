@@ -2,6 +2,7 @@ import LandingPage from "./components/Landing/LandingPage";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router";
 import Navbar from "./components/Landing/Navbar";
 import Footer from "./components/Landing/Footer";
+import ScrollToTopButton from "./components/Landing/ScrollToTopButton";
 import Blog from "./components/Landing/Blog"
 import Donor from "./components/donor/Donor";
 import About from "./components/Landing/About";
@@ -39,6 +40,7 @@ const AppLayout = () => {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTopButton />
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<LandingPage />} />
