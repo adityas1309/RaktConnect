@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import LandingPage from "./components/Landing/LandingPage";
 import Navbar from "./components/Landing/Navbar";
 import Footer from "./components/Landing/Footer";
+import ScrollToTopButton from "./components/Landing/ScrollToTopButton"; 
 import Blog from "./components/Landing/Blog";
 import Donor from "./components/donor/Donor";
 import About from "./components/Landing/About";
@@ -28,7 +29,6 @@ import Eligibility from "./components/Landing/Eligibility";
 import DonorNotification from "./components/donor/DonorNotification";
 import PatientNotification from "./components/patient/PatientNotification";
 
-
 const AppLayout = () => {
   return (
     <div className="app">
@@ -42,6 +42,7 @@ const AppLayout = () => {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTopButton /> 
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<LandingPage />} />
@@ -64,7 +65,6 @@ function App() {
           <Route path="/patient/haemoglobin" element={<HaemoglobinPredictor />} />
           <Route path="/patient/disease" element={<Disease />} />
           <Route path="/patient/notification" element={<PatientNotification />} />
-
         </Route>
 
         <Route path="/donor" element={<Donor />}>
@@ -73,7 +73,6 @@ function App() {
           <Route path="/donor/profile" element={<DonorProfile />} />
           <Route path="/donor/donations" element={<Donations />} />
           <Route path="/donor/eligibility" element={<EligibilityChecker />} />
-          {/* ✅ NEW notification route */}
           <Route path="/donor/notification" element={<DonorNotification />} />
         </Route>
 
