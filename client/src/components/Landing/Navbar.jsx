@@ -135,7 +135,7 @@ const Navbar = () => {
             const navPath = getNavPath(item);
             return (
               <motion.div
-              className=" md:p-0 md:rounded-xs hover:scale-115 transition-all duration-300 hover:bg-white/10 p-2 rounded-2xl"
+              className="  hover:scale-115 transition-all duration-300 hover:bg-white/10 p-2 rounded-2xl"
               >
                 <Link
                   to={navPath}
@@ -195,7 +195,7 @@ const Navbar = () => {
         </nav>
 
         <motion.button
-          className="md:hidden p-2 rounded-lg hover:bg-gray-800/50 transition-colors"
+          className="md:hidden mr-2 p-2 rounded-lg cursor-pointer hover:bg-gray-800/50 transition-colors"
           onClick={() => setIsOpen(!isOpen)}
           whileTap={{ scale: 0.95 }}
         >
@@ -233,10 +233,10 @@ const Navbar = () => {
               {navItems.map((item) => {
                 const navPath = getNavPath(item);
                 return (
-                  <motion.li key={item} className="text-lg font-semibold">
+                  <motion.li key={item} className="text-lg font-semibold hover:scale-115 transition-all duration-300">
                     <Link
                       to={navPath}
-                      className={`${navTextColor} hover:text-red-400 transition-colors`}
+                      className={`${navTextColor} hover:text-red-700  transition-colors`}
                       onClick={() => {
                         setIsOpen(false);
                         setTimeout(() => setCurrentPath(navPath), 100);
@@ -252,7 +252,7 @@ const Navbar = () => {
               <motion.li>
                 <button
                   onClick={toggleTheme}
-                  className="p-2 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                  className="p-2 rounded-full transition-colors duration-300 focus:outline-none cursor-pointer hover:scale-110 focus:ring-2 focus:ring-offset-2"
                   aria-label="Toggle dark/light mode"
                   title="Toggle dark/light mode"
                 >
@@ -270,7 +270,7 @@ const Navbar = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-8 py-3 bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-full hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg"
+                    className="px-8 py-3 cursor-pointer bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold rounded-full hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg"
                     onClick={() => {
                       handleLogin();
                       setIsOpen(false);
