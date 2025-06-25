@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { format, differenceInMonths } from "date-fns";
-import bloodDonationImg from "/public/bloodDonation.png";
+// import bloodDonationImg from "/public/bloodDonation.png";
 import PageMeta from "../common/PageMeta";
 
 const Eligibility = () => {
@@ -244,7 +244,7 @@ const Eligibility = () => {
 
           <div className="w-full md:w-1/2 flex justify-center items-center">
             <img
-              src={bloodDonationImg}
+              src="/bloodDonation.png"
               alt="Donate Blood"
               className="pt-15 w-full max-w-md object-contain"
             />
