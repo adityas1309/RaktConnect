@@ -114,7 +114,7 @@ const Navbar = () => {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-extrabold flex items-center"
+          className="text-3xl font-bold flex items-center"
         >
           <Link
             to="/"
@@ -130,24 +130,22 @@ const Navbar = () => {
           </Link>
         </motion.div>
 
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center  space-x-8">
           {navItems.map((item) => {
             const navPath = getNavPath(item);
             return (
               <motion.div
-                key={item}
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
+              className=" md:p-0 md:rounded-xs hover:scale-115 transition-all duration-300 hover:bg-white/10 p-2 rounded-2xl"
               >
                 <Link
                   to={navPath}
-                  className={`text-lg font-semibold relative group transition-colors duration-300 ${navTextColor}`}
+                  className={`text-lg font-semibold relative group transition-all  duration-300 ${navTextColor}`}
                   onClick={() => setTimeout(() => setCurrentPath(navPath), 100)}
                 >
-                  <span className="transition-colors duration-300 text-white hover:text-red-400">
+                  <span className="transition-colors duration-300   text-white hover:text-red-500">
                     {item.charAt(0).toUpperCase() + item.slice(1)}
                   </span>
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full" />
+                
                 </Link>
               </motion.div>
             );
@@ -156,7 +154,7 @@ const Navbar = () => {
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="ml-4 p-2 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2"
+            className="ml-4 p-2 rounded-full transition-colors duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 hover:scale-110 "
             aria-label="Toggle dark/light mode"
             title="Toggle dark/light mode"
           >
@@ -173,7 +171,7 @@ const Navbar = () => {
               <motion.button
                 whileHover={{ scale: 1.15 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 bg-gradient-to-r from-red-700 to-red-800 text-white font-semibold rounded-full hover:from-red-800 hover:to-red-900 transition-all duration-300 shadow-lg hover:shadow-red-500/25"
+                className="px-6 py-2 cursor-pointer bg-gradient-to-r from-red-700 to-red-800 text-white font-semibold rounded-full hover:from-red-800 hover:to-red-900 transition-all duration-300 shadow-lg hover:shadow-red-500/25"
                 onClick={handleLogin}
               >
                 Login
