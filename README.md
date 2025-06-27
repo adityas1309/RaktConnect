@@ -63,6 +63,32 @@ In root
 npm run dev
 ```
 
+### **2️⃣ Docker Setup**
+1. **For Client** 
+- **Build**
+```
+docker build -t raktconnect-client .
+```
+- **Run**
+```
+docker run -p 5173:5173 raktconnect-client
+```
+2. **For Server** 
+- **Build**
+```
+docker build -t raktconnect-server .
+```
+- **Run**
+```
+docker run -p 3000:3000 raktconnect-server
+```
+
+3. **For whole project**
+```
+docker-compose up --build
+```
+
+
 ## 📝 License
 
 This project is licensed under the [MIT License](LICENSE).
