@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaHeart } from "react-icons/fa";
+import { Link, useNavigate } from "react-router";
 
 const Footer = () => {
   const links = [
@@ -47,7 +48,7 @@ const Footer = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left"
         >
-          {/* Brand Section */}
+          {/* Brand Section
           <motion.div variants={itemVariants} className="mb-8 md:mb-0">
             <div className="flex items-center justify-center md:justify-start">
               <FaHeart className="text-red-500 text-3xl mr-2 animate-pulse" />
@@ -58,7 +59,26 @@ const Footer = () => {
             <p className="mt-4 text-gray-400">
               Connecting lives through compassionate giving
             </p>
+          </motion.div> */}
+          {/* Brand Section */}
+          <motion.div variants={itemVariants} className="mb-8 md:mb-0">
+            <div className="flex items-center justify-center md:justify-start">
+              <FaHeart className="text-red-500 text-3xl mr-2 animate-pulse" />
+              
+              <Link
+                to="/"
+                className="text-2xl font-bold bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent transition-all duration-300"
+                onClick={() => setCurrentPath && setCurrentPath("/")}
+              >
+                RaktConnect
+              </Link>
+              
+            </div>
+            <p className="mt-4 text-gray-400">
+              Connecting lives through compassionate giving
+            </p>
           </motion.div>
+
 
           {/* Quick Links */}
           <motion.div variants={itemVariants} className="mb-8 md:mb-0">
