@@ -106,7 +106,7 @@ const Navbar = () => {
     <PageMeta title="Navbar | RaktConnect" />
 
     <header
-      className={`fixed w-full top-0  z-50 backdrop-blur-lg transition-all duration-400 bg-black`}
+      className={`fixed w-full top-0 [z-index:100000000] backdrop-blur-lg transition-all duration-400 bg-black`}
 
     >
       <div className="flex bg-black w-full text-white justify-center gap-26 items-center px-4 sm:px-6 lg:px-8 py-3">
