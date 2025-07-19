@@ -24,7 +24,7 @@
     "react-router-dom": "^7.6.2",
     "react-toastify": "^11.0.5",
     "recharts": "^2.15.1",
-    "sweetalert2": "^11.17.2",
+    "sweetalert2": "^11.6.13",
     "tailwindcss": "^4.0.6"
   },
   "devDependencies": {
