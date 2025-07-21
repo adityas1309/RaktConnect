@@ -10,6 +10,9 @@
     "lint": "npm run lint --workspace=client"
   },
   "dependencies": {
-    "concurrently": "^9.1.2"
+    "@clerk/clerk-sdk-node": "^4.13.23",
+    "concurrently": "^9.1.2",
+    "lucide-react": "^0.525.0",
+    "mongodb": "^6.17.0"
   }
 }
