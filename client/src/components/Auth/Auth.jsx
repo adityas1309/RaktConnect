@@ -7,7 +7,6 @@ const Auth = () => {
   const handleLogin = (role) => {
     const lowercaseRole = role.toLowerCase();
     localStorage.setItem("selectedUserType", lowercaseRole);
-
     redirectToSignUp({
       redirectUrl: `/complete-profile?role=${lowercaseRole}`,
     });

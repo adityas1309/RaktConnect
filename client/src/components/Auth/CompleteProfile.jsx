@@ -1,187 +1,118 @@
-"use client";
-
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   FaUser,
-  FaMapMarkerAlt,
   FaPhoneAlt,
-  FaTint,
-  FaVenusMars,
+  FaStethoscope,
+  FaHospitalAlt,
+  FaIdBadge,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 
-export default function CompleteProfile() {
+const CompleteProfile = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const role = queryParams.get("role");
+
   const [formData, setFormData] = useState({
     name: "",
-    gender: "",
-    bloodType: "",
-    location: "",
-    phoneNumber: "",
+    age: "",
+    contact: "",
+    medicalCondition: "",
+    licenseNumber: "",
+    state: "",
+    district: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    console.log("Submitted data:", formData);
-    // Reset form if needed: setFormData({ name: "", ... })
+    console.log("Submitted Data:", { role, ...formData });
   };
 
-  const Input = ({
-    id,
-    name,
-    type = "text",
-    placeholder,
-    icon: Icon,
-    required = false,
-  }) => (
-    <div className="relative">
-      {Icon && <Icon className="absolute left-3 top-3 text-gray-400" />}
-      <input
-        id={id}
-        name={name}
-        type={type}
-        value={formData[name]}
-        onChange={handleChange}
-        placeholder={placeholder}
-        required={required}
-        className={`w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition`}
-      />
-    </div>
+  const renderDonorFields = () => (
+    <>
+      <Input label="Name" name="name" icon={FaUser} required />
+      <Input label="Age" name="age" type="number" required />
+      <Input label="Contact Number" name="contact" icon={FaPhoneAlt} required />
+    </>
   );
 
-  const Select = ({
-    id,
-    name,
-    options,
-    icon: Icon,
-    required = false,
-    defaultOption,
-  }) => (
-    <div className="relative">
-      {Icon && <Icon className="absolute left-3 top-3 text-gray-400" />}
-      <select
-        id={id}
-        name={name}
-        value={formData[name]}
-        onChange={handleChange}
-        required={required}
-        className="w-full appearance-none pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white transition">
-        <option value="">{defaultOption}</option>
-        {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
+  const renderPatientFields = () => (
+    <>
+      <Input label="Name" name="name" icon={FaUser} required />
+      <Input label="Age" name="age" type="number" required />
+      <Input label="Contact Number" name="contact" icon={FaPhoneAlt} required />
+      <Input
+        label="Medical Condition (Optional)"
+        name="medicalCondition"
+        icon={FaStethoscope}
+      />
+    </>
+  );
+
+  const renderHospitalFields = () => (
+    <>
+      <Input label="Hospital Name" name="name" icon={FaHospitalAlt} required />
+      <Input
+        label="License Number"
+        name="licenseNumber"
+        icon={FaIdBadge}
+        required
+      />
+      <Input label="Contact" name="contact" icon={FaPhoneAlt} required />
+      <Input label="State" name="state" icon={FaMapMarkerAlt} required />
+      <Input label="District" name="district" icon={FaMapMarkerAlt} required />
+    </>
+  );
+
+  const Input = ({ label, name, type = "text", icon: Icon, required }) => (
+    <div>
+      <label className="block text-sm font-medium mb-1">{label}</label>
+      <div className="relative">
+        {Icon && <Icon className="absolute left-3 top-3 text-gray-400" />}
+        <input
+          name={name}
+          type={type}
+          value={formData[name]}
+          onChange={handleChange}
+          required={required}
+          className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
     </div>
   );
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded-2xl shadow-xl space-y-6">
-      <h2 className="text-3xl font-bold text-center text-blue-700">
-        Complete Your Profile
+    <div className="max-w-xl mx-auto p-6 bg-white rounded-2xl shadow-lg">
+      <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">
+        Complete {role?.charAt(0).toUpperCase() + role?.slice(1)} Profile
       </h2>
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label
-            htmlFor="name"
-            className="text-sm font-medium text-gray-700 mb-1 block">
-            Full Name
-          </label>
-          <Input
-            id="name"
-            name="name"
-            placeholder="Enter your full name"
-            icon={FaUser}
-            required
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="gender"
-            className="text-sm font-medium text-gray-700 mb-1 block">
-            Gender
-          </label>
-          <Select
-            id="gender"
-            name="gender"
-            options={["Male", "Female", "Other"]}
-            icon={FaVenusMars}
-            required
-            defaultOption="Select your gender"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="bloodType"
-            className="text-sm font-medium text-gray-700 mb-1 block">
-            Blood Type
-          </label>
-          <Select
-            id="bloodType"
-            name="bloodType"
-            options={["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]}
-            icon={FaTint}
-            required
-            defaultOption="Select your blood type"
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="location"
-            className="text-sm font-medium text-gray-700 mb-1 block">
-            Location
-          </label>
-          <Input
-            id="location"
-            name="location"
-            placeholder="Enter your city"
-            icon={FaMapMarkerAlt}
-            required
-          />
-        </div>
-
-        <div>
-          <label
-            htmlFor="phoneNumber"
-            className="text-sm font-medium text-gray-700 mb-1 block">
-            Phone Number
-          </label>
-          <Input
-            id="phoneNumber"
-            name="phoneNumber"
-            type="tel"
-            placeholder="Enter your phone number"
-            icon={FaPhoneAlt}
-            required
-          />
-        </div>
+      <form className="space-y-4" onSubmit={handleSubmit}>
+        {role === "donor" && renderDonorFields()}
+        {role === "patient" && renderPatientFields()}
+        {role === "hospital" && renderHospitalFields()}
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200 transform hover:scale-[1.02]">
+          className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700">
           Submit
         </button>
       </form>
-
       {submitted && (
-        <div className="text-green-600 text-center font-medium">
+        <div className="mt-4 text-green-600 text-center font-medium">
           ✅ Profile submitted successfully!
         </div>
       )}
     </div>
   );
-}
+};
+
+export default CompleteProfile;
