@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BASE_URL from "../../apiConfig";
 import { toast } from "react-toastify";
-
+import PageMeta from "../common/PageMeta";
 const BloodRequestManagement = () => {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -75,6 +75,8 @@ const BloodRequestManagement = () => {
   }
 
   return (
+    <>
+     <PageMeta title="BloodRequestManagement | RaktConnect" />
     <div className="max-w-4xl mx-auto mt-8 px-4">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">
         Blood Requests Management
@@ -150,6 +152,7 @@ const BloodRequestManagement = () => {
         </table>
       </div>
     </div>
+    </>
   );
 };
 

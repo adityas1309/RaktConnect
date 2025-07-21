@@ -1,7 +1,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { toast } from 'react-toastify';
-
+import PageMeta from '../common/PageMeta';
 const predefinedSymptoms = [
   "fever", "cough", "headache", "nausea", "fatigue",
   "sore throat", "vomiting", "diarrhea", "rash", "chills",
@@ -98,6 +98,9 @@ function Disease() {
   };
 
   return (
+    <>
+    <PageMeta title="Disease | RakhtConnect" />
+
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-rose-100 to-red-50 px-4 font-sans">
       
       {/* 💬 Motivational Quote */}
@@ -176,6 +179,7 @@ function Disease() {
         )}
       </div>
     </div>
+    </>
   );
 }
 

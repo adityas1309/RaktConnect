@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Heart, Building2, Users } from "lucide-react";
-
+import PageMeta from "../common/PageMeta";
 const Features = () => {
   const features = [
     {
@@ -38,6 +38,9 @@ const Features = () => {
   };
 
   return (
+    <>
+    <PageMeta title="Features | RaktConnect" />
+
     <section className="relative py-20 overflow-hidden bg-gray-50">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-5">
@@ -141,6 +144,7 @@ const Features = () => {
         </motion.div>
       </div>
     </section>
+    </>
   );
 };
 

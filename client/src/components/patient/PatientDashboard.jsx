@@ -3,7 +3,7 @@ import { useNavigate , Link} from "react-router";
 import BASE_URL from "../../apiConfig";
 import { toast } from "react-toastify";
 
-
+import PageMeta from "../common/PageMeta";
 
 const PatientDashboard = () => {
   const [state, setState] = useState("");
@@ -193,6 +193,9 @@ const PatientDashboard = () => {
   }
 
   return (
+    <>
+    <PageMeta title="PatientDashboard | RaktConnect" />
+
     <div className="p-8 mx-auto bg-white rounded-lg border border-gray-200 relative">
       <h2 className="text-3xl font-bold mb-8 text-gray-900">
         Patient Dashboard
@@ -436,6 +439,7 @@ const PatientDashboard = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

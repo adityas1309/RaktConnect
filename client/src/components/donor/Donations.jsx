@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { FaCheckCircle, FaClock, FaTimesCircle } from "react-icons/fa";
 import BASE_URL from "../../apiConfig";
-
+import PageMeta from "../common/PageMeta";
 const Donations = () => {
   const navigate = useNavigate();
   const [donationHistory, setDonationHistory] = useState([]);
@@ -42,6 +42,8 @@ const Donations = () => {
   }, [userType, authToken, navigate]);
 
   return (
+    <>
+    <PageMeta title="Donation | RaktConnect" />
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
       <div className="bg-white p-8 shadow-lg rounded-lg mt-6 border border-gray-300 md:col-span-2">
         <h3 className="text-2xl font-semibold mb-6 text-gray-800">
@@ -119,6 +121,7 @@ const Donations = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

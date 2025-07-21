@@ -1,6 +1,6 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from "recharts";
-
+import PageMeta from "../../common/PageMeta";
 const donorAgeData = [
   { ageGroup: "18-25", donors: 150 },
   { ageGroup: "26-35", donors: 200 },
@@ -11,6 +11,8 @@ const donorAgeData = [
 
 const Age = () => {
   return (
+    <>
+     <PageMeta title="Age | RaktConnect" />
     <div className="bg-white p-6 shadow-lg rounded-lg">
       <h3 className="text-xl font-semibold mb-4 text-gray-700 text-center">Donor Age Group Distribution</h3>
       <ResponsiveContainer width="100%" height={300}>
@@ -23,6 +25,7 @@ const Age = () => {
         </BarChart>
       </ResponsiveContainer>
     </div>
+    </>
   );
 };
 

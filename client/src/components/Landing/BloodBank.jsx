@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { Icon } from 'leaflet';
 import { FaClock, FaPhone, FaMapMarkerAlt, FaSearch, FaHeart, FaTint, FaArrowLeft } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-
+import PageMeta from '../common/PageMeta';
 const INDIA_CENTER = [20.5937, 78.9629];
 const DEFAULT_ZOOM = 5;
 const SEARCH_ZOOM = 12;
@@ -77,6 +77,9 @@ const BloodBankLocator = () => {
   };
 
   return (
+    <>
+    <PageMeta title="Blood Bank | RaktConnect" />
+
     <div
       className="min-h-screen py-0"
       style={{
@@ -337,6 +340,7 @@ const BloodBankLocator = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

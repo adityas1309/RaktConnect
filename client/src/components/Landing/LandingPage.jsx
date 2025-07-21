@@ -4,12 +4,16 @@ import Features from "./Features";
 import HowItWorks from "./HowItWorks";
 import Footer from "./Footer";
 import Loader from "./Loader";
-
+import PageMeta from "../common/PageMeta";
 const LandingPage = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   return (
+    <>
+    <PageMeta title="LandingPage | RaktConnect" />
+
     <div
+
       className="font-sans"
       style={{ background: "var(--bg-main)", color: "var(--text-main)" }}
     >
@@ -20,6 +24,7 @@ const LandingPage = () => {
       {/* Uncomment the following if you want the footer on the landing page */}
       {/* <Footer /> */}
     </div>
+    </>
   );
 };
 

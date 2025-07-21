@@ -3,6 +3,8 @@ import { Routes, Route, Outlet } from "react-router";
 import Navbar from "./components/Landing/Navbar";
 import Footer from "./components/Landing/Footer";
 import Blog from "./components/Landing/Blog";
+import ScrollToTopButton from "./components/Landing/ScrollToTopButton";
+import Blog from "./components/Landing/Blog"
 import Donor from "./components/donor/Donor";
 import About from "./components/Landing/About";
 import Contact from "./components/Landing/Contact";
@@ -39,6 +41,8 @@ const AppLayout = () => (
 function App() {
   return (
     <>
+    <BrowserRouter>
+      <ScrollToTopButton />
       <Routes>
         {/* Layout routes */}
         <Route path="/" element={<AppLayout />}>

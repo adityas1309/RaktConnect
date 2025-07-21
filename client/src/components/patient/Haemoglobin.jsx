@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {toast} from "react-toastify";
-
+import PageMeta from "../common/PageMeta";
 const HaemoglobinPredictor = () => {
   const [formData, setFormData] = useState({
     age: "",
@@ -45,6 +45,9 @@ const HaemoglobinPredictor = () => {
   };
 
   return (
+    <>
+    <PageMeta title="Haemoglobin | RakhtConnect" />
+
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold mb-6 text-center">
@@ -158,6 +161,7 @@ const HaemoglobinPredictor = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

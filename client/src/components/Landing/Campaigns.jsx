@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
-
+import PageMeta from '../common/PageMeta';
 const Campaigns = () => {
   const activeCampaigns = [
     { 
@@ -19,6 +19,9 @@ const Campaigns = () => {
   ];
 
   return (
+    <>
+    <PageMeta title="Campaigns | RaktConnect" />
+
     <div
       className="min-h-screen py-16 px-4 sm:px-6 lg:px-8"
       style={{
@@ -107,6 +110,7 @@ const Campaigns = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

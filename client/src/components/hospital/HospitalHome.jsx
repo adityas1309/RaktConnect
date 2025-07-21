@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import MainGraph from "./charts/MainGraph";
 import BASE_URL from "../../apiConfig";
-
+import PageMeta from "../common/PageMeta";
 const initialInventory = {
   A: { units: 15, capacity: 40, donors: 8 },
   B: { units: 25, capacity: 40, donors: 12 },
@@ -131,6 +131,8 @@ const HospitalHome = () => {
   }
 
   return (
+    <>
+     <PageMeta title="HospitalHome | RaktConnect" />
     <div className="p-6 lg:p-8 bg-gray-50 min-h-screen">
       <header className="mb-8 flex justify-between ">
         <div>
@@ -261,6 +263,7 @@ const HospitalHome = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

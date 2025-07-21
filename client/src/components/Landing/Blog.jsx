@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import PageMeta from "../common/PageMeta";
 const blogs = [
   {
     title: "Saving Lives with Every Drop",
@@ -12,7 +12,7 @@ const blogs = [
     title: "5 Common Myths About Blood Donation – Busted!",
     date: "May 24, 2025",
     excerpt:
-      "Think donating blood makes you weak or you can't donate if you're on medication? These myths hold back thousands of potential donors. Let’s set the record straight and empower more people to step up and save lives.",
+      "Think donating blood makes you weak or you can't donate if you're on medication? These myths hold back thousands of potential donors. Let's set the record straight and empower more people to step up and save lives.",
   },
   {
     title: "Behind the Scenes: How RaktConnect Works",
@@ -30,7 +30,7 @@ const blogs = [
     title: "The Journey of a Blood Bag: From Donor to Recipient",
     date: "April 14, 2025",
     excerpt:
-      "Follow the fascinating journey of a single unit of blood — from the moment it’s donated to the hands of the patient who needs it. Learn about testing, separation into components, cold-chain logistics, and hospital protocols.",
+      "Follow the fascinating journey of a single unit of blood — from the moment it's donated to the hands of the patient who needs it. Learn about testing, separation into components, cold-chain logistics, and hospital protocols.",
   },
   {
     title: "How to Prepare for Your First Blood Donation",
@@ -54,6 +54,9 @@ const blogs = [
 
 const Blog = () => {
   return (
+    <>
+    <PageMeta title="Blog | RaktConnect" />
+
     <div className="min-h-screen bg-black text-white py-16 px-6 sm:px-10 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <motion.h1
@@ -85,6 +88,7 @@ const Blog = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
