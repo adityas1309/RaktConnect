@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@clerk/clerk-react": "^5.32.0",
     "@tailwindcss/vite": "^4.0.6",
+    "axios": "^1.10.0",
     "react-helmet-async": "^2.0.5",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.4.3",

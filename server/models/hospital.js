@@ -3,6 +3,11 @@ import validator from "validator";
 
 const hospitalSchema = mongoose.Schema(
   {
+    clerkUserId: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     name: {
       type: String,
       required: true,
@@ -23,22 +28,14 @@ const hospitalSchema = mongoose.Schema(
         }
       },
     },
-    password: {
-      type: String,
-      required: true,
-      validate(value) {
-        if (!validator.isStrongPassword(value)) {
-          throw new Error("Enter a strong password : " + value);
-        }
-      },
-    },
     phoneNumber: {
       type: String,
       required: true,
-      validator(value) {
-        if (!validator.isMobilePhone(value, "en-IN")) {
-          throw new Error("Phone number is invalid :" + value);
-        }
+      validate: {
+        validator(value) {
+          return validator.isMobilePhone(value, "en-IN");
+        },
+        message: (props) => `Phone number is invalid: ${props.value}`,
       },
     },
     licenseNumber: {
@@ -74,6 +71,5 @@ const hospitalSchema = mongoose.Schema(
   }
 );
 
-const Hospital = new mongoose.model("Hospital", hospitalSchema);
-
+const Hospital = mongoose.model("Hospital", hospitalSchema);
 export default Hospital;
