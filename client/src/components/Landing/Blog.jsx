@@ -6,7 +6,7 @@ const blogs = [
     title: "Saving Lives with Every Drop",
     date: "June 1, 2025",
     excerpt:
-      "When time is critical, RaktConnect delivers. Read how a young thalassemia patient received life-saving blood within 30 minutes, thanks to our smart donor-matching system that leverages geolocation, real-time notifications, and AI-backed prioritization.",
+      "When time is critical, RaktConnect delivered, Read how a young thalassemia patient received life-saving blood within 30 minutes, thanks to our smart donor-matching system that leverages geolocation, real-time notifications, and AI-backed prioritization.",
   },
   {
     title: "5 Common Myths About Blood Donation – Busted!",
